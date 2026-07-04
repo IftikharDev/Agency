@@ -1,28 +1,72 @@
 /**CORE LIBRARY IMPORTS */
 import { React ,useState, useRef, useEffect } from "react";
-import { Link,useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const navbarRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-   const location = useLocation()
+  
+  // Use state to track the active section based on scroll (optional enhancement, but we'll keep it simple for now)
+  const [activeHash, setActiveHash] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 350);
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 350);
+      
+      // Simple logic to detect which section is in view based on scroll position
+      const sections = ["about", "services", "portfolio", "company", "blog", "contact-us"];
+      let current = "";
+      for (let section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            current = "#" + section;
+          }
+        }
+      }
+      setActiveHash(current);
+    };
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-    const links = [
-    { name: "About Us", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Portfolio", path: "/portfolio" },
-    { name: "Company", path: "/company"},
-    { name: "Blog", path: "/blog" },
-    { name: "Get a Quote", path: "/contact-us", isButton: true },
+  const links = [
+    { name: "About Us", path: "#about" },
+    { name: "Services", path: "#services" },
+    { name: "Portfolio", path: "#portfolio" },
+    { name: "Company", path: "#company"},
+    { name: "Blog", path: "#blog" },
+    { name: "Get a Quote", path: "#contact-us", isButton: true },
   ];
+
+  const handleLinkClick = (e, path) => {
+    e.preventDefault();
+    setSidebarOpen(false); // Close sidebar on mobile if open
+    
+    // If it's a hash link, scroll to it
+    if (path.startsWith("#")) {
+      const id = path.substring(1);
+      const element = document.getElementById(id);
+      if (element) {
+        // Offset for the sticky header
+        const offset = 80;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - offset;
+  
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    } else {
+      // Fallback for non-hash links (like home logo)
+      window.location.href = path;
+    }
+  };
 
   return (
     <>
@@ -39,23 +83,26 @@ const Header = () => {
       >
         <div className="nav-container">
           {/* Logo */}
-          <h1 className="nav-logo"><Link to='/'>DigiCore</Link></h1>
+          <h1 className="nav-logo">
+            <a href="/" onClick={(e) => handleLinkClick(e, "/")}>DigiCore</a>
+          </h1>
 
           {/* Desktop Links */}
-        <ul className="nav-links">
-      {links.map((link) => (
-        <li key={link.name}>
-          <Link
-            to={link.path}
-            className={`${link.isButton ? "btn-cta btn-home" : ""} ${
-              location.pathname === link.path ? "active" : ""
-            }`}
-          >
-            {link.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+          <ul className="nav-links">
+            {links.map((link) => (
+              <li key={link.name}>
+                <a
+                  href={link.path}
+                  onClick={(e) => handleLinkClick(e, link.path)}
+                  className={`${link.isButton ? "btn-cta btn-home" : ""} ${
+                    activeHash === link.path ? "active" : ""
+                  }`}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
 
           {/* Mobile Toggle Button */}
           <button
@@ -82,12 +129,13 @@ const Header = () => {
               <button onClick={() => setSidebarOpen(false)} className="close-btn">✕</button>
             </div>
             <ul className="sidebar-links">
-              <li><a href="/about">About Us</a></li>
-              <li><a href="/services">Services</a></li>
-              <li><a href="/portfolio">Portfolio</a></li>
-              <li><a href="/company">Company</a></li>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/contact-us">Get a Quote</a></li>
+              {links.map((link) => (
+                <li key={link.name}>
+                  <a href={link.path} onClick={(e) => handleLinkClick(e, link.path)}>
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
             <div className="sidebar-footer">
               <p>Contact: info@digicore.com</p>
