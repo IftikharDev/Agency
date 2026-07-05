@@ -3,6 +3,9 @@ import { React ,useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
+/**LOGO IMPORT */
+import ciLogo from "../Images/ci-logo.png";
+
 const Header = () => {
   const navbarRef = useRef(null);
   const [isSticky, setIsSticky] = useState(false);
@@ -83,9 +86,10 @@ const Header = () => {
       >
         <div className="nav-container">
           {/* Logo */}
-          <h1 className="nav-logo">
-            <a href="/" onClick={(e) => handleLinkClick(e, "/")}>DigiCore</a>
-          </h1>
+          <a href="/" onClick={(e) => handleLinkClick(e, "/")} className="nav-logo-link">
+            <img src={ciLogo} alt="Core Insider" className="nav-logo-img" />
+            <span className="nav-logo-text">Core Insider</span>
+          </a>
 
           {/* Desktop Links */}
           <ul className="nav-links">
@@ -125,7 +129,10 @@ const Header = () => {
             transition={{ type: "tween", duration: 0.3 }}
           >
             <div className="sidebar-header">
-              <h1 className="nav-logo">DigiCore</h1>
+              <div className="nav-logo-link">
+                <img src={ciLogo} alt="Core Insider" className="nav-logo-img" />
+                <span className="nav-logo-text">Core Insider</span>
+              </div>
               <button onClick={() => setSidebarOpen(false)} className="close-btn">✕</button>
             </div>
             <ul className="sidebar-links">
@@ -138,7 +145,7 @@ const Header = () => {
               ))}
             </ul>
             <div className="sidebar-footer">
-              <p>Contact: info@digicore.com</p>
+              <p>Contact: info@coreinsider.com</p>
               <p>Phone: +91 63576 05131</p>
             </div>
           </motion.div>

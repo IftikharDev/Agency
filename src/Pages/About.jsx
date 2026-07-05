@@ -60,7 +60,7 @@ const About = () => {
                 
                 <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
                   <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                    DigiCore is a forward-thinking digital agency dedicated to transforming
+                    Core Insider is a forward-thinking digital agency dedicated to transforming
                     ideas into exceptional digital experiences. We combine strategic insight,
                     creative design, and technical expertise to build scalable solutions that
                     empower businesses to thrive in the modern landscape. Our passion lies

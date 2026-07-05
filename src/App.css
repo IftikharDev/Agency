@@ -56,6 +56,30 @@ body{
   margin: 0;
 }
 
+/* New logo-link styles (image + text) */
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #0D52AD, #00C2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -658,10 +682,27 @@ z-index: 0;
   gap: 18px;
 }
 
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.footer-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer-logo-text {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 0;
+  background: linear-gradient(90deg, #0D52AD, #00C2FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .footer-heading {

@@ -80,7 +80,7 @@ const Contact = () => {
                   <div>
                       <h4 style={{ color: '#00C2FF', fontSize: '20px', margin: '0 0 10px 0' }}>Contact Info</h4>
                       <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', margin: 0, lineHeight: '1.6' }}>
-                          hello@digicore.com<br/>+91 63576 05131
+                          hello@coreinsider.com<br/>+91 63576 05131
                       </p>
                   </div>
               </div>
