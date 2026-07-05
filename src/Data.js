@@ -22,21 +22,21 @@ export const serviceList = [
   },
   {
     id: 2,
-    label: 'WordPress Services',
+    label: 'CMS & Platform Engineering',
     bgColor: '#3BA8E0',
-    title: 'Create a Stunning Website with WordPress',
+    title: 'Architecting Scalable CMS Experiences',
     imageSrc: Service2,
     description:
-      'Design a visually captivating, user-friendly website with WordPress that reflects your brand and drives results.',
+      'We deliver robust, scalable content management platforms designed to optimize performance, enhance security, and drive seamless digital experiences.',
     list: [
-      'Wordpress Development',
-      'Wordpress Theme Development',
-      'WooCommerce Development',
-      'Performance & Speed Optimisation',
-      'Wordpress Website Migration',
-      'Ecommerce Security & Optimisation',
-      'WordPress Malware Remove',
-      'Wordpress Customisation'
+      'Custom CMS Architecture',
+      'Theme & UI/UX Engineering',
+      'E-Commerce Solutions (WooCommerce)',
+      'Performance & Core Web Vitals',
+      'Platform Migration & Upgrades',
+      'Enterprise Security & Hardening',
+      'Vulnerability & Malware Remediation',
+      'Advanced Platform Customization'
     ]
   },
   {
@@ -78,20 +78,20 @@ export const serviceList = [
   },
   {
     id: 5,
-    label: 'Software Development',
+    label: 'Advanced Software & Mobile Engineering',
     bgColor: '#0E4DA8',
-    title: 'Crafting Innovative Solutions: Your Vision, Our Code',
+    title: 'Engineering Intelligent Software Ecosystems',
     imageSrc:Service5,
     description:
-      'We turn your ideas into powerful, custom-built software solutions designed to drive innovation and success.',
+      'We architect and engineer robust, custom software solutions and mobile experiences that accelerate your digital transformation.',
     list: [
-      'Custom Web App Development',
-      'Mobile App Development (iOS & Android)',
-      'MVP Development for Startups',
-      'Backend Architecture & API Development',
-      'Frontend Development (React, Vue, etc.)',
-      'DevOps & Deployment Automation',
-      'Ongoing Maintenance & Feature Upgrades'
+      'Enterprise Web Architectures',
+      'Native & Cross-Platform Mobile Engineering',
+      'Agile MVP Engineering',
+      'Cloud-Native Backend & API Ecosystems',
+      'Modern Frontend Experiences (React, Vue)',
+      'DevOps & CI/CD Pipeline Automation',
+      'Continuous Evolution & Scaling'
     ]
   }
 ];

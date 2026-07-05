@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 /**IMAGE IMPORTS */
 import leftBlur from "../Images/left-blur.png";
 import rightBlur from "../Images/right-blur.png";
+import aboutImage from "../Images/about-us.png";
 
 const About = () => {
   const containerVariants = {
@@ -60,12 +61,7 @@ const About = () => {
                 
                 <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
                   <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                    Cloud Insider is a forward-thinking digital agency dedicated to transforming
-                    ideas into exceptional digital experiences. We combine strategic insight,
-                    creative design, and technical expertise to build scalable solutions that
-                    empower businesses to thrive in the modern landscape. Our passion lies
-                    in pushing boundaries and delivering measurable results through
-                    innovation, collaboration, and a relentless focus on our clients' success.
+                    Cloud Insider is a forward-thinking IT service agency specializing in website and mobile app design & development, AI automation, and AI integration. We transform ideas into exceptional digital products  combining strategic insight, creative design, and technical expertise to build scalable, high-performing solutions that empower businesses to thrive in the modern digital landscape. From concept to launch, our passion lies in pushing boundaries and delivering measurable results through innovation, seamless AI-driven automation, and a relentless focus on our clients' success.
                   </p>
                   <div className="section2-buttons" style={{ justifyContent: 'flex-start' }}>
                     <a href="/contact-us" className="btn btn-home">
@@ -75,27 +71,19 @@ const About = () => {
                   </div>
                 </motion.div>
 
-                {/* Main Image Placeholder */}
-                <motion.div variants={fadeUp} style={{ flex: '1 1 400px' }}>
-                    <div style={{ ...placeholderStyle, height: '400px' }}>
-                        [ Main About Image Placeholder ]
+                {/* Main Image */}
+                <motion.div 
+                  variants={fadeUp} 
+                  style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                    <div className="about-image-wrapper">
+                        <img src={aboutImage} alt="About Cloud Insider" className="about-main-image" />
                     </div>
                 </motion.div>
 
             </div>
-
-            {/* Bottom Row: Additional Image Grid */}
-            <motion.div variants={fadeUp} style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-                gap: '30px', 
-                width: '100%', 
-                marginTop: '80px' 
-            }}>
-                <div style={{ ...placeholderStyle, height: '250px' }}>[ Image Placeholder 1 ]</div>
-                <div style={{ ...placeholderStyle, height: '250px' }}>[ Image Placeholder 2 ]</div>
-                <div style={{ ...placeholderStyle, height: '250px' }}>[ Image Placeholder 3 ]</div>
-            </motion.div>
 
           </motion.div>
         </div>
