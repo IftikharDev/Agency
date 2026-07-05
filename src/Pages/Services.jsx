@@ -5,6 +5,9 @@ import { motion } from "framer-motion";
 /**DATA IMPORTS */
 import { serviceList } from "../Data";
 
+/**ICON IMPORTS */
+import { TbCheck, TbArrowRight } from "react-icons/tb";
+
 const Services = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -50,6 +53,29 @@ const Services = () => {
                         <div className="service-tab-main">
                           <h4>{service.title}</h4>
                           <p>{service.description}</p>
+
+                          {/* Feature list with checkmarks */}
+                          {service.list && service.list.length > 0 && (
+                            <ul className="service-feature-list">
+                              {service.list.map((item, idx) => (
+                                <motion.li
+                                  key={idx}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: idx * 0.05, duration: 0.3 }}
+                                >
+                                  <TbCheck className="feature-check-icon" />
+                                  <span>{item}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          )}
+
+                          {/* CTA Button */}
+                          <a href="#contact-us" className="service-cta-btn">
+                            <span>Get Started</span>
+                            <TbArrowRight className="service-cta-arrow" />
+                          </a>
 
                           <img
                             src={service.imageSrc}

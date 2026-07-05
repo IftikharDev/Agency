@@ -823,3 +823,257 @@
     font-size: 15px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE: NEW COMPONENTS (Trust Badge, Metrics, SaaS, Mission, Service Features)
+═══════════════════════════════════════════════════════════════ */
+
+/* Extra Small (≤576px) */
+@media (max-width: 575.98px) {
+  .trust-badge {
+    font-size: 11px;
+    padding: 6px 14px;
+    gap: 6px;
+  }
+
+  .metrics-strip {
+    padding: 40px 12px;
+  }
+
+  .metrics-strip-inner {
+    gap: 16px;
+  }
+
+  .metric-item {
+    min-width: 140px;
+    padding: 18px 20px;
+    flex: 1 1 40%;
+  }
+
+  .metric-value {
+    font-size: 30px;
+  }
+
+  .metric-label {
+    font-size: 12px;
+  }
+
+  .about-saas-section {
+    padding: 60px 12px;
+  }
+
+  .saas-products-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .saas-card-content {
+    padding: 28px 20px;
+  }
+
+  .saas-card-name {
+    font-size: 20px;
+  }
+
+  .saas-card-description {
+    font-size: 14px;
+  }
+
+  .saas-card-metrics {
+    gap: 16px;
+  }
+
+  .saas-metric-value {
+    font-size: 18px;
+  }
+
+  .mission-section {
+    padding: 60px 12px;
+  }
+
+  .mission-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .mission-card {
+    padding: 28px 20px;
+  }
+
+  .mission-card-title {
+    font-size: 19px;
+  }
+
+  .mission-card-description {
+    font-size: 14px;
+  }
+
+  .service-feature-list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .service-feature-list li {
+    font-size: 13px;
+  }
+
+  .service-cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+}
+
+/* Small (≥576px and <768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .trust-badge {
+    font-size: 12px;
+    padding: 7px 16px;
+  }
+
+  .metrics-strip {
+    padding: 48px 16px;
+  }
+
+  .metric-item {
+    min-width: 140px;
+    padding: 20px 24px;
+    flex: 1 1 40%;
+  }
+
+  .metric-value {
+    font-size: 34px;
+  }
+
+  .about-saas-section {
+    padding: 70px 16px;
+  }
+
+  .saas-products-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 36px;
+  }
+
+  .mission-section {
+    padding: 70px 16px;
+  }
+
+  .mission-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 36px;
+  }
+
+  .service-feature-list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .service-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Medium (≥768px and <990px) */
+@media (min-width: 768px) and (max-width: 989.98px) {
+  .metrics-strip {
+    padding: 52px 20px;
+  }
+
+  .metric-item {
+    min-width: 150px;
+    padding: 22px 28px;
+  }
+
+  .metric-value {
+    font-size: 36px;
+  }
+
+  .about-saas-section {
+    padding: 80px 20px;
+  }
+
+  .saas-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .saas-products-grid > *:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+
+  .mission-section {
+    padding: 80px 20px;
+  }
+
+  .mission-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .mission-cards-grid > *:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+
+  .service-feature-list {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}
+
+/* Large (≥990px and <1200px) */
+@media (min-width: 990px) and (max-width: 1199.98px) {
+  .metric-value {
+    font-size: 38px;
+  }
+
+  .about-saas-section {
+    padding: 90px 24px;
+  }
+
+  .saas-products-grid {
+    gap: 24px;
+  }
+
+  .saas-card-content {
+    padding: 30px 24px;
+  }
+
+  .saas-card-name {
+    font-size: 21px;
+  }
+
+  .saas-card-description {
+    font-size: 14px;
+  }
+
+  .mission-section {
+    padding: 90px 24px;
+  }
+
+  .mission-cards-grid {
+    gap: 24px;
+  }
+
+  .mission-card {
+    padding: 32px 24px;
+  }
+
+  .service-feature-list {
+    gap: 6px 16px;
+  }
+
+  .service-feature-list li {
+    font-size: 13px;
+  }
+}

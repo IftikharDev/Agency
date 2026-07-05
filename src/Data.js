@@ -12,12 +12,12 @@ export const serviceList = [
     title: 'Build a Powerful Online Presence',
     imageSrc: Service1,
     description:
-      'Establish a strong digital footprint that attracts, engages, and converts your target audience effectively.',
+      'Establish a commanding digital footprint that captivates audiences, drives conversions, and positions your brand as an industry leader.',
     list: [
-      'Profile Website Development',
-      'Corporate Website Development',
-      'Corporate Website Development',
-      'Corporate Website Development'
+      'Profile & Personal Brand Websites',
+      'Corporate & Enterprise Portals',
+      'Landing Pages & Sales Funnels',
+      'Progressive Web Applications (PWA)'
     ]
   },
   {
@@ -93,6 +93,85 @@ export const serviceList = [
       'DevOps & CI/CD Pipeline Automation',
       'Continuous Evolution & Scaling'
     ]
+  },
+  {
+    id: 6,
+    label: 'AI Automation & SaaS Integration',
+    bgColor: '#0A3A8A',
+    title: 'Intelligent Automation That Drives Revenue',
+    imageSrc: Service5,
+    description:
+      'Supercharge your business with AI-powered automation and custom SaaS solutions that eliminate manual work, accelerate growth, and unlock new revenue streams.',
+    list: [
+      'Custom SaaS Product Development',
+      'AI Chatbot & Conversational AI',
+      'Automated Lead Generation Funnels',
+      'Payment & Subscription Systems',
+      'Real-time Analytics Dashboards',
+      'API Integration & Middleware',
+      'Workflow Automation (n8n, Zapier)',
+      'AI Model Integration & Fine-tuning'
+    ]
+  }
+];
+
+export const saasProducts = [
+  {
+    id: 1,
+    name: 'CI Analytics',
+    tagline: 'AI-Powered Business Intelligence',
+    description: 'Transform raw data into actionable insights with our intelligent analytics dashboard. Real-time metrics, predictive forecasting, and automated reporting — all in one platform.',
+    metrics: [
+      { value: '99.9%', label: 'Uptime SLA' },
+      { value: '3x', label: 'Faster Insights' }
+    ],
+    icon: 'TbChartAreaLine',
+    gradient: 'linear-gradient(135deg, #00C2FF 0%, #0D52AD 100%)'
+  },
+  {
+    id: 2,
+    name: 'CI Automate',
+    tagline: 'Workflow & AI Pipeline Builder',
+    description: 'Design, deploy, and scale intelligent automation workflows without writing a single line of code. Connect 500+ apps and let AI handle the rest.',
+    metrics: [
+      { value: '500+', label: 'Integrations' },
+      { value: '80%', label: 'Time Saved' }
+    ],
+    icon: 'TbCpu',
+    gradient: 'linear-gradient(135deg, #7B61FF 0%, #00C2FF 100%)'
+  },
+  {
+    id: 3,
+    name: 'CI Shield',
+    tagline: 'Cloud Security & Compliance',
+    description: 'Enterprise-grade cloud security monitoring, threat detection, and compliance automation. Protect your infrastructure and stay audit-ready 24/7.',
+    metrics: [
+      { value: '24/7', label: 'Monitoring' },
+      { value: '0-Day', label: 'Threat Response' }
+    ],
+    icon: 'TbShieldCheck',
+    gradient: 'linear-gradient(135deg, #00E5A0 0%, #0D52AD 100%)'
+  }
+];
+
+export const missionValues = [
+  {
+    id: 1,
+    title: 'Innovation First',
+    description: 'We push the boundaries of what\'s possible, leveraging cutting-edge AI and cloud technologies to deliver solutions that keep you ahead of the curve.',
+    icon: 'TbRocket'
+  },
+  {
+    id: 2,
+    title: 'Radical Transparency',
+    description: 'No hidden agendas, no black boxes. Every decision, every line of code, every sprint — you have full visibility into our process and progress.',
+    icon: 'TbEye'
+  },
+  {
+    id: 3,
+    title: 'Results-Driven',
+    description: 'We measure success by your growth. Every project is engineered to deliver measurable ROI, increased efficiency, and sustainable competitive advantage.',
+    icon: 'TbTrendingUp'
   }
 ];
 

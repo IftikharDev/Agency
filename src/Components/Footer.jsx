@@ -98,7 +98,7 @@ const Footer = () => {
           
 
             <h2 className="footer-heading">
-              Empower. Evolve. Excellence. With DigiCore
+              Empower. Evolve. Excellence. With Cloud Insider
             </h2>
 
             <p className="footer-text">
