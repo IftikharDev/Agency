@@ -696,6 +696,12 @@ z-index: 0;
   object-fit: contain;
 }
 
+.footer-logo-img-full {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
 .footer-logo-text {
   font-size: 32px;
   font-weight: 700;

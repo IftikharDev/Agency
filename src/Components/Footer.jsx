@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**LOGO IMPORT */
-import ciLogo from "../Images/ci-logo.png";
+import ciFullLogo from "../Images/ci-full-logo.png";
 
 /**DATA IMPORTS */
 import { usefulLinks } from "../Data";
@@ -71,7 +71,7 @@ const Footer = () => {
 
               <div className="footer-contact">
   <FiMail className="mail-icon" />
-  <a href="mailto:sales@coreinsider.com">sales@coreinsider.com</a>
+  <a href="mailto:sales@cloudinsider.com">sales@cloudinsider.com</a>
 </div>
 
              <div className="footer-contact">
@@ -98,16 +98,15 @@ const Footer = () => {
           
 
             <h2 className="footer-heading">
-              Empower. Innovate. Excellence. With Core Insider
+              Empower. Evolve. Excellence. With DigiCore
             </h2>
 
             <p className="footer-text">
-             Core Insider work tirelessly to develop best,
+             Cloud Insider work tirelessly to develop best,
               creative, innovative and exceptional IT stuff for you.
             </p>
               <div className="footer-logo-wrap">
-                <img src={ciLogo} alt="Core Insider" className="footer-logo-img" />
-                <h1 className="footer-logo-text">Core Insider</h1>
+                <img src={ciFullLogo} alt="Cloud Insider" className="footer-logo-img-full" />
               </div>
           </motion.div>
         </motion.div>
@@ -120,7 +119,7 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
         >
-          © {currentYear} CORE INSIDER PRIVATE LIMITED. All rights reserved 
+          © {currentYear} CLOUD INSIDER PRIVATE LIMITED. All rights reserved 
         </motion.p>
 
       </div>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const text = "Empower. Innovate. Excellence";
+  const text = "Empower. Evolve. Excellence";
 
   const letterVariants = {
     hidden: { y: 50, opacity: 0 },

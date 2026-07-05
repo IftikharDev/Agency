@@ -87,8 +87,8 @@ const Header = () => {
         <div className="nav-container">
           {/* Logo */}
           <a href="/" onClick={(e) => handleLinkClick(e, "/")} className="nav-logo-link">
-            <img src={ciLogo} alt="Core Insider" className="nav-logo-img" />
-            <span className="nav-logo-text">Core Insider</span>
+            <img src={ciLogo} alt="Cloud Insider" className="nav-logo-img" />
+            <span className="nav-logo-text">Cloud Insider</span>
           </a>
 
           {/* Desktop Links */}
@@ -130,8 +130,8 @@ const Header = () => {
           >
             <div className="sidebar-header">
               <div className="nav-logo-link">
-                <img src={ciLogo} alt="Core Insider" className="nav-logo-img" />
-                <span className="nav-logo-text">Core Insider</span>
+                <img src={ciLogo} alt="Cloud Insider" className="nav-logo-img" />
+                <span className="nav-logo-text">Cloud Insider</span>
               </div>
               <button onClick={() => setSidebarOpen(false)} className="close-btn">✕</button>
             </div>
@@ -145,7 +145,7 @@ const Header = () => {
               ))}
             </ul>
             <div className="sidebar-footer">
-              <p>Contact: info@coreinsider.com</p>
+              <p>Contact: info@cloudinsider.com</p>
               <p>Phone: +91 63576 05131</p>
             </div>
           </motion.div>
