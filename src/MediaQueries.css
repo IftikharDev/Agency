@@ -31,6 +31,13 @@
   .hero-title {
     font-size: 28px;
   }
+  .hero-subtitle {
+    font-size: 14px;
+    max-width: 90%;
+  }
+  .nav-logo-tagline {
+    display: none;
+  }
   .hover-letter {
     margin-top: 2rem;
   }
@@ -242,6 +249,13 @@
   .hero-title {
     font-size: 36px;
   }
+  .hero-subtitle {
+    font-size: 16px;
+    max-width: 85%;
+  }
+  .nav-logo-tagline {
+    display: none;
+  }
   .hover-letter {
     margin-top: 2.5rem;
   }
@@ -443,6 +457,12 @@
   .hero-title {
     font-size: 44px;
   }
+  .hero-subtitle {
+    font-size: 17px;
+  }
+  .nav-logo-tagline {
+    font-size: 10px;
+  }
   .hover-letter {
     margin-top: 3rem;
   }
@@ -634,6 +654,9 @@
   }
   .hero-title {
     font-size: 50px;
+  }
+  .hero-subtitle {
+    font-size: 18px;
   }
   .hover-letter {
     margin-top: 3.5rem;

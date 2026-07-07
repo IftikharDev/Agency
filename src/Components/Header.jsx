@@ -88,7 +88,10 @@ const Header = () => {
           {/* Logo */}
           <a href="/" onClick={(e) => handleLinkClick(e, "/")} className="nav-logo-link">
             <img src={ciLogo} alt="Cloud Insider" className="nav-logo-img" />
-            <span className="nav-logo-text">Cloud Insider</span>
+            <div className="nav-logo-group">
+              <span className="nav-logo-text">Cloud Insider</span>
+              <span className="nav-logo-tagline">Your long-term technical partner.</span>
+            </div>
           </a>
 
           {/* Desktop Links */}

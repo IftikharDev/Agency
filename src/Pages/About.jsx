@@ -91,10 +91,13 @@ const About = () => {
                 
                 <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
                   <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                    Cloud Insider is a forward-thinking IT service agency specializing in website and mobile app design & development, AI automation, and AI integration. We transform ideas into exceptional digital products — combining strategic insight, creative design, and technical expertise to build scalable, high-performing solutions that empower businesses to thrive in the modern digital landscape.
+                    Cloud Insider builds scalable web platforms, mobile applications, and custom digital products for businesses that are serious about growth. We work with founders, product teams, and enterprises who need more than a one-time build — they need a technical partner who understands their product roadmap and sticks around to execute it.
+                  </p>
+                  <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.7)' }}>
+                    Our process is intentionally integrated. Design and development happen under one roof, which means your product moves from concept to launch without handoff gaps, miscommunication, or wasted cycles. What you see in the mockup is what ships in production.
                   </p>
                   <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.6)' }}>
-                    From concept to launch, our passion lies in pushing boundaries and delivering measurable results through innovation, seamless AI-driven automation, and a relentless focus on our clients' success.
+                    Where it makes sense, we layer in smart automation — workflow tools, chatbots, and operational efficiencies — as practical add-ons within larger builds. The result: products that perform on day one and still hold up at 10x the traffic, 10x the users, and 10x the complexity. That's why most of our clients don't leave after launch — they stay because we build things worth maintaining.
                   </p>
                   <div className="section2-buttons" style={{ justifyContent: 'flex-start' }}>
                     <a href="#contact-us" className="btn btn-home">

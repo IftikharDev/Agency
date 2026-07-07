@@ -1,5 +1,4 @@
 import Service1 from './Images/service-1.webp';
-import Service2 from './Images/service-2.webp';
 import Service3 from './Images/service-3.webp';
 import Service4 from './Images/service-4.webp';
 import Service5 from './Images/service-5.webp';
@@ -7,113 +6,68 @@ import Service5 from './Images/service-5.webp';
 export const serviceList = [
   {
     id: 1,
-    label: 'Website Development',
+    label: 'Scalable Web & App Development',
     bgColor: '#48C6EF',
-    title: 'Build a Powerful Online Presence',
+    title: 'Products That Grow With You, Not Against You',
     imageSrc: Service1,
     description:
-      'Establish a commanding digital footprint that captivates audiences, drives conversions, and positions your brand as an industry leader.',
+      'Your business won\'t look the same in two years — your platform shouldn\'t either. We architect web and mobile applications built for where you\'re headed, not just where you are. From MVPs that need to ship fast to enterprise systems handling millions of requests, you get a product that scales cleanly and costs less to maintain over time.',
     list: [
-      'Profile & Personal Brand Websites',
-      'Corporate & Enterprise Portals',
-      'Landing Pages & Sales Funnels',
-      'Progressive Web Applications (PWA)'
+      'Custom Web Applications & Portals',
+      'Native & Cross-Platform Mobile Apps',
+      'Cloud-Native Architecture & APIs',
+      'MVP-to-Scale Product Engineering',
+      'Performance Optimization & Monitoring'
     ]
   },
   {
     id: 2,
-    label: 'CMS & Platform Engineering',
+    label: 'Design-to-Development',
     bgColor: '#3BA8E0',
-    title: 'Architecting Scalable CMS Experiences',
-    imageSrc: Service2,
+    title: 'From Pixel to Production, No Gaps',
+    imageSrc: Service4,
     description:
-      'We deliver robust, scalable content management platforms designed to optimize performance, enhance security, and drive seamless digital experiences.',
+      'Design and development under one roof means your product ships exactly as envisioned — no "lost in translation" between teams. We handle the full journey from wireframe to deployment, so you get a polished product without managing two separate vendors or reconciling mismatched deliverables.',
     list: [
-      'Custom CMS Architecture',
-      'Theme & UI/UX Engineering',
-      'E-Commerce Solutions (WooCommerce)',
-      'Performance & Core Web Vitals',
-      'Platform Migration & Upgrades',
-      'Enterprise Security & Hardening',
-      'Vulnerability & Malware Remediation',
-      'Advanced Platform Customization'
+      'Product Ideation & Wireframing',
+      'UI/UX Design & Prototyping',
+      'Design System Creation',
+      'Pixel-Perfect Frontend Development',
+      'User Testing & Iteration'
     ]
   },
   {
     id: 3,
-    label: 'Digital Marketing',
+    label: 'AI Automation & Solutions',
     bgColor: '#2C8DD3',
-    title: 'Smart Marketing Strategies to Fuel Your Growth',
-    imageSrc: Service3,
+    title: 'Automate the Work That Slows You Down',
+    imageSrc: Service5,
     description:
-      'Leverage data-driven strategies and creative campaigns to expand your reach, engage customers, and accelerate sustainable business growth.',
+      'We identify bottlenecks in your operations and build targeted automation that saves real hours — connecting your tools, streamlining workflows, and removing the manual work your team shouldn\'t be doing.',
     list: [
-      'Social Media Management',
-      'Local Business Profile Setup',
-      'Local Business SEO Services ',
-      'On page SEO Services',
-      'E-Commerce SEO',
-      'Ads Management',
-      'SEO Audit',
-      'SEO Strategy Development'
+      'Workflow Automation',
+      'System & API Integrations',
+      'Custom Automation Pipelines',
+      'Operational Efficiency Consulting'
     ]
   },
   {
     id: 4,
-    label: 'Idea Visualisation',
+    label: 'AI Chatbots',
     bgColor: '#1D6DC0',
-    title: 'Sparking Reality from Imagination',
-    imageSrc: Service4,
+    title: 'Smarter Customer Conversations, Around the Clock',
+    imageSrc: Service3,
     description:
-      'Transforming creative concepts into tangible realities, seamlessly bridging imagination with flawless execution to bring visionary ideas to life.',
+      'Deploy intelligent chatbots that handle support, capture leads, and qualify prospects — so your team focuses on the conversations that actually need a human.',
     list: [
-      'Product Ideation & Conceptualization',
-      'Wireframing & Interactive Prototyping',
-      'User Journey Mapping',
-      'UI/UX Design Mockups',
-      'Design System Creation',
-      'Click-through Demo Development',
-      'User Feedback & Iteration Planning'
-    ]
-  },
-  {
-    id: 5,
-    label: 'Advanced Software & Mobile Engineering',
-    bgColor: '#0E4DA8',
-    title: 'Engineering Intelligent Software Ecosystems',
-    imageSrc:Service5,
-    description:
-      'We architect and engineer robust, custom software solutions and mobile experiences that accelerate your digital transformation.',
-    list: [
-      'Enterprise Web Architectures',
-      'Native & Cross-Platform Mobile Engineering',
-      'Agile MVP Engineering',
-      'Cloud-Native Backend & API Ecosystems',
-      'Modern Frontend Experiences (React, Vue)',
-      'DevOps & CI/CD Pipeline Automation',
-      'Continuous Evolution & Scaling'
-    ]
-  },
-  {
-    id: 6,
-    label: 'AI Automation & SaaS Integration',
-    bgColor: '#0A3A8A',
-    title: 'Intelligent Automation That Drives Revenue',
-    imageSrc: Service5,
-    description:
-      'Supercharge your business with AI-powered automation and custom SaaS solutions that eliminate manual work, accelerate growth, and unlock new revenue streams.',
-    list: [
-      'Custom SaaS Product Development',
-      'AI Chatbot & Conversational AI',
-      'Automated Lead Generation Funnels',
-      'Payment & Subscription Systems',
-      'Real-time Analytics Dashboards',
-      'API Integration & Middleware',
-      'Workflow Automation (n8n, Zapier)',
-      'AI Model Integration & Fine-tuning'
+      'Custom Chatbot Development',
+      'Lead Capture & Qualification Bots',
+      'Multi-Platform Deployment',
+      'Analytics & Conversation Insights'
     ]
   }
 ];
+
 
 export const saasProducts = [
   {

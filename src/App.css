@@ -71,6 +71,12 @@ body{
   object-fit: contain;
 }
 
+.nav-logo-group {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
 .nav-logo-text {
   font-size: 22px;
   font-weight: 700;
@@ -78,6 +84,14 @@ body{
   background: linear-gradient(90deg, #0D52AD, #00C2FF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.nav-logo-tagline {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.3px;
+  margin-top: 1px;
 }
 
 .nav-links {
@@ -200,6 +214,25 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 0 16px;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  max-width: 700px;
+  margin-top: 0;
+  letter-spacing: 0.2px;
 }
 
 .hero-title {

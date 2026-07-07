@@ -98,12 +98,11 @@ const Footer = () => {
           
 
             <h2 className="footer-heading">
-              Empower. Evolve. Excellence. With Cloud Insider
+              We Build What Lasts. With Cloud Insider
             </h2>
 
             <p className="footer-text">
-             Cloud Insider work tirelessly to develop best,
-              creative, innovative and exceptional IT stuff for you.
+             Your long-term technical partner for scalable web & app development, seamless design-to-development, and smart automation.
             </p>
               <div className="footer-logo-wrap">
                 <img src={ciFullLogo} alt="Cloud Insider" className="footer-logo-img-full" />

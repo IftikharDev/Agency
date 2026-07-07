@@ -18,9 +18,9 @@ const Services = () => {
         <div className="container">
           {/* HEADER */}
           <div className="service-header">
-            <h2 className="section-title">Your Vision, Our Expertise</h2>
+            <h2 className="section-title">What We Build For You</h2>
             <p className="section-subtitle">
-              Transforming Ideas into Exceptional Digital Experiences
+              Four core capabilities. One integrated team. Zero handoff headaches.
             </p>
           </div>
 
