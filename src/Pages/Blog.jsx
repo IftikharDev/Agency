@@ -57,7 +57,7 @@ const Blog = () => {
                       <div style={{ padding: '24px' }}>
                           <p style={{ color: '#00C2FF', fontSize: '14px', margin: '0 0 10px 0' }}>Marketing • 5 Min Read</p>
                           <h3 style={{ color: '#fff', fontSize: '22px', margin: '0 0 15px 0' }}>The Future of Digital Agencies</h3>
-                          <a href="#" style={{ color: '#fff', textDecoration: 'none', fontWeight: '500', fontSize: '15px' }}>Read More &rarr;</a>
+                          <a href="#blog" style={{ color: '#fff', textDecoration: 'none', fontWeight: '500', fontSize: '15px' }}>Read More &rarr;</a>
                       </div>
                   </div>
               ))}
