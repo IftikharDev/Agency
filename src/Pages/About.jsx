@@ -83,47 +83,47 @@ const About = () => {
             </motion.div>
 
             <motion.h2 className="section2-title" variants={fadeUp}>
-              Questioning Visitors?
+              Who We Are
             </motion.h2>
 
             {/* Top row: Text on left, Main Image on right */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', marginTop: '50px', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-                
-                <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
-                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#fff' }}>
-                    Build a team. Automate the busywork. Scale without the growing pains.
-                  </h3>
-                  <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                    We help businesses put the right systems and people in place — so growth doesn't mean more chaos, just more capacity.
-                  </p>
-                  <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                    Cloud Insider builds scalable web platforms, mobile applications, and custom digital products for businesses that are serious about growth. We work with founders, product teams, and enterprises who need more than a one-time build — they need a technical partner who understands their product roadmap and sticks around to execute it.
-                  </p>
-                  <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.7)' }}>
-                    Our process is intentionally integrated. Design and development happen under one roof, which means your product moves from concept to launch without handoff gaps, miscommunication, or wasted cycles. What you see in the mockup is what ships in production.
-                  </p>
-                  <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.6)' }}>
-                    Where it makes sense, we layer in smart automation — workflow tools, chatbots, and operational efficiencies — as practical add-ons within larger builds. The result: products that perform on day one and still hold up at 10x the traffic, 10x the users, and 10x the complexity. That's why most of our clients don't leave after launch — they stay because we build things worth maintaining.
-                  </p>
-                  <div className="section2-buttons" style={{ justifyContent: 'flex-start' }}>
-                    <a href="#contact-us" className="btn btn-home">
-                      <span className="btn-text">Get in Touch</span>
-                      <span className="btn-arr">&gt;</span>
-                    </a>
-                  </div>
-                </motion.div>
 
-                {/* Main Image */}
-                <motion.div 
-                  variants={fadeUp} 
-                  style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                    <div className="about-image-wrapper">
-                        <img src={aboutImage} alt="About Cloud Insider" className="about-main-image" />
-                    </div>
-                </motion.div>
+              <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
+                <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#fff' }}>
+                  Are you ready to scale your business without multiplying the chaos?
+                </h3>
+                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
+                  We help businesses put the right systems and people in place — so growth doesn't mean more growing pains, just more capacity.
+                </p>
+                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
+                  Cloud Insider builds scalable web platforms, mobile applications, and custom digital products for businesses that are serious about growth. We work with founders, product teams, and enterprises who need more than a one-time build — they need a technical partner who understands their product roadmap and sticks around to execute it.
+                </p>
+                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.7)' }}>
+                  Our process is intentionally integrated. Design and development happen under one roof, which means your product moves from concept to launch without handoff gaps, miscommunication, or wasted cycles. What you see in the mockup is what ships in production.
+                </p>
+                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.6)' }}>
+                  Where it makes sense, we layer in smart automation — workflow tools, chatbots, and operational efficiencies — as practical add-ons within larger builds. The result: products that perform on day one and still hold up at 10x the traffic, 10x the users, and 10x the complexity. That's why most of our clients don't leave after launch — they stay because we build things worth maintaining.
+                </p>
+                <div className="section2-buttons" style={{ justifyContent: 'flex-start' }}>
+                  <a href="#contact-us" className="btn btn-home">
+                    <span className="btn-text">Get in Touch</span>
+                    <span className="btn-arr">&gt;</span>
+                  </a>
+                </div>
+              </motion.div>
+
+              {/* Main Image */}
+              <motion.div
+                variants={fadeUp}
+                style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <div className="about-image-wrapper">
+                  <img src={aboutImage} alt="About Cloud Insider" className="about-main-image" />
+                </div>
+              </motion.div>
 
             </div>
 
@@ -187,7 +187,7 @@ const About = () => {
               Purpose-built SaaS products designed to scale your business, automate operations, and unlock actionable intelligence.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="saas-products-grid"
               variants={containerVariants}
             >
@@ -202,12 +202,12 @@ const About = () => {
                   >
                     {/* Gradient glow effect */}
                     <div className="saas-card-glow" style={{ background: product.gradient }} />
-                    
+
                     <div className="saas-card-content">
                       <div className="saas-card-icon" style={{ background: product.gradient }}>
                         {IconComponent && <IconComponent />}
                       </div>
-                      
+
                       <h3 className="saas-card-name">{product.name}</h3>
                       <p className="saas-card-tagline">{product.tagline}</p>
                       <p className="saas-card-description">{product.description}</p>
