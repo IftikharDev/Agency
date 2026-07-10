@@ -83,13 +83,19 @@ const About = () => {
             </motion.div>
 
             <motion.h2 className="section2-title" variants={fadeUp}>
-              About Us
+              Questioning Visitors?
             </motion.h2>
 
             {/* Top row: Text on left, Main Image on right */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', marginTop: '50px', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
                 
                 <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
+                  <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#fff' }}>
+                    Build a team. Automate the busywork. Scale without the growing pains.
+                  </h3>
+                  <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
+                    We help businesses put the right systems and people in place — so growth doesn't mean more chaos, just more capacity.
+                  </p>
                   <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
                     Cloud Insider builds scalable web platforms, mobile applications, and custom digital products for businesses that are serious about growth. We work with founders, product teams, and enterprises who need more than a one-time build — they need a technical partner who understands their product roadmap and sticks around to execute it.
                   </p>
