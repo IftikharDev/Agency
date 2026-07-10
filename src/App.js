@@ -5,6 +5,7 @@ import ScrollToTop from './Components/ScrollToTop';
 import Home from './Pages/Home';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
+import ProductDetail from './Pages/ProductDetail';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/product/:slug" element={<ProductDetail />} />
       </Routes>
       <Footer />
       </BrowserRouter>

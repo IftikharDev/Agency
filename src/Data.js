@@ -72,9 +72,17 @@ export const serviceList = [
 export const saasProducts = [
   {
     id: 1,
+    slug: 'ci-analytics',
     name: 'CI Analytics',
     tagline: 'AI-Powered Business Intelligence',
     description: 'Transform raw data into actionable insights with our intelligent analytics dashboard. Real-time metrics, predictive forecasting, and automated reporting — all in one platform.',
+    details: 'CI Analytics is a comprehensive business intelligence platform designed to eliminate data silos. We integrate with your existing databases, CRMs, and marketing tools to provide a unified view of your business health. Using advanced machine learning, the platform not only reports on past performance but predicts future trends.',
+    features: [
+      'Real-time data visualization',
+      'Automated custom reporting',
+      'Predictive AI forecasting',
+      'Cross-platform data integration'
+    ],
     metrics: [
       { value: '99.9%', label: 'Uptime SLA' },
       { value: '3x', label: 'Faster Insights' }
@@ -84,9 +92,17 @@ export const saasProducts = [
   },
   {
     id: 2,
+    slug: 'ci-automate',
     name: 'CI Automate',
     tagline: 'Workflow & AI Pipeline Builder',
     description: 'Design, deploy, and scale intelligent automation workflows without writing a single line of code. Connect 500+ apps and let AI handle the rest.',
+    details: 'CI Automate empowers your team to eliminate repetitive tasks. With an intuitive visual builder, you can map out complex workflows that trigger across multiple applications. The built-in AI nodes can parse emails, analyze sentiment, and make routing decisions dynamically, saving your team countless hours.',
+    features: [
+      'Visual drag-and-drop workflow builder',
+      '500+ native application integrations',
+      'AI-powered decision nodes',
+      'Enterprise-grade audit logging'
+    ],
     metrics: [
       { value: '500+', label: 'Integrations' },
       { value: '80%', label: 'Time Saved' }
@@ -96,9 +112,17 @@ export const saasProducts = [
   },
   {
     id: 3,
+    slug: 'ci-shield',
     name: 'CI Shield',
     tagline: 'Cloud Security & Compliance',
     description: 'Enterprise-grade cloud security monitoring, threat detection, and compliance automation. Protect your infrastructure and stay audit-ready 24/7.',
+    details: 'CI Shield provides continuous monitoring of your cloud infrastructure to detect vulnerabilities and misconfigurations before they can be exploited. With automated compliance reporting for SOC2, HIPAA, and GDPR, you can assure your clients that their data is protected by state-of-the-art security protocols.',
+    features: [
+      'Continuous cloud posture management',
+      'Automated compliance reporting',
+      'Zero-day threat detection',
+      'Real-time alert routing and remediation'
+    ],
     metrics: [
       { value: '24/7', label: 'Monitoring' },
       { value: '0-Day', label: 'Threat Response' }
@@ -107,6 +131,7 @@ export const saasProducts = [
     gradient: 'linear-gradient(135deg, #00E5A0 0%, #0D52AD 100%)'
   }
 ];
+
 
 export const missionValues = [
   {

@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 /**ICON IMPORTS */
 import { TbChartAreaLine, TbCpu, TbShieldCheck, TbRocket, TbEye, TbTrendingUp, TbArrowRight, TbCheck } from "react-icons/tb";
@@ -222,9 +223,9 @@ const About = () => {
                         ))}
                       </div>
 
-                      <a href="#contact-us" className="saas-card-cta">
+                      <Link to={`/product/${product.slug}`} className="saas-card-cta">
                         Learn More <TbArrowRight style={{ marginLeft: '6px' }} />
-                      </a>
+                      </Link>
                     </div>
                   </motion.div>
                 );
