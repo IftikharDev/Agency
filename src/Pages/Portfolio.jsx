@@ -11,12 +11,11 @@ import { portfolioProjects } from "../Data";
 const categoryIcons = {
   "All": null,
   "Web App": TbCode,
-  "Mobile App": TbDeviceMobile,
   "AI/ML": TbBrain,
   "SaaS": TbCloud,
 };
 
-const categories = ["All", "Web App", "Mobile App", "AI/ML", "SaaS"];
+const categories = ["All", "Web App", "AI/ML", "SaaS"];
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -112,8 +111,11 @@ const Portfolio = () => {
               {filteredProjects.map((project) => {
                 const isHovered = hoveredId === project.id;
                 return (
-                  <motion.article
+                  <motion.a
                     key={project.id}
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`portfolio-card ${project.featured ? "portfolio-card--featured" : ""}`}
                     variants={cardVariants}
                     initial="hidden"
@@ -125,16 +127,11 @@ const Portfolio = () => {
                   >
                     {/* Image Area */}
                     <div className="portfolio-card-visual">
-                      <div
-                        className="portfolio-card-placeholder"
-                        style={{
-                          background: project.gradient,
-                        }}
-                      >
-                        <span className="portfolio-card-placeholder-text">
-                          {project.title}
-                        </span>
-                      </div>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="portfolio-card-img"
+                      />
 
                       {/* Hover overlay */}
                       <motion.div
@@ -145,7 +142,7 @@ const Portfolio = () => {
                       >
                         <span className="portfolio-card-view">
                           <TbArrowUpRight />
-                          View Project
+                          Visit Site
                         </span>
                       </motion.div>
 
@@ -169,7 +166,7 @@ const Portfolio = () => {
                         ))}
                       </div>
                     </div>
-                  </motion.article>
+                  </motion.a>
                 );
               })}
             </AnimatePresence>

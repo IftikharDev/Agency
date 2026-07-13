@@ -3,6 +3,15 @@ import Service3 from './Images/service-3.webp';
 import Service4 from './Images/service-4.webp';
 import Service5 from './Images/service-5.webp';
 
+import EmoteAI from './Images/emoteai.png';
+import Docs2AI from './Images/do2ai.png';
+import OworldBD from './Images/oworldbd.png';
+import PropertyFinder from './Images/propertyfinder.png';
+import ApplyGoal from './Images/applygoal.png';
+import StudyBuddy from './Images/studybuddy.png';
+import CrmApplyGoal from './Images/crmapplygoal.png';
+import Gizoora from './Images/gizora.png';
+
 export const serviceList = [
   {
     id: 1,
@@ -184,56 +193,82 @@ export const workflowSteps = [
 export const portfolioProjects = [
   {
     id: 1,
-    title: 'FinTrack Pro',
-    category: 'SaaS',
-    description: 'AI-powered financial analytics dashboard for enterprise teams to track KPIs, forecast revenue, and automate reporting.',
-    stack: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
-    gradient: 'linear-gradient(135deg, #0D52AD 0%, #00C2FF 50%, #0a1628 100%)',
+    title: 'Emote AI',
+    category: 'AI/ML',
+    description: 'AI-powered emotional intelligence platform that analyzes and understands human emotions through advanced machine learning models.',
+    stack: ['AI', 'Machine Learning', 'React', 'Python'],
+    image: EmoteAI,
+    url: 'https://emote.ai',
     featured: true,
   },
   {
     id: 2,
-    title: 'MediCare Connect',
-    category: 'Mobile App',
-    description: 'HIPAA-compliant telemedicine platform connecting patients with healthcare providers via video consultations.',
-    stack: ['React Native', 'Firebase', 'WebRTC'],
-    gradient: 'linear-gradient(135deg, #00E5A0 0%, #0D52AD 100%)',
+    title: 'Docs2AI',
+    category: 'AI/ML',
+    description: 'Intelligent document processing platform that transforms unstructured documents into actionable insights using AI-driven automation.',
+    stack: ['AI', 'NLP', 'Next.js', 'Node.js'],
+    image: Docs2AI,
+    url: 'https://www.docs2ai.co/',
     featured: false,
   },
   {
     id: 3,
-    title: 'ShopAI Engine',
-    category: 'AI/ML',
-    description: 'Machine learning recommendation engine that boosted e-commerce conversion rates by 47% through personalized product suggestions.',
-    stack: ['Python', 'TensorFlow', 'FastAPI', 'Redis'],
-    gradient: 'linear-gradient(135deg, #7B61FF 0%, #00C2FF 100%)',
+    title: 'Oworld BD',
+    category: 'Web App',
+    description: 'Full-scale e-commerce and business platform serving the Bangladesh market with modern UI and seamless user experience.',
+    stack: ['React', 'Node.js', 'MongoDB', 'AWS'],
+    image: OworldBD,
+    url: 'https://oworldbd.com',
     featured: false,
   },
   {
     id: 4,
-    title: 'CloudOps Portal',
+    title: 'PropertyFinder',
     category: 'Web App',
-    description: 'Full-stack DevOps management portal with real-time monitoring, CI/CD pipeline visualization, and infrastructure-as-code tooling.',
-    stack: ['Next.js', 'Go', 'Kubernetes', 'Terraform'],
-    gradient: 'linear-gradient(135deg, #FF6B6B 0%, #0D52AD 100%)',
+    description: 'Leading real estate marketplace in the UAE — connecting millions of buyers and renters with their ideal properties.',
+    stack: ['React', 'Microservices', 'Elasticsearch', 'AWS'],
+    image: PropertyFinder,
+    url: 'https://propertyfinder.ae',
     featured: true,
   },
   {
     id: 5,
-    title: 'EduVerse LMS',
-    category: 'Web App',
-    description: 'Modern learning management system with live classes, gamified progress tracking, and AI-generated study plans.',
-    stack: ['Vue.js', 'Django', 'OpenAI API'],
-    gradient: 'linear-gradient(135deg, #F59E0B 0%, #7B61FF 100%)',
+    title: 'ApplyGoal',
+    category: 'SaaS',
+    description: 'End-to-end study abroad platform streamlining university applications, visa processing, and student counseling workflows.',
+    stack: ['React', 'Django', 'PostgreSQL', 'Redis'],
+    image: ApplyGoal,
+    url: 'https://applygoal.com',
     featured: false,
   },
   {
     id: 6,
-    title: 'FleetSync',
-    category: 'Mobile App',
-    description: 'Real-time fleet management app with GPS tracking, driver analytics, and predictive maintenance alerts.',
-    stack: ['Flutter', 'Node.js', 'MongoDB', 'MapBox'],
-    gradient: 'linear-gradient(135deg, #00C2FF 0%, #00E5A0 100%)',
+    title: 'StudyBuddy',
+    category: 'Web App',
+    description: 'Gamified learning platform that pairs students with study partners, tracks progress, and delivers AI-generated study plans.',
+    stack: ['Next.js', 'Firebase', 'OpenAI API'],
+    image: StudyBuddy,
+    url: 'https://studybuddy.gg',
+    featured: false,
+  },
+  {
+    id: 7,
+    title: 'ApplyGoal CRM',
+    category: 'SaaS',
+    description: 'Custom CRM built for education consultancies — managing leads, applications, and agent pipelines in one unified dashboard.',
+    stack: ['React', 'Node.js', 'PostgreSQL', 'Docker'],
+    image: CrmApplyGoal,
+    url: 'https://crm.applygoal.com',
+    featured: true,
+  },
+  {
+    id: 8,
+    title: 'Gizoora',
+    category: 'Web App',
+    description: 'Modern e-commerce platform with dynamic product catalogs, order management, and integrated payment gateways.',
+    stack: ['React', 'Express', 'MongoDB', 'Stripe'],
+    image: Gizoora,
+    url: 'https://gizoora.com',
     featured: false,
   },
 ];
