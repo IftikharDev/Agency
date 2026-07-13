@@ -10,6 +10,15 @@ import Company from "./Company";
 import Blog from "./Blog";
 import Contact from "./Contact";
 
+/**IMAGE IMPORTS */
+import divider from "../Images/divider.webp";
+
+const SectionDivider = () => (
+  <div className="section-divider">
+    <img src={divider} alt="" />
+  </div>
+);
+
 const Home = () => {
     return(
         <>
@@ -19,11 +28,17 @@ const Home = () => {
               </div>
             </section>
 
+            <SectionDivider />
             <About />
+            <SectionDivider />
             <Services />
+            <SectionDivider />
             <Portfolio />
+            <SectionDivider />
             <Company />
+            <SectionDivider />
             <Blog />
+            <SectionDivider />
             <Contact />
         </>
     )

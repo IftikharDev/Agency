@@ -5,6 +5,28 @@
   --heading-top: 100px; 
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   SECTION DIVIDER
+═══════════════════════════════════════════════════════════════ */
+.section-divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.section-divider img {
+  width: 60%;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1128,6 +1150,8 @@ z-index: 0;
   opacity: 1;
   height: 4px;
 }
+
+
 
 .saas-card-content {
   padding: 36px 28px;

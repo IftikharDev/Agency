@@ -20,7 +20,8 @@ const Services = () => {
           <div className="service-header">
             <h2 className="section-title">What We Build For You</h2>
             <p className="section-subtitle">
-              Four core capabilities. One integrated team. Zero handoff headaches.
+              Four core capabilities. One integrated team. Zero handoff
+              headaches.
             </p>
           </div>
 
@@ -35,7 +36,7 @@ const Services = () => {
                     className={`service-tab ${isActive ? "active" : ""}`}
                     style={{
                       flex: isActive ? 1 : 0.08,
-                      backgroundColor: isActive ? "#000" : service.bgColor
+                      backgroundColor: isActive ? "#000" : service.bgColor,
                     }}
                     onClick={() => setActiveTab(service.id)}
                   >
@@ -62,7 +63,10 @@ const Services = () => {
                                   key={idx}
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
-                                  transition={{ delay: idx * 0.05, duration: 0.3 }}
+                                  transition={{
+                                    delay: idx * 0.05,
+                                    duration: 0.3,
+                                  }}
                                 >
                                   <TbCheck className="feature-check-icon" />
                                   <span>{item}</span>
@@ -77,10 +81,7 @@ const Services = () => {
                             <TbArrowRight className="service-cta-arrow" />
                           </a>
 
-                          <img
-                            src={service.imageSrc}
-                            alt={service.title}
-                          />
+                          <img src={service.imageSrc} alt={service.title} />
                         </div>
                       </div>
                     ) : (
