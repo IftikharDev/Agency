@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**ICON IMPORTS */
-import { TbArrowUpRight, TbEye, TbCode, TbDeviceMobile, TbBrain, TbCloud } from "react-icons/tb";
+import { TbArrowUpRight, TbEye, TbCode, TbBrain, TbCloud, TbCheckbox } from "react-icons/tb";
 
 /**DATA / ASSETS */
 import { portfolioProjects } from "../Data";
@@ -17,14 +17,18 @@ const categoryIcons = {
 
 const categories = ["All", "Web App", "AI/ML", "SaaS"];
 
+const DISPLAY_LIMIT = 4;
+
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [hoveredId, setHoveredId] = useState(null);
 
   const filteredProjects =
     activeCategory === "All"
-      ? portfolioProjects
-      : portfolioProjects.filter((p) => p.category === activeCategory);
+      ? portfolioProjects.slice(0, DISPLAY_LIMIT)
+      : portfolioProjects
+          .filter((p) => p.category === activeCategory)
+          .slice(0, DISPLAY_LIMIT);
 
   const containerVariants = {
     hidden: {},
@@ -171,6 +175,23 @@ const Portfolio = () => {
               })}
             </AnimatePresence>
           </motion.div>
+
+          {/* 120+ Projects Badge */}
+          <motion.div
+            className="portfolio-footer"
+            variants={fadeUp}
+          >
+            <div className="portfolio-stats-badge">
+              <TbCheckbox className="portfolio-stats-icon" />
+              <span className="portfolio-stats-text">
+                <strong>120+</strong> Projects Delivered Successfully
+              </span>
+            </div>
+            <p className="portfolio-footer-text">
+              These are just a few highlights. We've partnered with startups, agencies, and enterprises across 15+ industries.
+            </p>
+          </motion.div>
+
         </motion.div>
       </div>
     </section>

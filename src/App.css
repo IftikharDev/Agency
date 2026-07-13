@@ -2123,7 +2123,7 @@ html {
 /* ── Projects Grid ── */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
 
@@ -2261,4 +2261,48 @@ html {
   font-size: 0.76rem;
   font-weight: 500;
   letter-spacing: 0.02em;
+}
+
+/* ── Portfolio Footer / Stats ── */
+.portfolio-footer {
+  text-align: center;
+  margin-top: 56px;
+}
+
+.portfolio-stats-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 1px solid rgba(0, 194, 255, 0.2);
+  background: linear-gradient(135deg, rgba(13, 82, 173, 0.12), rgba(0, 194, 255, 0.06));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.portfolio-stats-icon {
+  font-size: 1.3rem;
+  color: #00C2FF;
+}
+
+.portfolio-stats-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+.portfolio-stats-text strong {
+  color: #00C2FF;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.portfolio-footer-text {
+  margin: 16px auto 0;
+  max-width: 480px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
 }
