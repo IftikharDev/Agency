@@ -6,12 +6,21 @@ import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 
 /**ICON IMPORTS */
-import { TbChartAreaLine, TbCpu, TbShieldCheck, TbRocket, TbEye, TbTrendingUp, TbArrowRight, TbCheck } from "react-icons/tb";
+import {
+  TbChartAreaLine,
+  TbCpu,
+  TbShieldCheck,
+  TbRocket,
+  TbEye,
+  TbTrendingUp,
+  TbArrowRight,
+  TbCheck,
+} from "react-icons/tb";
 
 /**IMAGE IMPORTS */
 import leftBlur from "../Images/left-blur.png";
 import rightBlur from "../Images/right-blur.png";
-import aboutImage from "../Images/about-us.png";
+import aboutImage from "../Images/about-us.webp";
 
 /**DATA IMPORTS */
 import { saasProducts, missionValues } from "../Data";
@@ -38,12 +47,20 @@ const About = () => {
 
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const scaleIn = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: "easeOut" },
+    },
   };
 
   /** Metrics counter with intersection observer */
@@ -79,7 +96,7 @@ const About = () => {
           >
             {/* Trust badge */}
             <motion.div className="trust-badge" variants={fadeUp}>
-              <TbCheck style={{ fontSize: '16px' }} />
+              <TbCheck style={{ fontSize: "16px" }} />
               <span>Trusted by 200+ Businesses Worldwide</span>
             </motion.div>
 
@@ -88,25 +105,86 @@ const About = () => {
             </motion.h2>
 
             {/* Top row: Text on left, Main Image on right */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '60px', marginTop: '50px', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-
-              <motion.div variants={fadeUp} style={{ flex: '1 1 400px', textAlign: 'left' }}>
-                <h3 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px', color: '#fff' }}>
-                  Are you ready to scale your business without multiplying the chaos?
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "60px",
+                marginTop: "50px",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <motion.div
+                variants={fadeUp}
+                style={{ flex: "1 1 400px", textAlign: "left" }}
+              >
+                <h3
+                  style={{
+                    fontSize: "24px",
+                    fontWeight: "bold",
+                    marginBottom: "20px",
+                    color: "#fff",
+                  }}
+                >
+                  Are you ready to scale your business without multiplying the
+                  chaos?
                 </h3>
-                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                  We help businesses put the right systems and people in place — so growth doesn't mean more growing pains, just more capacity.
+                <p
+                  className="section2-text"
+                  style={{ textAlign: "left", marginBottom: "32px" }}
+                >
+                  We help businesses put the right systems and people in place —
+                  so growth doesn't mean more growing pains, just more capacity.
                 </p>
-                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px' }}>
-                  Cloud Insider builds scalable web platforms, mobile applications, and custom digital products for businesses that are serious about growth. We work with founders, product teams, and enterprises who need more than a one-time build — they need a technical partner who understands their product roadmap and sticks around to execute it.
+                <p
+                  className="section2-text"
+                  style={{ textAlign: "left", marginBottom: "32px" }}
+                >
+                  Cloud Insider builds scalable web platforms, mobile
+                  applications, and custom digital products for businesses that
+                  are serious about growth. We work with founders, product
+                  teams, and enterprises who need more than a one-time build —
+                  they need a technical partner who understands their product
+                  roadmap and sticks around to execute it.
                 </p>
-                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.7)' }}>
-                  Our process is intentionally integrated. Design and development happen under one roof, which means your product moves from concept to launch without handoff gaps, miscommunication, or wasted cycles. What you see in the mockup is what ships in production.
+                <p
+                  className="section2-text"
+                  style={{
+                    textAlign: "left",
+                    marginBottom: "32px",
+                    fontSize: "16px",
+                    color: "rgba(255,255,255,0.7)",
+                  }}
+                >
+                  Our process is intentionally integrated. Design and
+                  development happen under one roof, which means your product
+                  moves from concept to launch without handoff gaps,
+                  miscommunication, or wasted cycles. What you see in the mockup
+                  is what ships in production.
                 </p>
-                <p className="section2-text" style={{ textAlign: 'left', marginBottom: '32px', fontSize: '16px', color: 'rgba(255,255,255,0.6)' }}>
-                  Where it makes sense, we layer in smart automation — workflow tools, chatbots, and operational efficiencies — as practical add-ons within larger builds. The result: products that perform on day one and still hold up at 10x the traffic, 10x the users, and 10x the complexity. That's why most of our clients don't leave after launch — they stay because we build things worth maintaining.
+                <p
+                  className="section2-text"
+                  style={{
+                    textAlign: "left",
+                    marginBottom: "32px",
+                    fontSize: "16px",
+                    color: "rgba(255,255,255,0.6)",
+                  }}
+                >
+                  Where it makes sense, we layer in smart automation — workflow
+                  tools, chatbots, and operational efficiencies — as practical
+                  add-ons within larger builds. The result: products that
+                  perform on day one and still hold up at 10x the traffic, 10x
+                  the users, and 10x the complexity. That's why most of our
+                  clients don't leave after launch — they stay because we build
+                  things worth maintaining.
                 </p>
-                <div className="section2-buttons" style={{ justifyContent: 'flex-start' }}>
+                <div
+                  className="section2-buttons"
+                  style={{ justifyContent: "flex-start" }}
+                >
                   <a href="#contact-us" className="btn btn-home">
                     <span className="btn-text">Get in Touch</span>
                     <span className="btn-arr">&gt;</span>
@@ -117,17 +195,23 @@ const About = () => {
               {/* Main Image */}
               <motion.div
                 variants={fadeUp}
-                style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}
+                style={{
+                  flex: "1 1 400px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="about-image-wrapper">
-                  <img src={aboutImage} alt="About Cloud Insider" className="about-main-image" />
+                  <img
+                    src={aboutImage}
+                    alt="About Cloud Insider"
+                    className="about-main-image"
+                  />
                 </div>
               </motion.div>
-
             </div>
-
           </motion.div>
         </div>
       </section>
@@ -176,16 +260,25 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
-            <motion.div className="trust-badge" variants={fadeUp} style={{ marginBottom: '8px' }}>
-              <TbCpu style={{ fontSize: '16px' }} />
+            <motion.div
+              className="trust-badge"
+              variants={fadeUp}
+              style={{ marginBottom: "8px" }}
+            >
+              <TbCpu style={{ fontSize: "16px" }} />
               <span>Integrated Cloud Platform</span>
             </motion.div>
 
             <motion.h2 className="section2-title" variants={fadeUp}>
               Our Cloud Platform
             </motion.h2>
-            <motion.p className="section2-text" variants={fadeUp} style={{ marginTop: '12px' }}>
-              Purpose-built SaaS products designed to scale your business, automate operations, and unlock actionable intelligence.
+            <motion.p
+              className="section2-text"
+              variants={fadeUp}
+              style={{ marginTop: "12px" }}
+            >
+              Purpose-built SaaS products designed to scale your business,
+              automate operations, and unlock actionable intelligence.
             </motion.p>
 
             <motion.div
@@ -202,16 +295,24 @@ const About = () => {
                     whileHover={{ y: -8, transition: { duration: 0.3 } }}
                   >
                     {/* Gradient glow effect */}
-                    <div className="saas-card-glow" style={{ background: product.gradient }} />
+                    <div
+                      className="saas-card-glow"
+                      style={{ background: product.gradient }}
+                    />
 
                     <div className="saas-card-content">
-                      <div className="saas-card-icon" style={{ background: product.gradient }}>
+                      <div
+                        className="saas-card-icon"
+                        style={{ background: product.gradient }}
+                      >
                         {IconComponent && <IconComponent />}
                       </div>
 
                       <h3 className="saas-card-name">{product.name}</h3>
                       <p className="saas-card-tagline">{product.tagline}</p>
-                      <p className="saas-card-description">{product.description}</p>
+                      <p className="saas-card-description">
+                        {product.description}
+                      </p>
 
                       {/* Metrics row */}
                       <div className="saas-card-metrics">
@@ -223,15 +324,18 @@ const About = () => {
                         ))}
                       </div>
 
-                      <Link to={`/product/${product.slug}`} className="saas-card-cta">
-                        Learn More <TbArrowRight style={{ marginLeft: '6px' }} />
+                      <Link
+                        to={`/product/${product.slug}`}
+                        className="saas-card-cta"
+                      >
+                        Learn More{" "}
+                        <TbArrowRight style={{ marginLeft: "6px" }} />
                       </Link>
                     </div>
                   </motion.div>
                 );
               })}
             </motion.div>
-
           </motion.div>
         </div>
       </section>
@@ -254,11 +358,19 @@ const About = () => {
             <motion.h2 className="section2-title" variants={fadeUp}>
               What Drives Us
             </motion.h2>
-            <motion.p className="section2-text" variants={fadeUp} style={{ marginTop: '12px' }}>
-              Our core values shape every product we build, every solution we deliver, and every relationship we nurture.
+            <motion.p
+              className="section2-text"
+              variants={fadeUp}
+              style={{ marginTop: "12px" }}
+            >
+              Our core values shape every product we build, every solution we
+              deliver, and every relationship we nurture.
             </motion.p>
 
-            <motion.div className="mission-cards-grid" variants={containerVariants}>
+            <motion.div
+              className="mission-cards-grid"
+              variants={containerVariants}
+            >
               {missionValues.map((value) => {
                 const IconComponent = iconMap[value.icon];
                 return (
@@ -272,12 +384,13 @@ const About = () => {
                       {IconComponent && <IconComponent />}
                     </div>
                     <h3 className="mission-card-title">{value.title}</h3>
-                    <p className="mission-card-description">{value.description}</p>
+                    <p className="mission-card-description">
+                      {value.description}
+                    </p>
                   </motion.div>
                 );
               })}
             </motion.div>
-
           </motion.div>
         </div>
       </section>
