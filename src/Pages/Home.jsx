@@ -23,7 +23,7 @@ const SectionDivider = () => (
       alt="" 
       initial={{ opacity: 0, scaleX: 0 }}
       whileInView={{ opacity: 1, scaleX: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
+      viewport={{ once: false, amount: 0.5 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       style={{ originX: 0.5 }}
     />

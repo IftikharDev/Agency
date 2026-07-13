@@ -181,6 +181,63 @@ export const workflowSteps = [
   },
 ];
 
+export const portfolioProjects = [
+  {
+    id: 1,
+    title: 'FinTrack Pro',
+    category: 'SaaS',
+    description: 'AI-powered financial analytics dashboard for enterprise teams to track KPIs, forecast revenue, and automate reporting.',
+    stack: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+    gradient: 'linear-gradient(135deg, #0D52AD 0%, #00C2FF 50%, #0a1628 100%)',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'MediCare Connect',
+    category: 'Mobile App',
+    description: 'HIPAA-compliant telemedicine platform connecting patients with healthcare providers via video consultations.',
+    stack: ['React Native', 'Firebase', 'WebRTC'],
+    gradient: 'linear-gradient(135deg, #00E5A0 0%, #0D52AD 100%)',
+    featured: false,
+  },
+  {
+    id: 3,
+    title: 'ShopAI Engine',
+    category: 'AI/ML',
+    description: 'Machine learning recommendation engine that boosted e-commerce conversion rates by 47% through personalized product suggestions.',
+    stack: ['Python', 'TensorFlow', 'FastAPI', 'Redis'],
+    gradient: 'linear-gradient(135deg, #7B61FF 0%, #00C2FF 100%)',
+    featured: false,
+  },
+  {
+    id: 4,
+    title: 'CloudOps Portal',
+    category: 'Web App',
+    description: 'Full-stack DevOps management portal with real-time monitoring, CI/CD pipeline visualization, and infrastructure-as-code tooling.',
+    stack: ['Next.js', 'Go', 'Kubernetes', 'Terraform'],
+    gradient: 'linear-gradient(135deg, #FF6B6B 0%, #0D52AD 100%)',
+    featured: true,
+  },
+  {
+    id: 5,
+    title: 'EduVerse LMS',
+    category: 'Web App',
+    description: 'Modern learning management system with live classes, gamified progress tracking, and AI-generated study plans.',
+    stack: ['Vue.js', 'Django', 'OpenAI API'],
+    gradient: 'linear-gradient(135deg, #F59E0B 0%, #7B61FF 100%)',
+    featured: false,
+  },
+  {
+    id: 6,
+    title: 'FleetSync',
+    category: 'Mobile App',
+    description: 'Real-time fleet management app with GPS tracking, driver analytics, and predictive maintenance alerts.',
+    stack: ['Flutter', 'Node.js', 'MongoDB', 'MapBox'],
+    gradient: 'linear-gradient(135deg, #00C2FF 0%, #00E5A0 100%)',
+    featured: false,
+  },
+];
+
 export const usefulLinks = [
   {
     id: 2,

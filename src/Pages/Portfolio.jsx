@@ -1,62 +1,178 @@
 /**CORE LIBRARY IMPORTS */
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+/**ICON IMPORTS */
+import { TbArrowUpRight, TbEye, TbCode, TbDeviceMobile, TbBrain, TbCloud } from "react-icons/tb";
+
+/**DATA / ASSETS */
+import { portfolioProjects } from "../Data";
+
+const categoryIcons = {
+  "All": null,
+  "Web App": TbCode,
+  "Mobile App": TbDeviceMobile,
+  "AI/ML": TbBrain,
+  "SaaS": TbCloud,
+};
+
+const categories = ["All", "Web App", "Mobile App", "AI/ML", "SaaS"];
 
 const Portfolio = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [hoveredId, setHoveredId] = useState(null);
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? portfolioProjects
+      : portfolioProjects.filter((p) => p.category === activeCategory);
+
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      scale: 0.95,
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
-    <section id="portfolio" className="section2-wrapper" style={{ marginTop: '0', paddingTop: '100px' }}>
-      <div className="section2-container">
+    <section id="portfolio" className="portfolio-section">
+      {/* Background ambient glow */}
+      <div className="portfolio-glow portfolio-glow--left" aria-hidden="true" />
+      <div className="portfolio-glow portfolio-glow--right" aria-hidden="true" />
+
+      <div className="portfolio-container">
         <motion.div
-          className="section2-content"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.15 }}
         >
-          <motion.h2 className="section2-title" variants={fadeUp}>
-            Our Portfolio
-          </motion.h2>
-          <motion.p className="section2-text" variants={fadeUp} style={{ marginTop: '20px' }}>
-            A showcase of our finest work, delivering impact and digital excellence.
-          </motion.p>
-          
-          <motion.div variants={fadeUp} style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-              gap: '30px', 
-              width: '100%', 
-              marginTop: '50px' 
-          }}>
-              {[1, 2, 3, 4, 5, 6].map(item => (
-                  <div key={item} style={{
-                      width: '100%',
-                      height: '250px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                      border: '2px dashed rgba(255, 255, 255, 0.15)',
-                      borderRadius: '15px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'rgba(255, 255, 255, 0.4)',
-                      fontSize: '16px',
-                  }}>
-                      [ Project {item} Image ]
-                  </div>
-              ))}
+          {/* Header */}
+          <motion.div className="portfolio-header" variants={fadeUp}>
+            <span className="portfolio-label">
+              <TbEye style={{ fontSize: "14px" }} />
+              Project Showcase
+            </span>
+            <h2 className="portfolio-title">
+              Crafted with Purpose,
+              <br />
+              <span className="portfolio-title-accent">Built to Perform.</span>
+            </h2>
+            <p className="portfolio-subtitle">
+              Real projects, real impact. Browse our latest work across web,
+              mobile, and AI — each one designed to move the needle.
+            </p>
+          </motion.div>
+
+          {/* Category Filter */}
+          <motion.div className="portfolio-filters" variants={fadeUp}>
+            {categories.map((cat) => {
+              const Icon = categoryIcons[cat];
+              return (
+                <button
+                  key={cat}
+                  className={`portfolio-filter-btn ${activeCategory === cat ? "is-active" : ""}`}
+                  onClick={() => setActiveCategory(cat)}
+                >
+                  {Icon && <Icon />}
+                  {cat}
+                </button>
+              );
+            })}
+          </motion.div>
+
+          {/* Projects Grid */}
+          <motion.div className="portfolio-grid" layout>
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => {
+                const isHovered = hoveredId === project.id;
+                return (
+                  <motion.article
+                    key={project.id}
+                    className={`portfolio-card ${project.featured ? "portfolio-card--featured" : ""}`}
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    layout
+                    onMouseEnter={() => setHoveredId(project.id)}
+                    onMouseLeave={() => setHoveredId(null)}
+                  >
+                    {/* Image Area */}
+                    <div className="portfolio-card-visual">
+                      <div
+                        className="portfolio-card-placeholder"
+                        style={{
+                          background: project.gradient,
+                        }}
+                      >
+                        <span className="portfolio-card-placeholder-text">
+                          {project.title}
+                        </span>
+                      </div>
+
+                      {/* Hover overlay */}
+                      <motion.div
+                        className="portfolio-card-overlay"
+                        initial={false}
+                        animate={{ opacity: isHovered ? 1 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <span className="portfolio-card-view">
+                          <TbArrowUpRight />
+                          View Project
+                        </span>
+                      </motion.div>
+
+                      {/* Category chip */}
+                      <span className="portfolio-card-category">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    {/* Card Info */}
+                    <div className="portfolio-card-info">
+                      <h3 className="portfolio-card-title">{project.title}</h3>
+                      <p className="portfolio-card-desc">{project.description}</p>
+
+                      {/* Tech stack pills */}
+                      <div className="portfolio-card-stack">
+                        {project.stack.map((tech) => (
+                          <span key={tech} className="portfolio-card-tech">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.article>
+                );
+              })}
+            </AnimatePresence>
           </motion.div>
         </motion.div>
       </div>

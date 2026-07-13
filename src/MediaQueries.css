@@ -1189,3 +1189,52 @@
     border-radius: 16px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   PORTFOLIO SECTION — RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 1199.98px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-card--featured {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .portfolio-section {
+    padding: 72px 16px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .portfolio-card--featured {
+    grid-column: span 1;
+  }
+
+  .portfolio-card--featured .portfolio-card-visual {
+    height: 220px;
+  }
+
+  .portfolio-card-visual {
+    height: 200px;
+  }
+
+  .portfolio-title {
+    font-size: 1.8rem;
+  }
+
+  .portfolio-card-placeholder-text {
+    font-size: 1.25rem;
+  }
+
+  .portfolio-filter-btn {
+    padding: 7px 14px;
+    font-size: 0.82rem;
+  }
+}
