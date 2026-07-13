@@ -1,5 +1,6 @@
 /**CORE LIBRARY IMPORTS */
 import React from "react";
+import { motion } from "framer-motion";
 
 /**COMPONENTS IMPORT */
 import Hero from "../Components/Hero";
@@ -15,7 +16,15 @@ import divider from "../Images/divider.webp";
 
 const SectionDivider = () => (
   <div className="section-divider">
-    <img src={divider} alt="" />
+    <motion.img 
+      src={divider} 
+      alt="" 
+      initial={{ opacity: 0, scaleX: 0 }}
+      whileInView={{ opacity: 1, scaleX: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ originX: 0.5 }}
+    />
   </div>
 );
 
