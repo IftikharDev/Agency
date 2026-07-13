@@ -1100,3 +1100,92 @@
     font-size: 13px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   FRAMEWORK SECTION — RESPONSIVE
+═══════════════════════════════════════════════════════════════ */
+@media (max-width: 991.98px) {
+  .framework-section {
+    height: auto;
+  }
+
+  .framework-sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .framework-inner {
+    padding: 72px 24px 64px;
+    gap: 36px;
+    height: auto;
+  }
+
+  .framework-body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .framework-divider {
+    display: none;
+  }
+
+  .framework-visual-card {
+    height: min(42vh, 360px);
+  }
+
+  .framework-step.is-active .framework-step-name {
+    font-size: 1.55rem;
+  }
+
+  .framework-step-name {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .framework-inner {
+    padding: 56px 16px 48px;
+    gap: 28px;
+  }
+
+  .framework-title {
+    font-size: 1.75rem;
+  }
+
+  .framework-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .framework-watch-link {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .framework-steps {
+    padding-left: 22px;
+  }
+
+  .framework-step {
+    gap: 14px;
+    padding: 18px 4px 18px 0;
+  }
+
+  .framework-step-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.15rem;
+    border-radius: 10px;
+  }
+
+  .framework-step-marker {
+    left: -22px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .framework-visual-card {
+    height: 260px;
+    border-radius: 16px;
+  }
+}

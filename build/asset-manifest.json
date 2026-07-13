@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8da82b22.css",
-    "main.js": "/static/js/main.d3e600d5.js",
+    "main.css": "/static/css/main.c67287f1.css",
+    "main.js": "/static/js/main.e224420c.js",
     "static/js/453.ae9f5afe.chunk.js": "/static/js/453.ae9f5afe.chunk.js",
     "static/media/about-us.png": "/static/media/about-us.0cc873a6638e0ab6f4c0.png",
     "static/media/ci-logo.png": "/static/media/ci-logo.196e535e2941827a3c2e.png",
@@ -13,14 +13,14 @@
     "static/media/service-1.webp": "/static/media/service-1.2ec1617f670821bb2795.webp",
     "static/media/service-5.webp": "/static/media/service-5.e5249cfab8e4c1aa4212.webp",
     "static/media/service-4.webp": "/static/media/service-4.c46c0f3d48f9ba8c7ae0.webp",
-    "static/media/service-2.webp": "/static/media/service-2.2c2cadd201aadaed96f6.webp",
+    "static/media/divider.webp": "/static/media/divider.5b75b7f03ee0c30e3f96.webp",
     "index.html": "/index.html",
-    "main.8da82b22.css.map": "/static/css/main.8da82b22.css.map",
-    "main.d3e600d5.js.map": "/static/js/main.d3e600d5.js.map",
+    "main.c67287f1.css.map": "/static/css/main.c67287f1.css.map",
+    "main.e224420c.js.map": "/static/js/main.e224420c.js.map",
     "453.ae9f5afe.chunk.js.map": "/static/js/453.ae9f5afe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8da82b22.css",
-    "static/js/main.d3e600d5.js"
+    "static/css/main.c67287f1.css",
+    "static/js/main.e224420c.js"
   ]
 }

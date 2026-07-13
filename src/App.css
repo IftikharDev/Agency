@@ -36,9 +36,76 @@ html, body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body{
   font-family: var(--PoppinsFont);
    background-color: black;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CUSTOM SCROLLBAR
+═══════════════════════════════════════════════════════════════ */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #00C2FF #0a0f1a;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(
+    180deg,
+    #05080f 0%,
+    #0a1220 50%,
+    #05080f 100%
+  );
+  border-left: 1px solid rgba(13, 82, 173, 0.25);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #0D52AD 0%, #00C2FF 100%);
+  border-radius: 999px;
+  border: 2px solid #05080f;
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.45);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #1270e0 0%, #33d4ff 100%);
+  box-shadow: 0 0 18px rgba(0, 194, 255, 0.7);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #00C2FF 0%, #0D52AD 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: #05080f;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL SECTION (scale / fade on scroll)
+═══════════════════════════════════════════════════════════════ */
+.scroll-section {
+  transform-origin: center center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-section {
+    will-change: auto;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 .navbar {
@@ -1500,5 +1567,424 @@ z-index: 0;
   
   .contact-info-box {
     flex-basis: 100%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FRAMEWORK / WORKFLOW SECTION
+═══════════════════════════════════════════════════════════════ */
+.framework-section {
+  position: relative;
+  width: 100%;
+  background: #000;
+  /* Tall scroll runway for sticky storytelling */
+  height: 300vh;
+}
+
+.framework-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.framework-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.framework-header {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.framework-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.framework-subtitle {
+  margin: 14px auto 0;
+  max-width: 520px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.framework-watch-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.framework-watch-link:hover {
+  border-color: rgba(0, 194, 255, 0.55);
+  background: rgba(0, 194, 255, 0.06);
+  color: #fff;
+}
+
+.framework-watch-thumb {
+  width: 48px;
+  height: 32px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0a1220;
+}
+
+.framework-watch-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.framework-watch-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.framework-watch-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00c2ff;
+  box-shadow: 0 0 10px rgba(0, 194, 255, 0.9);
+  flex-shrink: 0;
+}
+
+.framework-body {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) 28px minmax(300px, 1.15fr);
+  gap: 8px 12px;
+  align-items: stretch;
+}
+
+/* Steps column */
+.framework-steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding-left: 28px;
+}
+
+.framework-track {
+  position: absolute;
+  left: 5px;
+  top: 12%;
+  bottom: 12%;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.framework-track-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, #0d52ad 0%, #00c2ff 100%);
+  box-shadow: 0 0 12px rgba(0, 194, 255, 0.55);
+  border-radius: 2px;
+  will-change: height;
+}
+
+.framework-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  width: 100%;
+  padding: 22px 8px 22px 0;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+  font-family: inherit;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.framework-step:last-child {
+  border-bottom: none;
+}
+
+.framework-step:not(.is-active) {
+  opacity: 0.38;
+}
+
+.framework-step:not(.is-active):hover {
+  opacity: 0.72;
+}
+
+.framework-step.is-active {
+  opacity: 1;
+}
+
+.framework-step-marker {
+  position: absolute;
+  left: -27px;
+  top: 30px;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.25);
+  transform: rotate(45deg);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.framework-step.is-active .framework-step-marker {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.framework-step-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 1.35rem;
+  color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.35s ease, background 0.35s ease, border-color 0.35s ease,
+    box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.framework-step-icon.is-active {
+  color: #00c2ff;
+  background: rgba(0, 194, 255, 0.1);
+  border-color: rgba(0, 194, 255, 0.45);
+  box-shadow: 0 0 28px rgba(0, 194, 255, 0.35);
+  transform: scale(1.06);
+}
+
+.framework-step-copy {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.framework-step-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.framework-step-number {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+}
+
+.framework-step.is-active .framework-step-number {
+  color: rgba(0, 194, 255, 0.85);
+}
+
+.framework-step-name {
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.framework-step.is-active .framework-step-name {
+  color: #fff;
+  font-size: 1.85rem;
+}
+
+.framework-step-desc {
+  margin: 10px 0 0;
+  max-width: 420px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  overflow: hidden;
+}
+
+/* Center divider + flare */
+.framework-divider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.framework-divider-line {
+  width: 1px;
+  height: 100%;
+  min-height: 220px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 194, 255, 0.15) 20%,
+    rgba(0, 194, 255, 0.45) 50%,
+    rgba(0, 194, 255, 0.15) 80%,
+    transparent 100%
+  );
+}
+
+.framework-divider-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 120px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 194, 255, 0.55) 0%,
+    rgba(13, 82, 173, 0.2) 40%,
+    transparent 70%
+  );
+  filter: blur(4px);
+  pointer-events: none;
+  animation: frameworkFlarePulse 3.5s ease-in-out infinite;
+}
+
+@keyframes frameworkFlarePulse {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+
+/* Right visual */
+.framework-visual {
+  display: flex;
+  align-items: center;
+  min-height: 0;
+}
+
+.framework-visual-card {
+  position: relative;
+  width: 100%;
+  height: min(58vh, 520px);
+  border-radius: 20px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 40% 50%, #0a1a2e 0%, #02060c 70%);
+  border: 1px solid rgba(0, 194, 255, 0.12);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55),
+    inset 0 0 60px rgba(0, 194, 255, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.framework-visual-media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.framework-visual-media img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.framework-visual-caption {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.framework-visual-caption-num {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #00c2ff;
+  letter-spacing: 0.06em;
+}
+
+.framework-visual-caption-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.framework-visual-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(
+    ellipse at 30% 50%,
+    rgba(0, 194, 255, 0.12) 0%,
+    transparent 55%
+  );
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .framework-divider-flare {
+    animation: none;
+  }
+
+  .framework-section {
+    height: auto;
+  }
+
+  .framework-sticky {
+    position: relative;
+    height: auto;
   }
 }

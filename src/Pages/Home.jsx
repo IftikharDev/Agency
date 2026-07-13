@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 
 /**COMPONENTS IMPORT */
 import Hero from "../Components/Hero";
+import ScrollSection from "../Components/ScrollSection";
 import About from "./About";
+import Framework from "./Framework";
 import Services from "./Services";
 import Portfolio from "./Portfolio";
 import Company from "./Company";
@@ -31,24 +33,40 @@ const SectionDivider = () => (
 const Home = () => {
     return(
         <>
-            <section className="hero-wrapper">
-              <div className="hero-container">
-                <Hero />
-              </div>
-            </section>
+            <ScrollSection effect="hero">
+              <section className="hero-wrapper">
+                <div className="hero-container">
+                  <Hero />
+                </div>
+              </section>
+            </ScrollSection>
 
             <SectionDivider />
-            <About />
+            <ScrollSection effect="grow">
+              <About />
+            </ScrollSection>
             <SectionDivider />
-            <Services />
+            <Framework />
             <SectionDivider />
-            <Portfolio />
+            <ScrollSection effect="shrink">
+              <Services />
+            </ScrollSection>
             <SectionDivider />
-            <Company />
+            <ScrollSection effect="fade">
+              <Portfolio />
+            </ScrollSection>
             <SectionDivider />
-            <Blog />
+            <ScrollSection effect="grow">
+              <Company />
+            </ScrollSection>
             <SectionDivider />
-            <Contact />
+            <ScrollSection effect="shrink">
+              <Blog />
+            </ScrollSection>
+            <SectionDivider />
+            <ScrollSection effect="fade">
+              <Contact />
+            </ScrollSection>
         </>
     )
 }

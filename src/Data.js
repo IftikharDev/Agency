@@ -129,6 +129,33 @@ export const missionValues = [
   }
 ];
 
+export const workflowSteps = [
+  {
+    id: 1,
+    number: '01',
+    title: 'Strategy',
+    icon: 'TbSearch',
+    description:
+      'We dig into your goals, users, and constraints first — mapping scope, priorities, and success metrics so every design and engineering decision has a clear north star.',
+  },
+  {
+    id: 2,
+    number: '02',
+    title: 'Design',
+    icon: 'TbPalette',
+    description:
+      'Wireframes become high-fidelity UI, then interactive prototypes. You see the product before a single line of production code — so we build exactly what was approved.',
+  },
+  {
+    id: 3,
+    number: '03',
+    title: 'Development',
+    icon: 'TbCode',
+    description:
+      'Pixel-perfect frontend, solid APIs, and cloud-ready architecture. We ship in focused sprints with full visibility — from first commit to production launch.',
+  },
+];
+
 export const usefulLinks = [
   {
     id: 2,
