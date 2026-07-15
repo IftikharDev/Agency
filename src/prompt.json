@@ -1,0 +1,68 @@
+{
+  "video_title": "Cloud Insider — How We Build",
+  "campaign_angle": "A3 — Built Like It's Meant to Stay",
+  "hook_line": "We don't just launch products. We build what lasts.",
+  "total_duration_seconds": 30,
+  "visual_identity": {
+    "background": "Deep navy-black (#0a0e1a), starfield with slow parallax drift",
+    "accent_colors": "Electric cyan (#3ee6e0) to royal blue (#2e5bff) glow gradient",
+    "typography": "Bold condensed sans-serif, uppercase for scene titles, all caps letter-spacing matching 'EMPOWER. EVOLVE. EXCELLENCE.' hero style",
+    "camera_style": "Slow push-in, subtle parallax, no hard cuts — soft cross-dissolves between scenes",
+    "music": "Minimal ambient synth build, low pulsing bassline that grows in intensity scene to scene"
+  },
+
+  "scenes": [
+  
+    {
+      "scene_number": 2,
+      "title": "DESIGN",
+      "duration_seconds": 10,
+      "icon_reference": "TbPalette",
+      "narration_voiceover": "You see the product before we ever write a line of code.",
+      "on_screen_text": [
+        {
+          "timing": "0-2s",
+          "text": "02 / DESIGN",
+          "style": "small, top-left, cyan glow"
+        },
+        {
+          "timing": "6-10s",
+          "text": "Approved before it's built. No surprises.",
+          "style": "centered, fades in bottom third"
+        }
+      ],
+      "visual_sequence": [
+        {
+          "timing": "0-3s",
+          "action": "The bright point from Scene 1 expands into a rough glowing wireframe grid — thin outline boxes, low-fidelity, floating in dark space."
+        },
+        {
+          "timing": "3-7s",
+          "action": "Wireframe boxes sharpen and fill with color, gradually becoming a polished high-fidelity UI screen (app/dashboard mockup), rotating slightly in 3D as it solidifies."
+        },
+        {
+          "timing": "7-10s",
+          "action": "Two or three UI screens fan out like an interactive prototype, a cursor/tap indicator taps between them smoothly, showing interactivity. TbPalette icon briefly overlays top corner."
+        }
+      ],
+      "sound_design": "Soft synth swell as wireframe sharpens into color, subtle 'click' sfx on the cursor tap moment",
+      "transition_out": "UI screens collapse into a single glowing horizontal line — matches opening shot of Scene 3"
+    },
+    
+  ],
+
+  "closing_frame": {
+    "duration_seconds": 3,
+    "note": "Optional 4th beat if total runtime allows 33s, otherwise fold into last 3s of Scene 3",
+    "on_screen_text": "Cloud Insider — We Build What Lasts.",
+    "cta_button": "Get a Quote",
+    "visual_direction": "Static hold on logo + tagline + CTA over the glowing horizon, subtle star twinkle in background loop"
+  },
+
+  "flow_generation_notes": [
+    "Generate each scene as a separate 10s clip for cleaner Flow output, then stitch with 0.5s cross-dissolve transitions.",
+    "Feed the exact hex codes (#0a0e1a background, #3ee6e0 cyan, #2e5bff blue) into every scene prompt for color consistency across generations.",
+    "Upload the actual logo file for Scene 3's final frame — don't let Flow re-generate a logo from text description.",
+    "If Flow struggles with the 'dots forming a network' concept in Scene 1, fallback prompt: 'abstract glowing constellation forming a roadmap shape on black background, cinematic, slow camera push-in.'"
+  ]
+}
