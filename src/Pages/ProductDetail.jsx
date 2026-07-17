@@ -4,12 +4,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**ICON IMPORTS */
-import {
-  TbChartAreaLine,
-  TbCpu,
-  TbShieldCheck,
-  TbCheck,
-} from "react-icons/tb";
+import { TbChartAreaLine, TbCpu, TbShieldCheck, TbCheck } from "react-icons/tb";
 
 /**DATA IMPORTS */
 import { saasProducts } from "../Data";
@@ -345,7 +340,7 @@ const ProductDetail = () => {
               </div>
 
               {/* Slide counter badge */}
-              <div
+              {/* <div
                 style={{
                   position: "absolute",
                   top: "16px",
@@ -364,7 +359,7 @@ const ProductDetail = () => {
                 }}
               >
                 {currentSlide + 1} / {images.length}
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
