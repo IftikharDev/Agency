@@ -8,7 +8,6 @@ import {
   TbChartAreaLine,
   TbCpu,
   TbShieldCheck,
-  TbArrowLeft,
   TbCheck,
 } from "react-icons/tb";
 
