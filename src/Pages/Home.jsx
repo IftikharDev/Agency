@@ -33,13 +33,7 @@ const SectionDivider = () => (
 const Home = () => {
     return(
         <>
-            <ScrollSection effect="hero">
-              <section className="hero-wrapper">
-                <div className="hero-container">
-                  <Hero />
-                </div>
-              </section>
-            </ScrollSection>
+            <Hero />
 
             <SectionDivider />
             <ScrollSection effect="grow">

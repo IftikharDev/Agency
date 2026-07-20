@@ -41,6 +41,18 @@
   .hover-letter {
     margin-top: 2rem;
   }
+  .gsap-hero-wrapper {
+    height: 250vh;
+  }
+  .gsap-hero-text-overlay .hero-title {
+    font-size: 28px;
+  }
+  .gsap-hero-text-overlay .hero-subtitle {
+    font-size: 14px;
+  }
+  .gsap-hero-scroll-indicator {
+    margin-top: 24px;
+  }
    .section2-wrapper {
     padding: 60px 12px;
   }
@@ -258,6 +270,15 @@
   }
   .hover-letter {
     margin-top: 2.5rem;
+  }
+  .gsap-hero-wrapper {
+    height: 300vh;
+  }
+  .gsap-hero-text-overlay .hero-title {
+    font-size: 36px;
+  }
+  .gsap-hero-text-overlay .hero-subtitle {
+    font-size: 16px;
   }
    .section2-wrapper {
     padding: 70px 16px;

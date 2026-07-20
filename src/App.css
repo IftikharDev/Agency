@@ -393,6 +393,162 @@ html {
   white-space: nowrap;
 }
 
+/* ─── GSAP Scroll-Linked Hero ─── */
+
+.gsap-hero-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400vh; /* 4× viewport for scroll duration */
+  background-color: #050914;
+}
+
+.gsap-hero-sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.gsap-hero-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #050914;
+}
+
+/* Text overlay — sits on top of the canvas */
+.gsap-hero-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.gsap-hero-text-overlay .hero-content-wrapper {
+  pointer-events: auto;
+}
+
+.gsap-hero-text-overlay .hover-letter {
+  margin-top: 0;
+}
+
+/* ─── Loading overlay ─── */
+
+.gsap-hero-loader {
+  position: absolute;
+  inset: 0;
+  background-color: #050914;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.gsap-hero-loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.gsap-hero-spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(77, 242, 255, 0.15);
+  border-top-color: #4DF2FF;
+  border-radius: 50%;
+  animation: gsapHeroSpin 0.8s linear infinite;
+}
+
+@keyframes gsapHeroSpin {
+  to { transform: rotate(360deg); }
+}
+
+.gsap-hero-loader-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.gsap-hero-progress-track {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.gsap-hero-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2D6BFF, #4DF2FF);
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+
+.gsap-hero-loader-pct {
+  color: #4DF2FF;
+  font-size: 13px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── Scroll-to-explore indicator ─── */
+
+.gsap-hero-scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 48px;
+}
+
+.gsap-hero-scroll-text {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.gsap-hero-scroll-mouse {
+  width: 22px;
+  height: 34px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.gsap-hero-scroll-dot {
+  width: 3px;
+  height: 8px;
+  background: #4DF2FF;
+  border-radius: 3px;
+  animation: gsapScrollDot 1.5s ease-in-out infinite;
+}
+
+@keyframes gsapScrollDot {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(8px);
+  }
+}
+
+
 .section2-wrapper {
   position: relative;
   width: 100%;
