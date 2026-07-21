@@ -7,9 +7,7 @@ import EmoteAI from './Images/emoteai.png';
 import Docs2AI from './Images/do2ai.png';
 import OworldBD from './Images/oworldbd.png';
 import PropertyFinder from './Images/propertyfinder.png';
-import ApplyGoal from './Images/applygoal.png';
 import StudyBuddy from './Images/studybuddy.png';
-import CrmApplyGoal from './Images/crmapplygoal.png';
 import Gizoora from './Images/gizora.png';
 
 export const serviceList = [
@@ -232,16 +230,6 @@ export const portfolioProjects = [
     featured: true,
   },
   {
-    id: 5,
-    title: 'ApplyGoal',
-    category: 'SaaS',
-    description: 'End-to-end study abroad platform streamlining university applications, visa processing, and student counseling workflows.',
-    stack: ['Next.js', 'React', 'Cloudflare', 'Cloudinary'],
-    image: ApplyGoal,
-    url: 'https://applygoal.com',
-    featured: false,
-  },
-  {
     id: 6,
     title: 'StudyBuddy',
     category: 'SaaS',
@@ -250,16 +238,6 @@ export const portfolioProjects = [
     image: StudyBuddy,
     url: 'https://studybuddy.gg',
     featured: false,
-  },
-  {
-    id: 7,
-    title: 'ApplyGoal CRM',
-    category: 'SaaS',
-    description: 'Custom CRM built for education consultancies — managing leads, applications, and agent pipelines in one unified dashboard.',
-    stack: ['Next.js', 'React', 'Tailwind CSS', 'Cloudflare'],
-    image: CrmApplyGoal,
-    url: 'https://crm.applygoal.com',
-    featured: true,
   },
   {
     id: 8,
