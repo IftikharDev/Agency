@@ -335,13 +335,10 @@ html {
 }
 
 .hover-letter {
-  margin-top: 4rem;
   display: inline-block;
   position: relative;
   cursor: pointer;
-  color: #8a8a8a;
-  filter: grayscale(100%);
-  opacity: 0.6;
+  color: rgba(255, 255, 255, 0.88);
   transition:
     filter 0.3s ease,
     color 0.3s ease,
@@ -351,18 +348,20 @@ html {
 }
 
 .hover-letter.hovered {
-  color: #00b4ff;
-  transform: translateY(-6px) scale(1.1);
-  text-shadow: 0 10px 30px rgba(13, 82, 173, 0.5);
-  filter: grayscale(0%);
-  opacity: 1;
+  color: #4DF2FF;
+  transform: translateY(-6px) scale(1.12);
+  text-shadow:
+    0 0 20px rgba(77, 242, 255, 0.6),
+    0 10px 30px rgba(13, 82, 173, 0.5);
+  filter: brightness(1.2);
 }
 
 .hover-letter.neighbor-glow {
   color: #66d9ff;
-  text-shadow: 0 6px 20px rgba(0, 194, 255, 0.3);
-  filter: grayscale(0%);
-  opacity: 1;
+  text-shadow:
+    0 0 12px rgba(77, 242, 255, 0.3),
+    0 6px 20px rgba(0, 194, 255, 0.2);
+  filter: brightness(1.1);
 }
 
 .hero-wrapper {
