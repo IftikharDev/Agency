@@ -6,12 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 240;
+const FRAME_COUNT = 160;
 
 /** Build the URL for a given frame index (1-based) */
 const getFrameUrl = (index) => {
   const num = String(index).padStart(3, "0");
-  return `${process.env.PUBLIC_URL}/sequence/ezgif-frame-${num}.webp`;
+  return `${process.env.PUBLIC_URL}/160fps4k-opt/ezgif-frame-${num}.webp`;
 };
 
 /**
