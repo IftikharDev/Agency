@@ -398,7 +398,7 @@ html {
 .gsap-hero-wrapper {
   position: relative;
   width: 100%;
-  height: 400vh; /* 4× viewport for scroll duration */
+  height: 500vh; /* 5× viewport for longer scroll duration with 240 frames */
   background-color: #050914;
 }
 
@@ -424,19 +424,149 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 2;
   pointer-events: none;
 }
 
-.gsap-hero-text-overlay .hero-content-wrapper {
-  pointer-events: auto;
+/* ─── Scrollytelling Beat Overlays ─── */
+
+.beat-overlay {
+  position: absolute;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 clamp(24px, 5vw, 80px);
+  transition: none; /* JS handles transitions */
+  will-change: opacity, transform;
 }
 
-.gsap-hero-text-overlay .hover-letter {
-  margin-top: 0;
+/* Alignment variants */
+.beat-center {
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  text-align: center;
+  /* translateY is handled via JS transform, but we offset the centering */
+  margin-left: -600px;
+}
+
+@media (max-width: 1280px) {
+  .beat-center {
+    left: 0;
+    margin-left: 0;
+    max-width: 100%;
+  }
+}
+
+.beat-left {
+  top: 50%;
+  left: 0;
+  text-align: left;
+}
+
+.beat-right {
+  top: 50%;
+  right: 0;
+  left: auto;
+  text-align: right;
+}
+
+/* Beat typography — premium enterprise style */
+.beat-title {
+  font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(36px, 6vw, 96px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 20px 0;
+  text-transform: none;
+}
+
+.beat-subtitle {
+  font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(14px, 1.8vw, 22px);
+  font-weight: 300;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 32px 0;
+  max-width: 650px;
+  letter-spacing: 0.01em;
+}
+
+.beat-center .beat-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.beat-right .beat-subtitle {
+  margin-left: auto;
+}
+
+/* Cyan glow pulse on select beat titles */
+.beat-glow-pulse {
+  animation: beatGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes beatGlowPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 20px rgba(77, 242, 255, 0),
+      0 0 60px rgba(45, 107, 255, 0);
+  }
+  50% {
+    text-shadow:
+      0 0 30px rgba(77, 242, 255, 0.25),
+      0 0 80px rgba(45, 107, 255, 0.15);
+  }
+}
+
+/* CTA Button — glassmorphic gradient border */
+.beat-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  border-radius: 60px;
+  font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  /* Gradient border trick */
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(rgba(5, 9, 20, 0.8), rgba(5, 9, 20, 0.8)),
+    linear-gradient(135deg, #2D6BFF, #4DF2FF);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 30px rgba(77, 242, 255, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.beat-cta-button:hover {
+  box-shadow:
+    0 0 50px rgba(77, 242, 255, 0.3),
+    0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.beat-cta-button svg {
+  transition: transform 0.3s ease;
+}
+
+.beat-cta-button:hover svg {
+  transform: translateX(4px);
 }
 
 /* ─── Loading overlay ─── */
@@ -455,16 +585,18 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
 .gsap-hero-spinner {
-  width: 48px;
-  height: 48px;
-  border: 3px solid rgba(77, 242, 255, 0.15);
+  width: 52px;
+  height: 52px;
+  border: 3px solid rgba(77, 242, 255, 0.12);
   border-top-color: #4DF2FF;
+  border-right-color: #2D6BFF;
   border-radius: 50%;
-  animation: gsapHeroSpin 0.8s linear infinite;
+  animation: gsapHeroSpin 0.9s linear infinite;
+  box-shadow: 0 0 24px rgba(77, 242, 255, 0.15);
 }
 
 @keyframes gsapHeroSpin {
@@ -472,57 +604,64 @@ html {
 }
 
 .gsap-hero-loader-text {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
-  font-weight: 300;
-  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
 .gsap-hero-progress-track {
-  width: 200px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 3px;
+  width: 240px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
   overflow: hidden;
 }
 
 .gsap-hero-progress-bar {
   height: 100%;
   background: linear-gradient(90deg, #2D6BFF, #4DF2FF);
-  border-radius: 3px;
-  transition: width 0.2s ease;
+  border-radius: 2px;
+  transition: width 0.15s ease;
+  box-shadow: 0 0 12px rgba(77, 242, 255, 0.4);
 }
 
 .gsap-hero-loader-pct {
   color: #4DF2FF;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
 }
 
-/* ─── Scroll-to-explore indicator ─── */
+/* ─── Scroll-to-explore indicator (bottom-center) ─── */
 
 .gsap-hero-scroll-indicator {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 48px;
+  gap: 10px;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .gsap-hero-scroll-text {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 
 .gsap-hero-scroll-mouse {
   width: 22px;
   height: 34px;
-  border: 2px solid rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   display: flex;
   justify-content: center;
@@ -530,11 +669,12 @@ html {
 }
 
 .gsap-hero-scroll-dot {
-  width: 3px;
-  height: 8px;
+  width: 2px;
+  height: 7px;
   background: #4DF2FF;
-  border-radius: 3px;
-  animation: gsapScrollDot 1.5s ease-in-out infinite;
+  border-radius: 2px;
+  animation: gsapScrollDot 1.8s ease-in-out infinite;
+  box-shadow: 0 0 6px rgba(77, 242, 255, 0.5);
 }
 
 @keyframes gsapScrollDot {
@@ -543,8 +683,44 @@ html {
     transform: translateY(0);
   }
   50% {
-    opacity: 0.3;
-    transform: translateY(8px);
+    opacity: 0.2;
+    transform: translateY(10px);
+  }
+}
+
+/* ─── Beat Overlay Responsive ─── */
+@media (max-width: 768px) {
+  .beat-overlay {
+    padding: 0 20px;
+  }
+
+  .beat-title {
+    font-size: clamp(28px, 8vw, 48px);
+    letter-spacing: -0.02em;
+  }
+
+  .beat-subtitle {
+    font-size: clamp(13px, 3.5vw, 16px);
+    max-width: 100%;
+  }
+
+  .beat-left,
+  .beat-right {
+    text-align: center;
+  }
+
+  .beat-right .beat-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .beat-cta-button {
+    padding: 14px 32px;
+    font-size: 14px;
+  }
+
+  .gsap-hero-scroll-indicator {
+    bottom: 28px;
   }
 }
 
