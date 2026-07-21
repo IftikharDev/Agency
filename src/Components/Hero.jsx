@@ -11,7 +11,7 @@ const FRAME_COUNT = 240;
 /** Build the URL for a given frame index (1-based) */
 const getFrameUrl = (index) => {
   const num = String(index).padStart(3, "0");
-  return `${process.env.PUBLIC_URL}/sequence/ezgif-frame-${num}.jpg`;
+  return `${process.env.PUBLIC_URL}/sequence/ezgif-frame-${num}.webp`;
 };
 
 /**
