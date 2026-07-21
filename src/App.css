@@ -481,6 +481,17 @@ html {
   text-transform: none;
 }
 
+.first-beat-title {
+  white-space: nowrap;
+  font-size: clamp(20px, 4vw, 66px);
+  display: flex;
+  justify-content: center;
+}
+
+.first-beat-title .hover-letter:not(.hovered):not(.neighbor-glow) {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .beat-subtitle {
   font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(14px, 1.8vw, 22px);

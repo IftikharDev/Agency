@@ -20,11 +20,12 @@ const getFrameUrl = (index) => {
 const BEATS = [
   {
     start: 0.0,
-    end: 0.2,
+    end: 0.15,
     align: "center",
-    title: "Cloud Insider",
-    subtitle: "Every system. One living network.",
+    title: "EMPOWER. EVOLVE. EXCELLENCE",
+    subtitle: "We Build What Lasts.",
     glowPulse: false,
+    titleClass: "first-beat-title",
   },
   {
     start: 0.25,
@@ -62,14 +63,14 @@ const ALIGN_CLASS = {
 };
 
 /* ─── Hover Letter Sub-Component ─── */
-const HoverTitle = ({ text, glowPulse }) => {
+const HoverTitle = ({ text, glowPulse, titleClass }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   // Split text into words, preserving spaces
   const words = text.split(" ");
 
   return (
-    <h1 className={`beat-title ${glowPulse ? "beat-glow-pulse" : ""}`}>
+    <h1 className={`beat-title ${glowPulse ? "beat-glow-pulse" : ""} ${titleClass || ""}`}>
       {words.map((word, wordIndex) => (
         <span key={wordIndex} className="word">
           {word.split("").map((char, letterIndex) => {
@@ -236,7 +237,7 @@ const Hero = () => {
           if (progress < start || progress > end) {
             opacity = 0;
             y = progress < start ? 30 : -30;
-          } else if (progress <= fadeInEnd) {
+          } else if (progress <= fadeInEnd && start > 0.0) {
             const t = Math.min(1, (progress - start) / (fadeInEnd - start));
             opacity = t;
             y = 30 * (1 - t);
@@ -269,9 +270,15 @@ const Hero = () => {
     });
 
     // Set initial states
-    BEATS.forEach((_, i) => {
+    BEATS.forEach((beat, i) => {
       const el = beatRefs.current[i];
-      if (el) gsap.set(el, { opacity: 0, y: 30, pointerEvents: "none" });
+      if (el) {
+        if (beat.start === 0.0) {
+          gsap.set(el, { opacity: 1, y: 0, pointerEvents: "auto" });
+        } else {
+          gsap.set(el, { opacity: 0, y: 30, pointerEvents: "none" });
+        }
+      }
     });
 
     return () => {
@@ -315,7 +322,7 @@ const Hero = () => {
                 className={`beat-overlay ${ALIGN_CLASS[beat.align]}`}
                 style={{ opacity: 0 }} /* GSAP controls visibility */
               >
-                <HoverTitle text={beat.title} glowPulse={beat.glowPulse} />
+                <HoverTitle text={beat.title} glowPulse={beat.glowPulse} titleClass={beat.titleClass} />
                 <p className="beat-subtitle">{beat.subtitle}</p>
                 {beat.cta && (
                   <motion.a
