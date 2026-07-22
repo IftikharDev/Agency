@@ -11,7 +11,8 @@ const FRAME_COUNT = 160;
 /** Build the URL for a given frame index (1-based) */
 const getFrameUrl = (index) => {
   const num = String(index).padStart(3, "0");
-  return `${process.env.PUBLIC_URL}/160fps4k-opt/ezgif-frame-${num}.webp`;
+  const baseUrl = process.env.PUBLIC_URL || "";
+  return `${baseUrl}/160fps4k-opt/ezgif-frame-${num}.webp`;
 };
 
 /**
@@ -65,8 +66,6 @@ const ALIGN_CLASS = {
 /* ─── Hover Letter Sub-Component ─── */
 const HoverTitle = ({ text, glowPulse, titleClass }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  // Split text into words, preserving spaces
   const words = text.split(" ");
 
   return (
@@ -102,17 +101,19 @@ const HoverTitle = ({ text, glowPulse, titleClass }) => {
   );
 };
 
+
+
 const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
 
   const canvasRef = useRef(null);
   const wrapperRef = useRef(null);
-  const imagesRef = useRef([]);
+  const stickyRef = useRef(null);
+  const framesRef = useRef([]);
   const frameIndexRef = useRef(0);
-  const rafRef = useRef(null);
+  const playheadRef = useRef({ frame: 0 });
 
-  // Refs for GSAP-animated elements
   const beatRefs = useRef([]);
   const scrollIndicatorRef = useRef(null);
 
@@ -121,14 +122,13 @@ const Hero = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
-    const img = imagesRef.current[index];
-    if (!img || !img.complete || !img.naturalWidth) return;
+    const img = framesRef.current[index];
+    
+    if (!img || !img.complete || img.naturalWidth === 0) return;
 
     const cw = canvas.width;
     const ch = canvas.height;
-
-    // object-fit: cover logic
-    const imgRatio = img.naturalWidth / img.naturalHeight;
+    const imgRatio = img.width / img.height;
     const canvasRatio = cw / ch;
 
     let drawW, drawH, offsetX, offsetY;
@@ -144,11 +144,12 @@ const Hero = () => {
       offsetY = 0;
     }
 
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = "high";
     ctx.clearRect(0, 0, cw, ch);
     ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
   }, []);
 
-  /** Resize canvas to match its display size (retina-aware) */
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -159,142 +160,141 @@ const Hero = () => {
     drawFrame(frameIndexRef.current);
   }, [drawFrame]);
 
-  /** Preload all frames */
+  /** Preload all frames using standard Image objects */
   useEffect(() => {
     let loaded = 0;
     const images = [];
+    
+    const fallbackTimer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 10000);
 
-    for (let i = 1; i <= FRAME_COUNT; i++) {
+    const checkLoaded = () => {
+      loaded++;
+      setLoadProgress(Math.round((loaded / FRAME_COUNT) * 100));
+      if (loaded >= FRAME_COUNT) {
+        clearTimeout(fallbackTimer);
+        setIsLoaded(true);
+      }
+    };
+
+    for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
-      img.src = getFrameUrl(i);
-      img.onload = () => { // eslint-disable-line no-loop-func
-        loaded++;
-        setLoadProgress(Math.round((loaded / FRAME_COUNT) * 100));
-        if (loaded === FRAME_COUNT) {
-          setIsLoaded(true);
-        }
-      };
-      img.onerror = () => { // eslint-disable-line no-loop-func
-        loaded++;
-        setLoadProgress(Math.round((loaded / FRAME_COUNT) * 100));
-        if (loaded === FRAME_COUNT) {
-          setIsLoaded(true);
-        }
-      };
+      img.onload = checkLoaded;
+      img.onerror = checkLoaded;
+      img.src = getFrameUrl(i + 1);
       images.push(img);
     }
-
-    imagesRef.current = images;
+    
+    framesRef.current = images;
+    
+    return () => clearTimeout(fallbackTimer);
   }, []);
 
-  /** Setup GSAP ScrollTrigger for canvas + text beats + scroll indicator */
+  /** GSAP scroll-linked frame animation + text beats */
   useEffect(() => {
     if (!isLoaded) return;
 
-    // Initial draw + resize
     resizeCanvas();
     drawFrame(0);
 
-    // Responsive resize
-    window.addEventListener("resize", resizeCanvas);
+    const updateBeats = (progress) => {
+      BEATS.forEach((beat, i) => {
+        const el = beatRefs.current[i];
+        if (!el) return;
 
-    // ─── Canvas Frame + Text Beats — Single ScrollTrigger ───
-    const trigger = ScrollTrigger.create({
-      trigger: wrapperRef.current,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 0.6,
-      onUpdate: (self) => {
-        const progress = self.progress; // 0 → 1
+        const { start, end } = beat;
+        const range = end - start;
+        const fadeInEnd = start + range * 0.15;
+        const fadeOutStart = end - range * 0.15;
 
-        // ── Canvas frame ──
-        const newIndex = Math.min(
-          FRAME_COUNT - 1,
-          Math.floor(progress * FRAME_COUNT)
-        );
+        let opacity = 0;
+        let y = 30;
 
-        if (newIndex !== frameIndexRef.current) {
-          frameIndexRef.current = newIndex;
-          if (rafRef.current) cancelAnimationFrame(rafRef.current);
-          rafRef.current = requestAnimationFrame(() => {
-            drawFrame(newIndex);
-          });
+        if (progress < start || progress > end) {
+          opacity = 0;
+          y = progress < start ? 30 : -30;
+        } else if (progress <= fadeInEnd && start > 0) {
+          const t = Math.min(1, (progress - start) / (fadeInEnd - start));
+          opacity = t;
+          y = 30 * (1 - t);
+        } else if (progress <= fadeOutStart) {
+          opacity = 1;
+          y = 0;
+        } else {
+          const t = Math.min(1, (progress - fadeOutStart) / (end - fadeOutStart));
+          opacity = 1 - t;
+          y = -30 * t;
         }
 
-        // ── Beat text overlays ──
-        BEATS.forEach((beat, i) => {
-          const el = beatRefs.current[i];
-          if (!el) return;
-
-          const { start, end } = beat;
-          const range = end - start;
-          const fadeInEnd = start + range * 0.15;
-          const fadeOutStart = end - range * 0.15;
-
-          let opacity = 0;
-          let y = 30;
-
-          if (progress < start || progress > end) {
-            opacity = 0;
-            y = progress < start ? 30 : -30;
-          } else if (progress <= fadeInEnd && start > 0.0) {
-            const t = Math.min(1, (progress - start) / (fadeInEnd - start));
-            opacity = t;
-            y = 30 * (1 - t);
-          } else if (progress <= fadeOutStart) {
-            opacity = 1;
-            y = 0;
-          } else {
-            const t = Math.min(
-              1,
-              (progress - fadeOutStart) / (end - fadeOutStart)
-            );
-            opacity = 1 - t;
-            y = -30 * t;
-          }
-
-          gsap.set(el, {
-            opacity,
-            y,
-            pointerEvents: opacity > 0.1 ? "auto" : "none",
-          });
+        gsap.set(el, {
+          opacity,
+          y,
+          pointerEvents: opacity > 0.1 ? "auto" : "none",
         });
+      });
 
-        // ── Scroll indicator — fade out by 10% scroll ──
-        const indicatorEl = scrollIndicatorRef.current;
-        if (indicatorEl) {
-          const indicatorOpacity = Math.max(0, 1 - progress / 0.1);
-          gsap.set(indicatorEl, { opacity: indicatorOpacity });
-        }
+      const indicatorEl = scrollIndicatorRef.current;
+      if (indicatorEl) {
+        gsap.set(indicatorEl, { opacity: Math.max(0, 1 - progress / 0.1) });
+      }
+    };
+
+    const playhead = playheadRef.current;
+    playhead.frame = 0;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapperRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 0.6,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => updateBeats(self.progress),
       },
     });
 
-    // Set initial states
-    BEATS.forEach((beat, i) => {
-      const el = beatRefs.current[i];
-      if (el) {
-        if (beat.start === 0.0) {
-          gsap.set(el, { opacity: 1, y: 0, pointerEvents: "auto" });
-        } else {
-          gsap.set(el, { opacity: 0, y: 30, pointerEvents: "none" });
-        }
-      }
+    tl.to(playhead, {
+      frame: FRAME_COUNT - 1,
+      ease: "none",
+      onUpdate: () => {
+        const idx = Math.round(playhead.frame);
+        if (idx === frameIndexRef.current) return;
+
+        frameIndexRef.current = idx;
+        requestAnimationFrame(() => drawFrame(idx));
+      },
     });
 
+    BEATS.forEach((beat, i) => {
+      const el = beatRefs.current[i];
+      if (!el) return;
+      gsap.set(el, {
+        opacity: beat.start === 0 ? 1 : 0,
+        y: beat.start === 0 ? 0 : 30,
+        pointerEvents: beat.start === 0 ? "auto" : "none",
+      });
+    });
+
+    const onResize = () => {
+      resizeCanvas();
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener("resize", onResize);
+    ScrollTrigger.refresh();
+
     return () => {
-      trigger.kill();
-      window.removeEventListener("resize", resizeCanvas);
-      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      tl.scrollTrigger?.kill();
+      tl.kill();
+      window.removeEventListener("resize", onResize);
     };
   }, [isLoaded, drawFrame, resizeCanvas]);
 
   return (
     <div className="gsap-hero-wrapper" ref={wrapperRef}>
-      {/* Sticky canvas + text container */}
-      <div className="gsap-hero-sticky">
+      <div className="gsap-hero-sticky" ref={stickyRef}>
         <canvas ref={canvasRef} className="gsap-hero-canvas" />
 
-        {/* Loading overlay */}
         {!isLoaded && (
           <div className="gsap-hero-loader">
             <div className="gsap-hero-loader-inner">
@@ -311,49 +311,51 @@ const Hero = () => {
           </div>
         )}
 
-        {/* Scrollytelling Text Overlays */}
         {isLoaded && (
           <div className="gsap-hero-text-overlay">
-            {/* Beats */}
             {BEATS.map((beat, i) => (
               <div
                 key={i}
-                ref={(el) => (beatRefs.current[i] = el)}
                 className={`beat-overlay ${ALIGN_CLASS[beat.align]}`}
-                style={{ opacity: 0 }} /* GSAP controls visibility */
               >
-                <HoverTitle text={beat.title} glowPulse={beat.glowPulse} titleClass={beat.titleClass} />
-                <p className="beat-subtitle">{beat.subtitle}</p>
-                {beat.cta && (
-                  <motion.a
-                    href={beat.cta.href}
-                    className="beat-cta-button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    <span>{beat.cta.label}</span>
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                <div
+                  ref={(el) => (beatRefs.current[i] = el)}
+                  className="beat-content"
+                  style={{ opacity: 0 }}
+                >
+                  <HoverTitle
+                    text={beat.title}
+                    glowPulse={beat.glowPulse}
+                    titleClass={beat.titleClass}
+                  />
+                  <p className="beat-subtitle">{beat.subtitle}</p>
+                  {beat.cta && (
+                    <motion.a
+                      href={beat.cta.href}
+                      className="beat-cta-button"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
                     >
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </motion.a>
-                )}
+                      <span>{beat.cta.label}</span>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </motion.a>
+                  )}
+                </div>
               </div>
             ))}
 
-            {/* Scroll indicator */}
-            <div
-              ref={scrollIndicatorRef}
-              className="gsap-hero-scroll-indicator"
-            >
+            <div ref={scrollIndicatorRef} className="gsap-hero-scroll-indicator">
               <span className="gsap-hero-scroll-text">Scroll to Explore</span>
               <div className="gsap-hero-scroll-mouse">
                 <div className="gsap-hero-scroll-dot" />

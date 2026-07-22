@@ -397,7 +397,7 @@ html {
 .gsap-hero-wrapper {
   position: relative;
   width: 100%;
-  height: 500vh; /* 5× viewport for longer scroll duration with 240 frames */
+  height: 500vh; /* scroll distance for 160-frame GSAP sequence */
   background-color: #050914;
 }
 
@@ -434,7 +434,10 @@ html {
   width: 100%;
   max-width: 1200px;
   padding: 0 clamp(24px, 5vw, 80px);
-  transition: none; /* JS handles transitions */
+  pointer-events: none;
+}
+
+.beat-content {
   will-change: opacity, transform;
 }
 
@@ -442,23 +445,14 @@ html {
 .beat-center {
   top: 50%;
   left: 50%;
-  transform-origin: center center;
+  transform: translate(-50%, -50%);
   text-align: center;
-  /* translateY is handled via JS transform, but we offset the centering */
-  margin-left: -600px;
-}
-
-@media (max-width: 1280px) {
-  .beat-center {
-    left: 0;
-    margin-left: 0;
-    max-width: 100%;
-  }
 }
 
 .beat-left {
   top: 50%;
   left: 0;
+  transform: translateY(-50%);
   text-align: left;
 }
 
@@ -466,6 +460,7 @@ html {
   top: 50%;
   right: 0;
   left: auto;
+  transform: translateY(-50%);
   text-align: right;
 }
 
@@ -716,6 +711,9 @@ html {
 
   .beat-left,
   .beat-right {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
     text-align: center;
   }
 
