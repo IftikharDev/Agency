@@ -36,6 +36,7 @@ const BEATS = [
     subtitle:
       "From servers to security, unified under one intelligent network.",
     glowPulse: false,
+    titleClass: "glowing-title",
   },
   {
     start: 0.5,
@@ -45,6 +46,7 @@ const BEATS = [
     subtitle:
       "Real-time monitoring, zero-downtime architecture, enterprise-grade security.",
     glowPulse: true,
+    titleClass: "glowing-title",
   },
   {
     start: 0.75,
@@ -54,6 +56,7 @@ const BEATS = [
     subtitle: "Talk to our engineers — see what's possible.",
     cta: { label: "Get Started", href: "#contact" },
     glowPulse: true,
+    titleClass: "glowing-title",
   },
 ];
 
@@ -123,7 +126,7 @@ const Hero = () => {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     const img = framesRef.current[index];
-    
+
     if (!img || !img.complete || img.naturalWidth === 0) return;
 
     const cw = canvas.width;
@@ -164,7 +167,7 @@ const Hero = () => {
   useEffect(() => {
     let loaded = 0;
     const images = [];
-    
+
     const fallbackTimer = setTimeout(() => {
       setIsLoaded(true);
     }, 10000);
@@ -185,9 +188,9 @@ const Hero = () => {
       img.src = getFrameUrl(i + 1);
       images.push(img);
     }
-    
+
     framesRef.current = images;
-    
+
     return () => clearTimeout(fallbackTimer);
   }, []);
 
