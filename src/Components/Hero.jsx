@@ -188,8 +188,7 @@ const Hero = () => {
   useEffect(() => {
     let cancelled = false;
     const images = new Array(FRAME_COUNT).fill(null);
-    let nextIndex = 0;
-    let inFlight = 0;
+    const state = { nextIndex: 0, inFlight: 0 };
     const MAX_CONCURRENT = 6;
 
     const markReady = () => {
@@ -204,20 +203,23 @@ const Hero = () => {
       }
     };
 
+    const onFrameDone = () => {
+      state.inFlight -= 1;
+      markReady();
+      pump();
+    };
+
     const pump = () => {
-      while (!cancelled && inFlight < MAX_CONCURRENT && nextIndex < FRAME_COUNT) {
-        const i = nextIndex++;
-        inFlight++;
+      while (!cancelled && state.inFlight < MAX_CONCURRENT && state.nextIndex < FRAME_COUNT) {
+        const i = state.nextIndex;
+        state.nextIndex += 1;
+        state.inFlight += 1;
+
         const img = new Image();
         img.decoding = "async";
         if (i < READY_THRESHOLD) img.fetchPriority = "high";
-        const finish = () => {
-          inFlight--;
-          markReady();
-          pump();
-        };
-        img.onload = finish;
-        img.onerror = finish;
+        img.onload = onFrameDone;
+        img.onerror = onFrameDone;
         img.src = getFrameUrl(i + 1);
         images[i] = img;
       }
