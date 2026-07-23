@@ -6,13 +6,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 160;
+const FRAME_COUNT = 240;
+/** Active sequence. 160fps4k-opt is kept for later use. */
+const FRAME_FOLDER = "240fps4k-opt";
+/** Start the hero after this many early frames are ready */
+const READY_THRESHOLD = 16;
 
 /** Build the URL for a given frame index (1-based) */
 const getFrameUrl = (index) => {
   const num = String(index).padStart(3, "0");
   const baseUrl = process.env.PUBLIC_URL || "";
-  return `${baseUrl}/160fps4k-opt/ezgif-frame-${num}.webp`;
+  return `${baseUrl}/${FRAME_FOLDER}/ezgif-frame-${num}.webp`;
 };
 
 /**
@@ -104,99 +108,132 @@ const HoverTitle = ({ text, glowPulse, titleClass }) => {
   );
 };
 
-
-
 const Hero = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isReady, setIsReady] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
 
   const canvasRef = useRef(null);
   const wrapperRef = useRef(null);
   const stickyRef = useRef(null);
-  const framesRef = useRef([]);
+  const framesRef = useRef(new Array(FRAME_COUNT).fill(null));
+  const readyCountRef = useRef(0);
   const frameIndexRef = useRef(0);
   const playheadRef = useRef({ frame: 0 });
+  const startedRef = useRef(false);
 
   const beatRefs = useRef([]);
   const scrollIndicatorRef = useRef(null);
 
-  /** Draw a specific frame index on the canvas with cover-fit behavior */
-  const drawFrame = useCallback((index) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const img = framesRef.current[index];
+  /** Prefer exact frame; otherwise nearest loaded neighbor */
+  const getDrawableFrame = useCallback((index) => {
+    const frames = framesRef.current;
+    const exact = frames[index];
+    if (exact?.complete && exact.naturalWidth) return exact;
 
-    if (!img || !img.complete || img.naturalWidth === 0) return;
-
-    const cw = canvas.width;
-    const ch = canvas.height;
-    const imgRatio = img.width / img.height;
-    const canvasRatio = cw / ch;
-
-    let drawW, drawH, offsetX, offsetY;
-    if (canvasRatio > imgRatio) {
-      drawW = cw;
-      drawH = cw / imgRatio;
-      offsetX = 0;
-      offsetY = (ch - drawH) / 2;
-    } else {
-      drawH = ch;
-      drawW = ch * imgRatio;
-      offsetX = (cw - drawW) / 2;
-      offsetY = 0;
+    for (let d = 1; d < FRAME_COUNT; d++) {
+      const prev = frames[index - d];
+      if (prev?.complete && prev.naturalWidth) return prev;
+      const next = frames[index + d];
+      if (next?.complete && next.naturalWidth) return next;
     }
-
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
-    ctx.clearRect(0, 0, cw, ch);
-    ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
+    return null;
   }, []);
+
+  /** Draw a specific frame index on the canvas with cover-fit behavior */
+  const drawFrame = useCallback(
+    (index) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const img = getDrawableFrame(index);
+      if (!img) return;
+
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const imgRatio = img.naturalWidth / img.naturalHeight;
+      const canvasRatio = cw / ch;
+
+      let drawW, drawH, offsetX, offsetY;
+      if (canvasRatio > imgRatio) {
+        drawW = cw;
+        drawH = cw / imgRatio;
+        offsetX = 0;
+        offsetY = (ch - drawH) / 2;
+      } else {
+        drawH = ch;
+        drawW = ch * imgRatio;
+        offsetX = (cw - drawW) / 2;
+        offsetY = 0;
+      }
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, offsetX, offsetY, drawW, drawH);
+    },
+    [getDrawableFrame]
+  );
 
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const rect = canvas.getBoundingClientRect();
     canvas.width = rect.width * dpr;
     canvas.height = rect.height * dpr;
     drawFrame(frameIndexRef.current);
   }, [drawFrame]);
 
-  /** Preload all frames using standard Image objects */
+  /** Progressive preload — start after first frames, throttle the rest */
   useEffect(() => {
-    let loaded = 0;
-    const images = [];
+    let cancelled = false;
+    const images = new Array(FRAME_COUNT).fill(null);
+    let nextIndex = 0;
+    let inFlight = 0;
+    const MAX_CONCURRENT = 6;
 
-    const fallbackTimer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 10000);
-
-    const checkLoaded = () => {
-      loaded++;
+    const markReady = () => {
+      if (cancelled) return;
+      readyCountRef.current += 1;
+      const loaded = readyCountRef.current;
       setLoadProgress(Math.round((loaded / FRAME_COUNT) * 100));
-      if (loaded >= FRAME_COUNT) {
-        clearTimeout(fallbackTimer);
-        setIsLoaded(true);
+
+      if (!startedRef.current && loaded >= READY_THRESHOLD) {
+        startedRef.current = true;
+        setIsReady(true);
       }
     };
 
-    for (let i = 0; i < FRAME_COUNT; i++) {
-      const img = new Image();
-      img.onload = checkLoaded;
-      img.onerror = checkLoaded;
-      img.src = getFrameUrl(i + 1);
-      images.push(img);
-    }
+    const pump = () => {
+      while (!cancelled && inFlight < MAX_CONCURRENT && nextIndex < FRAME_COUNT) {
+        const i = nextIndex++;
+        inFlight++;
+        const img = new Image();
+        img.decoding = "async";
+        if (i < READY_THRESHOLD) img.fetchPriority = "high";
+        const finish = () => {
+          inFlight--;
+          markReady();
+          pump();
+        };
+        img.onload = finish;
+        img.onerror = finish;
+        img.src = getFrameUrl(i + 1);
+        images[i] = img;
+      }
+    };
 
     framesRef.current = images;
+    pump();
 
-    return () => clearTimeout(fallbackTimer);
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   /** GSAP scroll-linked frame animation + text beats */
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isReady) return;
 
     resizeCanvas();
     drawFrame(0);
@@ -263,7 +300,6 @@ const Hero = () => {
       onUpdate: () => {
         const idx = Math.round(playhead.frame);
         if (idx === frameIndexRef.current) return;
-
         frameIndexRef.current = idx;
         requestAnimationFrame(() => drawFrame(idx));
       },
@@ -291,14 +327,14 @@ const Hero = () => {
       tl.kill();
       window.removeEventListener("resize", onResize);
     };
-  }, [isLoaded, drawFrame, resizeCanvas]);
+  }, [isReady, drawFrame, resizeCanvas]);
 
   return (
     <div className="gsap-hero-wrapper" ref={wrapperRef}>
       <div className="gsap-hero-sticky" ref={stickyRef}>
         <canvas ref={canvasRef} className="gsap-hero-canvas" />
 
-        {!isLoaded && (
+        {!isReady && (
           <div className="gsap-hero-loader">
             <div className="gsap-hero-loader-inner">
               <div className="gsap-hero-spinner" />
@@ -314,7 +350,7 @@ const Hero = () => {
           </div>
         )}
 
-        {isLoaded && (
+        {isReady && (
           <div className="gsap-hero-text-overlay">
             {BEATS.map((beat, i) => (
               <div
