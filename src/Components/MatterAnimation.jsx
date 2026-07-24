@@ -47,8 +47,8 @@ const MatterAnimation = () => {
     // Determine screen size for performance & particle scaling
     const isMobile = width < 768;
 
-    // Create attractor body at center — medium size cursor attractor ball
-    const attractorRadius = isMobile ? 22 : 40;
+    // Create attractor body at center — smaller cursor attractor ball
+    const attractorRadius = isMobile ? 12 : 20;
     const attractiveBody = Bodies.circle(
       width / 2,
       height / 2,
@@ -75,8 +75,8 @@ const MatterAnimation = () => {
 
     World.add(world, attractiveBody);
 
-    // Reduced body count for a clean, spacious aesthetic
-    const bodyCount = isMobile ? 8 : 15;
+    // Total number of attracted diverse geometric particles
+    const bodyCount = isMobile ? 25 : 40;
 
     // ─── Color palette matching the website's dark/cyan/blue theme ───
     // Lighter, more translucent shapes for a clean, premium feel
@@ -109,63 +109,114 @@ const MatterAnimation = () => {
       const x = Common.random(0, width);
       const y = Common.random(0, height);
       const colorIdx = Math.floor(Common.random(0, polygonFills.length));
-
-      // Clean geometric polygons — gentle friction
-      const s = Common.random() > 0.5 ? Common.random(14, 65) : Common.random(8, 42);
-      const sides = Math.floor(Common.random(3, 7));
-
-      const polygon = Bodies.polygon(x, y, sides, s, {
-        mass: s / 20,
-        friction: 0.1,
-        frictionAir: 0.05,
-        angle: Math.round(Math.random() * 360),
-        render: {
-          fillStyle: polygonFills[colorIdx],
-          strokeStyle: polygonStrokes[colorIdx],
-          lineWidth: 1,
-        },
-      });
-      World.add(world, polygon);
-
-      // Glowing circles — smooth floating particles
       const ci = Math.floor(Common.random(0, circleFills.length));
-      const circle1 = Bodies.circle(x, y, Common.random(3, 10), {
-        mass: 0.1,
-        friction: 0.1,
-        frictionAir: 0.04,
-        render: {
-          fillStyle: circleFills[ci],
-          strokeStyle: circleStrokes[ci],
-          lineWidth: 1,
-        },
-      });
-      World.add(world, circle1);
+      
+      // Determine shape type (0 to 7) to have exactly 8 diverse types
+      const type = i % 8;
+      let body;
 
-      // Medium circles with gentle drift
-      const circle2 = Bodies.circle(x, y, Common.random(5, 18), {
-        mass: 3,
-        friction: 0.1,
-        frictionAir: 0.05,
-        render: {
-          fillStyle: circleFills[(ci + 1) % circleFills.length],
-          strokeStyle: circleStrokes[(ci + 1) % circleStrokes.length],
-          lineWidth: 1,
-        },
-      });
-      World.add(world, circle2);
+      if (type === 0) {
+        // 1. Tiny Glowing Circle
+        body = Bodies.circle(x, y, Common.random(2, 6), {
+          mass: 0.1,
+          frictionAir: 0.04,
+          render: {
+            fillStyle: circleFills[ci],
+            strokeStyle: circleStrokes[ci],
+            lineWidth: 1,
+          },
+        });
+      } else if (type === 1) {
+        // 2. Medium Circle
+        body = Bodies.circle(x, y, Common.random(6, 12), {
+          mass: 0.3,
+          frictionAir: 0.05,
+          render: {
+            fillStyle: circleFills[ci],
+            strokeStyle: circleStrokes[ci],
+            lineWidth: 1,
+          },
+        });
+      } else if (type === 2) {
+        // 3. Large Soft Circle (Faint Halo)
+        body = Bodies.circle(x, y, Common.random(14, 22), {
+          mass: 0.5,
+          frictionAir: 0.06,
+          render: {
+            fillStyle: "rgba(77, 242, 255, 0.02)",
+            strokeStyle: "rgba(77, 242, 255, 0.06)",
+            lineWidth: 1,
+          },
+        });
+      } else if (type === 3) {
+        // 4. Triangle (Geometric 3-sided polygon)
+        const s = Common.random(10, 20);
+        body = Bodies.polygon(x, y, 3, s, {
+          mass: s / 20,
+          frictionAir: 0.05,
+          angle: Common.random(0, 360),
+          render: {
+            fillStyle: polygonFills[colorIdx],
+            strokeStyle: polygonStrokes[colorIdx],
+            lineWidth: 1,
+          },
+        });
+      } else if (type === 4) {
+        // 5. Square (Geometric 4-sided polygon)
+        const s = Common.random(10, 18);
+        body = Bodies.polygon(x, y, 4, s, {
+          mass: s / 20,
+          frictionAir: 0.05,
+          angle: Common.random(0, 360),
+          render: {
+            fillStyle: polygonFills[colorIdx],
+            strokeStyle: polygonStrokes[colorIdx],
+            lineWidth: 1,
+          },
+        });
+      } else if (type === 5) {
+        // 6. Rectangle (Stretched Slab)
+        const w = Common.random(16, 28);
+        const h = Common.random(8, 14);
+        body = Bodies.rectangle(x, y, w, h, {
+          mass: (w * h) / 300,
+          frictionAir: 0.05,
+          angle: Common.random(0, 360),
+          render: {
+            fillStyle: polygonFills[colorIdx],
+            strokeStyle: polygonStrokes[colorIdx],
+            lineWidth: 1,
+          },
+        });
+      } else if (type === 6) {
+        // 7. Pentagon (Geometric 5-sided polygon)
+        const s = Common.random(12, 22);
+        body = Bodies.polygon(x, y, 5, s, {
+          mass: s / 20,
+          frictionAir: 0.05,
+          angle: Common.random(0, 360),
+          render: {
+            fillStyle: polygonFills[colorIdx],
+            strokeStyle: polygonStrokes[colorIdx],
+            lineWidth: 1,
+          },
+        });
+      } else {
+        // 8. Hexagon (Geometric 6-sided polygon)
+        const s = Common.random(12, 24);
+        body = Bodies.polygon(x, y, 6, s, {
+          mass: s / 20,
+          frictionAir: 0.05,
+          angle: Common.random(0, 360),
+          render: {
+            fillStyle: polygonFills[colorIdx],
+            strokeStyle: polygonStrokes[colorIdx],
+            lineWidth: 1,
+          },
+        });
+      }
 
-      // Larger soft orbs — very faint, add depth
-      const circle3 = Bodies.circle(x, y, Common.random(8, 28), {
-        mass: 0.2,
-        friction: 0.2,
-        frictionAir: 0.06,
-        render: {
-          fillStyle: "rgba(77, 242, 255, 0.03)",
-          strokeStyle: "rgba(77, 242, 255, 0.06)",
-          lineWidth: 1,
-        },
-      });
-      World.add(world, circle3);
+      World.add(world, body);
     }
 
     // Mouse-driven attractor via window listener (does not block page scrolling)
