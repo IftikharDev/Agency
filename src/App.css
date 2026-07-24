@@ -1381,9 +1381,10 @@ html {
 }
 
 .mail-icon,
-.phone-icon {
+.phone-icon,
+.whatsapp-icon {
   color: #fff;
-  font-size: 18px;
+  font-size: 26px;
   border-radius: 4px;
   padding: 2px;
   box-sizing: content-box;

@@ -10,7 +10,7 @@ import { usefulLinks } from "../Data";
 import SocialLinks from "./SocialLinks";
 
 /**ICONS IMPORT */
-import { FiMail, FiPhone } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 const FooterWidget = ({ list, title }) => (

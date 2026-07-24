@@ -2,7 +2,7 @@
 import React from "react";
 
 /**ICONS IMPORT */
-import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 
 
 const links = [
