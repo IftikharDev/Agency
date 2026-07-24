@@ -38,7 +38,7 @@
   .nav-logo-tagline {
     display: none;
   }
-  .hover-letter {
+  .gsap-hero-wrapper .hover-letter {
     margin-top: 2rem;
   }
   .gsap-hero-wrapper {
@@ -268,7 +268,7 @@
   .nav-logo-tagline {
     display: none;
   }
-  .hover-letter {
+  .gsap-hero-wrapper .hover-letter {
     margin-top: 2.5rem;
   }
   .gsap-hero-wrapper {
@@ -484,7 +484,7 @@
   .nav-logo-tagline {
     font-size: 10px;
   }
-  .hover-letter {
+  .gsap-hero-wrapper .hover-letter {
     margin-top: 3rem;
   }
    .section2-wrapper {
@@ -679,7 +679,7 @@
   .hero-subtitle {
     font-size: 18px;
   }
-  .hover-letter {
+  .gsap-hero-wrapper .hover-letter {
     margin-top: 3.5rem;
   }
   .section2-wrapper {

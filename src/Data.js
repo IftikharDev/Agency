@@ -139,6 +139,69 @@ export const saasProducts = [
   }
 ];
 
+export const businessProblems = [
+  {
+    id: 1,
+    problem: "Too busy to reply on Messenger & WhatsApp — customers lose interest and go to competitors",
+    solution: "AI chatbot auto-responds 24/7 on Messenger, WhatsApp, and your website. Captures leads, answers questions, and books appointments — even at 3 AM.",
+    result: "3x",
+    resultLabel: "LEAD CAPTURE",
+    icon: "TbMessageChatbot",
+    gradient: "linear-gradient(135deg, #00C2FF 0%, #0056FF 100%)",
+    accentColor: "#00C2FF",
+  },
+  {
+    id: 2,
+    problem: "Manually posting on social media every day — wasting hours with inconsistent results",
+    solution: "AI auto-generates and schedules 30 days of branded content across all platforms. Your brand stays active — even when you rest.",
+    result: "80%",
+    resultLabel: "TIME SAVED",
+    icon: "TbBrandInstagram",
+    gradient: "linear-gradient(135deg, #A100FF 0%, #5100FF 100%)",
+    accentColor: "#A100FF",
+  },
+  {
+    id: 3,
+    problem: "Sending invoices one by one, chasing payments manually — cash flow bleeding",
+    solution: "AI-powered invoice automation. Auto-generates, sends, and follows up on unpaid invoices via email and WhatsApp. No more awkward calls.",
+    result: "5x",
+    resultLabel: "FASTER BILLING",
+    icon: "TbFileInvoice",
+    gradient: "linear-gradient(135deg, #00E5A0 0%, #00825B 100%)",
+    accentColor: "#00E5A0",
+  },
+  {
+    id: 4,
+    problem: "No idea which leads are hot — sales team wastes time on cold prospects",
+    solution: "AI-powered CRM scores and qualifies every lead automatically. Hot leads pushed to sales instantly. Cold leads nurtured via smart email sequences.",
+    result: "2x",
+    resultLabel: "CONVERSION RATE",
+    icon: "TbTargetArrow",
+    gradient: "linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%)",
+    accentColor: "#FF6B6B",
+  },
+  {
+    id: 5,
+    problem: "Customer support inbox is drowning — same questions asked over and over, every single day",
+    solution: "RAG-powered Q&A bot trained on YOUR docs, FAQs, and policies. Handles 80% of support queries instantly. Your team focuses on what matters.",
+    result: "80%",
+    resultLabel: "TICKET REDUCTION",
+    icon: "TbHeadset",
+    gradient: "linear-gradient(135deg, #FF45A2 0%, #FF74C7 100%)",
+    accentColor: "#FF45A2",
+  },
+  {
+    id: 6,
+    problem: "Website gets 10,000 visitors but only 12 leads — visitors leave without taking any action",
+    solution: "AI lead generation chatbot + smart exit-intent popups. Captures emails, qualifies interest, books calls — turns traffic into revenue.",
+    result: "4x",
+    resultLabel: "WEBSITE LEADS",
+    icon: "TbChartArrowsVertical",
+    gradient: "linear-gradient(135deg, #00D2FF 0%, #3A7BD5 100%)",
+    accentColor: "#00D2FF",
+  },
+];
+
 
 export const missionValues = [
   {

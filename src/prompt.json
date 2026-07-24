@@ -1,68 +1,274 @@
 {
-  "video_title": "Cloud Insider — How We Build",
-  "campaign_angle": "A3 — Built Like It's Meant to Stay",
-  "hook_line": "We don't just launch products. We build what lasts.",
-  "total_duration_seconds": 30,
+  "video_title": "Cloud Insider — How We Help Your Business Grow",
+  "campaign_angle": "Real Problems → Real Solutions → Real Growth",
+  "hook_line": "You're leaving money on the table. Let us fix that.",
+  "total_videos": 6,
   "visual_identity": {
     "background": "Deep navy-black (#0a0e1a), starfield with slow parallax drift",
-    "accent_colors": "Electric cyan (#3ee6e0) to royal blue (#2e5bff) glow gradient",
-    "typography": "Bold condensed sans-serif, uppercase for scene titles, all caps letter-spacing matching 'EMPOWER. EVOLVE. EXCELLENCE.' hero style",
-    "camera_style": "Slow push-in, subtle parallax, no hard cuts — soft cross-dissolves between scenes",
-    "music": "Minimal ambient synth build, low pulsing bassline that grows in intensity scene to scene"
+    "accent_colors": "Electric cyan (#3ee6e0) to royal blue (#2e5bff) glow gradient, problem sections use warm red (#ff4757), solution sections shift to green (#2ed573)",
+    "typography": "Bold condensed sans-serif, uppercase for scene titles, Poppins for body text",
+    "camera_style": "Slow push-in, subtle parallax, no hard cuts — soft cross-dissolves between problem and solution scenes",
+    "music": "Minimal ambient synth build, tension in problem scenes, release and uplift in solution scenes"
   },
 
-  "scenes": [
-  
+  "video_prompts": [
     {
-      "scene_number": 2,
-      "title": "DESIGN",
-      "duration_seconds": 10,
-      "icon_reference": "TbPalette",
-      "narration_voiceover": "You see the product before we ever write a line of code.",
-      "on_screen_text": [
+      "id": 1,
+      "title": "Messenger Overload — Stop Losing Customers to Slow Replies",
+      "business_problem": "Too busy to reply to Messenger / WhatsApp — customers lose interest and go to competitors",
+      "duration_seconds": 30,
+      "scenes": [
         {
-          "timing": "0-2s",
-          "text": "02 / DESIGN",
-          "style": "small, top-left, cyan glow"
+          "timing": "0-5s",
+          "visual": "Close-up of a business owner's phone screen. Messenger and WhatsApp notifications are piling up — 47 unread messages. The owner is on a call, stressed, glancing at the phone. Red notification badges pulse. A customer message reads 'Hello? Are you still there?' with 'Seen 3 hours ago' below it.",
+          "text_overlay": "Your customers are waiting...",
+          "mood": "Tense, urgent"
         },
         {
-          "timing": "6-10s",
-          "text": "Approved before it's built. No surprises.",
-          "style": "centered, fades in bottom third"
+          "timing": "5-10s",
+          "visual": "Split screen — left side shows a frustrated customer closing the chat and opening a competitor's page. Right side shows another customer typing 'I'll just go somewhere else.' Messages going unanswered.",
+          "text_overlay": "And they won't wait forever.",
+          "mood": "Loss, urgency"
+        },
+        {
+          "timing": "10-20s",
+          "visual": "Smooth transition: the chaotic phone screen dissolves into a clean AI chatbot dashboard. The bot is auto-responding to every message instantly — greeting customers, answering product questions, booking appointments, sending product catalogs. Conversation bubbles flowing smoothly. A notification pops up: 'New appointment booked — Sarah K. — Tomorrow 2:00 PM'",
+          "text_overlay": "AI responds instantly. 24/7. On every platform.",
+          "mood": "Relief, efficiency"
+        },
+        {
+          "timing": "20-25s",
+          "visual": "Analytics dashboard zooming in: Lead capture rate jumps from 12% to 38%. A counter animates: '3x more leads captured this month.' The owner is now relaxed, reviewing the dashboard with a coffee, smiling.",
+          "text_overlay": "3x Lead Capture. Zero Missed Messages.",
+          "mood": "Success, confidence"
+        },
+        {
+          "timing": "25-30s",
+          "visual": "Cloud Insider logo with tagline on dark background. CTA button glows.",
+          "text_overlay": "Never lose a customer to slow replies again.\nCloud Insider — We Build What Lasts.",
+          "cta": "Book a Free Consultation"
         }
-      ],
-      "visual_sequence": [
-        {
-          "timing": "0-3s",
-          "action": "The bright point from Scene 1 expands into a rough glowing wireframe grid — thin outline boxes, low-fidelity, floating in dark space."
-        },
-        {
-          "timing": "3-7s",
-          "action": "Wireframe boxes sharpen and fill with color, gradually becoming a polished high-fidelity UI screen (app/dashboard mockup), rotating slightly in 3D as it solidifies."
-        },
-        {
-          "timing": "7-10s",
-          "action": "Two or three UI screens fan out like an interactive prototype, a cursor/tap indicator taps between them smoothly, showing interactivity. TbPalette icon briefly overlays top corner."
-        }
-      ],
-      "sound_design": "Soft synth swell as wireframe sharpens into color, subtle 'click' sfx on the cursor tap moment",
-      "transition_out": "UI screens collapse into a single glowing horizontal line — matches opening shot of Scene 3"
+      ]
     },
-    
+    {
+      "id": 2,
+      "title": "Social Media Burnout — Your Brand Stays Active While You Rest",
+      "business_problem": "Manually posting on social media every day — wasting hours with inconsistent results",
+      "duration_seconds": 30,
+      "scenes": [
+        {
+          "timing": "0-5s",
+          "visual": "A frustrated entrepreneur staring at a blank content calendar at 11:47 PM. Multiple browser tabs open — Canva, Facebook, Instagram, LinkedIn. Empty posting queue. A sticky note on the monitor reads 'POST SOMETHING TODAY!!!' The clock ticks. Nothing gets posted.",
+          "text_overlay": "Another day. No posts. No engagement.",
+          "mood": "Frustration, exhaustion"
+        },
+        {
+          "timing": "5-10s",
+          "visual": "Time-lapse of competitor social pages thriving — likes, comments, shares flooding in. Meanwhile, the owner's business page shows 'Last posted: 12 days ago.' Follower count stagnating. A notification: 'Your page reach dropped 67% this month.'",
+          "text_overlay": "Your competitors aren't sleeping. Your brand is.",
+          "mood": "Anxiety, comparison"
+        },
+        {
+          "timing": "10-20s",
+          "visual": "Clean transition to an AI content dashboard. The system auto-generates 30 days of branded social media content — captions, hashtags, images — tailored to the business. Calendar fills up automatically. Posts scheduled across Facebook, Instagram, LinkedIn, TikTok. A preview shows: Monday 9 AM — Product Showcase. Tuesday 12 PM — Customer Testimonial. Wednesday 6 PM — Behind the Scenes.",
+          "text_overlay": "AI generates 30 days of content. Automatically.",
+          "mood": "Relief, automation magic"
+        },
+        {
+          "timing": "20-25s",
+          "visual": "The owner sipping coffee in the morning while posts go live automatically. Phone buzzes with engagement notifications — likes, comments, new followers. Analytics graph shows consistent posting and 4x engagement growth.",
+          "text_overlay": "80% time saved. Consistent brand presence.",
+          "mood": "Freedom, success"
+        },
+        {
+          "timing": "25-30s",
+          "visual": "Cloud Insider logo with tagline. CTA button.",
+          "text_overlay": "Your brand stays active — even when you rest.\nCloud Insider — We Build What Lasts.",
+          "cta": "Automate Your Social Media"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Invoice Chaos — Get Paid Faster, Chase Less",
+      "business_problem": "Sending invoices one by one, chasing payments manually — cash flow bleeding",
+      "duration_seconds": 30,
+      "scenes": [
+        {
+          "timing": "0-5s",
+          "visual": "A desk buried in paper invoices, printed spreadsheets with yellow highlighter marks. Sticky notes: 'FOLLOW UP - $2,400 overdue', 'CALL MR. AHMED - 3 weeks late'. The owner scrolls through WhatsApp looking for old invoice conversations. A calculator shows negative cash flow.",
+          "text_overlay": "Chasing payments shouldn't be a full-time job.",
+          "mood": "Overwhelm, frustration"
+        },
+        {
+          "timing": "5-10s",
+          "visual": "Montage: manually creating invoices in Word/Excel, copy-pasting client details, attaching PDFs to emails one by one, checking bank statements to match payments. A notification: 'Payment overdue — 45 days.' The owner sighs, picks up the phone to make another awkward follow-up call.",
+          "text_overlay": "Manual invoicing. Manual follow-ups. Manual headaches.",
+          "mood": "Tedium, inefficiency"
+        },
+        {
+          "timing": "10-20s",
+          "visual": "Transition to a clean automated invoice dashboard. AI auto-generates professional invoices on project completion. Invoices auto-sent via email and WhatsApp with payment links. A timeline shows: Day 1 — Invoice sent. Day 3 — Reminder sent automatically. Day 7 — Escalation email with late fee notice. Payment received — green checkmark. Cash flow graph rising steadily.",
+          "text_overlay": "AI invoices. Auto-reminders. Instant payments.",
+          "mood": "Efficiency, control"
+        },
+        {
+          "timing": "20-25s",
+          "visual": "Dashboard showing: 'Average payment time: 3 days (was 23 days)'. Revenue graph climbing. The owner reviews a clean financial summary on a tablet, stress-free. Counter animates: '5x faster billing cycle.'",
+          "text_overlay": "5x faster billing. Zero awkward calls.",
+          "mood": "Relief, growth"
+        },
+        {
+          "timing": "25-30s",
+          "visual": "Cloud Insider logo. CTA.",
+          "text_overlay": "Get paid faster. Chase less.\nCloud Insider — We Build What Lasts.",
+          "cta": "Automate Your Invoicing"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Cold Lead Waste — Stop Guessing, Start Closing",
+      "business_problem": "No idea which leads are hot — sales team wastes time on cold prospects",
+      "duration_seconds": 30,
+      "scenes": [
+        {
+          "timing": "0-5s",
+          "visual": "A sales team in action — one person calling lead after lead, getting voicemail. Another scrolling through a messy spreadsheet with 500+ contacts, all labeled 'new'. A whiteboard shows a funnel with a huge top and almost nothing at the bottom. Post-it: 'Close rate: 2%'.",
+          "text_overlay": "500 leads. 2% close rate. Something's broken.",
+          "mood": "Wasted effort, frustration"
+        },
+        {
+          "timing": "5-10s",
+          "visual": "Close-up of the spreadsheet: no scoring, no priority, no follow-up dates. Sales rep cold-calling someone who already bought from a competitor. Another rep spending 30 minutes on a lead who has no budget. Time and money draining away.",
+          "text_overlay": "Your sales team is guessing. Not selling.",
+          "mood": "Inefficiency"
+        },
+        {
+          "timing": "10-20s",
+          "visual": "Transition to AI-powered CRM dashboard. Leads automatically scored — Hot (red flame icon), Warm (orange), Cold (blue snowflake). AI evaluates: website visits, email opens, form submissions, social interactions. Hot leads pushed to sales reps instantly via notification. Cold leads enter automated nurture email sequences. A pop-up: 'High-intent lead detected — Rafiq Trading — Visited pricing page 3x this week.'",
+          "text_overlay": "AI scores every lead. Your team closes the right ones.",
+          "mood": "Intelligence, precision"
+        },
+        {
+          "timing": "20-25s",
+          "visual": "Close rate counter animating: 2% → 4%. Revenue graph doubling. Sales team celebrating a big deal. Dashboard shows: 'This month: 24 deals closed (was 11).' The sales manager reviews the pipeline with confidence.",
+          "text_overlay": "2x conversion rate. Same team. Smarter system.",
+          "mood": "Victory, growth"
+        },
+        {
+          "timing": "25-30s",
+          "visual": "Cloud Insider logo. CTA.",
+          "text_overlay": "Stop guessing. Start closing.\nCloud Insider — We Build What Lasts.",
+          "cta": "Upgrade Your Sales Pipeline"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Support Inbox Meltdown — Let AI Handle the Repetitive",
+      "business_problem": "Customer support inbox drowning — same questions asked over and over",
+      "duration_seconds": 30,
+      "scenes": [
+        {
+          "timing": "0-5s",
+          "visual": "A support agent's screen — inbox showing 523 unread tickets. Subject lines repeating: 'Where is my order?', 'What's the return policy?', 'How do I reset my password?', 'Do you deliver to Chittagong?'. The agent is copy-pasting the same answer for the 50th time today. Dark circles under eyes. Coffee cups piling up.",
+          "text_overlay": "523 tickets. 80% are the same question.",
+          "mood": "Overwhelm, monotony"
+        },
+        {
+          "timing": "5-10s",
+          "visual": "Customer review popup: '1 star — Nobody replied to my message for 3 days.' Another: 'Terrible support, switching to competitor.' CSAT score dropping: 4.2 → 3.1. The support manager stares at the declining graph.",
+          "text_overlay": "Slow support = lost customers.",
+          "mood": "Consequences, urgency"
+        },
+        {
+          "timing": "10-20s",
+          "visual": "Transition to an AI-powered Q&A bot interface. The bot is trained on the company's full knowledge base — product docs, FAQs, policies, order tracking. Customer asks 'Where is my order?' → Bot instantly pulls tracking info and responds with delivery date. Another asks 'Return policy?' → Bot sends the full policy with a return form link. All in under 2 seconds. Ticket queue counter dropping: 523 → 104.",
+          "text_overlay": "AI trained on YOUR data. Answers instantly.",
+          "mood": "Efficiency, smart automation"
+        },
+        {
+          "timing": "20-25s",
+          "visual": "Dashboard: '80% ticket reduction.' CSAT score climbing back: 3.1 → 4.7. The support agent now focuses on complex issues — actually helping real customers. Team morale up. Counter: '80% of support queries resolved by AI.'",
+          "text_overlay": "80% fewer tickets. Happier customers. Happier team.",
+          "mood": "Victory, relief"
+        },
+        {
+          "timing": "25-30s",
+          "visual": "Cloud Insider logo. CTA.",
+          "text_overlay": "Let AI handle the repetitive. Your team handles the important.\nCloud Insider — We Build What Lasts.",
+          "cta": "Deploy Your AI Support Bot"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Zero Conversions — Turn Visitors Into Customers Automatically",
+      "business_problem": "Website gets traffic but no conversions — visitors leave without taking action",
+      "duration_seconds": 30,
+      "scenes": [
+        {
+          "timing": "0-5s",
+          "visual": "Google Analytics dashboard: 10,000 visitors/month. But conversion counter: 12 leads. That's 0.12%. A heat map shows visitors landing on the homepage, scrolling halfway, and bouncing. Session recordings play: cursor hovers over pricing, then closes the tab. Money flying out the window (animated metaphor).",
+          "text_overlay": "10,000 visitors. 12 leads. Where's the leak?",
+          "mood": "Confusion, missed opportunity"
+        },
+        {
+          "timing": "5-10s",
+          "visual": "The business owner staring at ad spend reports: $2,000/month on Google Ads, $1,500 on Facebook Ads. Total: $3,500/month driving traffic — but almost nothing converting. A calculator shows: Cost per lead = $291. The owner shakes head in disbelief.",
+          "text_overlay": "$3,500/month on ads. 12 leads. Do the math.",
+          "mood": "Waste, frustration"
+        },
+        {
+          "timing": "10-20s",
+          "visual": "Transition: An AI chatbot widget appears on the website's bottom-right corner. A visitor lands on the page — within 5 seconds, the bot greets them with a personalized message: 'Hi! Looking for [product]? I can help you find the perfect fit.' The visitor engages. Bot asks qualifying questions, captures email, recommends products, and books a demo call — all in 60 seconds. Smart exit-intent popup catches another visitor about to leave: 'Wait! Get 15% off your first order.' Email captured.",
+          "text_overlay": "AI engages every visitor. Captures every lead.",
+          "mood": "Activation, engagement"
+        },
+        {
+          "timing": "20-25s",
+          "visual": "Dashboard transformation: Leads counter animates 12 → 200+. Cost per lead drops: $291 → $17.50. Conversion rate: 0.12% → 2%. The owner reviews a full pipeline of qualified leads on a CRM dashboard. Counter: '4x website leads.'",
+          "text_overlay": "4x more leads. Same traffic. Smarter conversion.",
+          "mood": "Success, ROI"
+        },
+        {
+          "timing": "25-30s",
+          "visual": "Cloud Insider logo. CTA.",
+          "text_overlay": "Turn visitors into customers — automatically.\nCloud Insider — We Build What Lasts.",
+          "cta": "Boost Your Conversions"
+        }
+      ]
+    }
   ],
 
-  "closing_frame": {
-    "duration_seconds": 3,
-    "note": "Optional 4th beat if total runtime allows 33s, otherwise fold into last 3s of Scene 3",
-    "on_screen_text": "Cloud Insider — We Build What Lasts.",
-    "cta_button": "Get a Quote",
-    "visual_direction": "Static hold on logo + tagline + CTA over the glowing horizon, subtle star twinkle in background loop"
-  },
-
-  "flow_generation_notes": [
-    "Generate each scene as a separate 10s clip for cleaner Flow output, then stitch with 0.5s cross-dissolve transitions.",
-    "Feed the exact hex codes (#0a0e1a background, #3ee6e0 cyan, #2e5bff blue) into every scene prompt for color consistency across generations.",
-    "Upload the actual logo file for Scene 3's final frame — don't let Flow re-generate a logo from text description.",
-    "If Flow struggles with the 'dots forming a network' concept in Scene 1, fallback prompt: 'abstract glowing constellation forming a roadmap shape on black background, cinematic, slow camera push-in.'"
-  ]
+  "original_design_video": {
+    "video_title": "Cloud Insider — How We Build",
+    "campaign_angle": "A3 — Built Like It's Meant to Stay",
+    "hook_line": "We don't just launch products. We build what lasts.",
+    "note": "Original design/framework video prompt preserved below",
+    "scenes": [
+      {
+        "scene_number": 2,
+        "title": "DESIGN",
+        "duration_seconds": 10,
+        "icon_reference": "TbPalette",
+        "narration_voiceover": "You see the product before we ever write a line of code.",
+        "on_screen_text": [
+          { "timing": "0-2s", "text": "02 / DESIGN", "style": "small, top-left, cyan glow" },
+          { "timing": "6-10s", "text": "Approved before it's built. No surprises.", "style": "centered, fades in bottom third" }
+        ],
+        "visual_sequence": [
+          { "timing": "0-3s", "action": "The bright point from Scene 1 expands into a rough glowing wireframe grid." },
+          { "timing": "3-7s", "action": "Wireframe boxes sharpen and fill with color, becoming a polished high-fidelity UI screen." },
+          { "timing": "7-10s", "action": "Two or three UI screens fan out like an interactive prototype." }
+        ]
+      }
+    ],
+    "closing_frame": {
+      "duration_seconds": 3,
+      "on_screen_text": "Cloud Insider — We Build What Lasts.",
+      "cta_button": "Get a Quote"
+    }
+  }
 }

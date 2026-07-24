@@ -4,10 +4,25 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**ICON IMPORTS */
-import { TbChartAreaLine, TbCpu, TbShieldCheck, TbCheck } from "react-icons/tb";
+import { 
+  TbChartAreaLine, 
+  TbCpu, 
+  TbShieldCheck, 
+  TbCheck,
+  TbTrendingUp,
+  TbMessageChatbot,
+  TbBrandInstagram,
+  TbFileInvoice,
+  TbTargetArrow,
+  TbHeadset,
+  TbChartArrowsVertical,
+  TbAlertTriangle,
+  TbCircleCheck,
+  TbArrowRight
+} from "react-icons/tb";
 
 /**DATA IMPORTS */
-import { saasProducts } from "../Data";
+import { saasProducts, businessProblems } from "../Data";
 
 /**IMAGE IMPORTS — Analytics */
 import analytics1 from "../Images/1CIAnalytics (1).webp";
@@ -38,6 +53,12 @@ const iconMap = {
   TbChartAreaLine: TbChartAreaLine,
   TbCpu: TbCpu,
   TbShieldCheck: TbShieldCheck,
+  TbMessageChatbot: TbMessageChatbot,
+  TbBrandInstagram: TbBrandInstagram,
+  TbFileInvoice: TbFileInvoice,
+  TbTargetArrow: TbTargetArrow,
+  TbHeadset: TbHeadset,
+  TbChartArrowsVertical: TbChartArrowsVertical,
 };
 
 /** Slideshow crossfade variants */
@@ -97,6 +118,17 @@ const ProductDetail = () => {
       opacity: 1,
       y: 0,
       transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
     },
   };
 
@@ -428,6 +460,109 @@ const ProductDetail = () => {
             <span className="btn-text">Get a Custom Quote</span>
           </Link>
         </motion.div>
+
+        {/* Business Problems Section ONLY for CI Automate */}
+        {product.slug === 'ci-automate' && (
+          <div className="business-problems-section" style={{ padding: "100px 0 0 0" }}>
+            <motion.div
+              className="trust-badge"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              style={{ marginBottom: "8px", margin: "0 auto", display: "flex", justifyContent: "center" }}
+            >
+              <TbTrendingUp style={{ fontSize: "16px" }} />
+              <span>Real Problems. Real Solutions. Real Growth.</span>
+            </motion.div>
+
+            <motion.h2 
+              className="section2-title" 
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              style={{ textAlign: "center" }}
+            >
+              How Can We Help Your Business Grow?
+            </motion.h2>
+            <motion.p
+              className="section2-text"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              style={{ marginTop: "12px", maxWidth: "720px", margin: "0 auto 48px auto", textAlign: "center" }}
+            >
+              We don't sell you technology — we solve the problems that are
+              costing you customers and revenue right now. Here's how we help
+              businesses like yours grow 2x, 3x, and beyond.
+            </motion.p>
+
+            <motion.div
+              className="business-problems-grid"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {businessProblems.map((item) => {
+                const ProblemIcon = iconMap[item.icon];
+                return (
+                  <motion.div
+                    key={item.id}
+                    className="bp-card"
+                    variants={{
+                      hidden: { opacity: 0, scale: 0.95 },
+                      visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } }
+                    }}
+                    whileHover={{ y: -6, transition: { duration: 0.3 } }}
+                  >
+                    <div className="bp-card-accent" style={{ background: item.gradient }} />
+                    <div className="bp-card-content">
+                      <div className="bp-card-header">
+                        <div className="bp-card-icon" style={{ background: item.gradient }}>
+                          {ProblemIcon && <ProblemIcon />}
+                        </div>
+                        <div className="bp-card-result-badge">
+                          <span className="bp-result-value" style={{ color: item.accentColor }}>{item.result}</span>
+                          <span className="bp-result-label">{item.resultLabel}</span>
+                        </div>
+                      </div>
+
+                      <div className="bp-problem-block">
+                        <div className="bp-block-label">
+                          <TbAlertTriangle style={{ fontSize: "14px", color: "#FF6B6B" }} />
+                          <span>The Problem</span>
+                        </div>
+                        <p className="bp-problem-text">"{item.problem}"</p>
+                      </div>
+
+                      <div className="bp-divider">
+                        <div className="bp-divider-line" />
+                        <span className="bp-divider-arrow">↓</span>
+                        <div className="bp-divider-line" />
+                      </div>
+
+                      <div className="bp-solution-block">
+                        <div className="bp-block-label">
+                          <TbCircleCheck style={{ fontSize: "14px", color: "#2ED573" }} />
+                          <span>Our Solution</span>
+                        </div>
+                        <p className="bp-solution-text">{item.solution}</p>
+                      </div>
+
+                      <a href="/#contact-us" className="bp-card-cta">
+                        <span>Fix This Problem</span>
+                        <TbArrowRight style={{ marginLeft: "6px" }} />
+                      </a>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </div>
+        )}
       </div>
     </section>
   );
