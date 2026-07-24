@@ -47,8 +47,8 @@ const MatterAnimation = () => {
     // Determine screen size for performance & particle scaling
     const isMobile = width < 768;
 
-    // Create attractor body at center — larger mouse attractor ball
-    const attractorRadius = isMobile ? 45 : 75;
+    // Create attractor body at center — medium size cursor attractor ball
+    const attractorRadius = isMobile ? 22 : 40;
     const attractiveBody = Bodies.circle(
       width / 2,
       height / 2,
@@ -64,8 +64,8 @@ const MatterAnimation = () => {
           attractors: [
             function (bodyA, bodyB) {
               return {
-                x: (bodyA.position.x - bodyB.position.x) * 1.2e-6,
-                y: (bodyA.position.y - bodyB.position.y) * 1.2e-6,
+                x: (bodyA.position.x - bodyB.position.x) * 0.4e-6,
+                y: (bodyA.position.y - bodyB.position.y) * 0.4e-6,
               };
             },
           ],
@@ -75,7 +75,8 @@ const MatterAnimation = () => {
 
     World.add(world, attractiveBody);
 
-    const bodyCount = isMobile ? 22 : 45;
+    // Reduced body count for a clean, spacious aesthetic
+    const bodyCount = isMobile ? 8 : 15;
 
     // ─── Color palette matching the website's dark/cyan/blue theme ───
     // Lighter, more translucent shapes for a clean, premium feel
@@ -109,14 +110,14 @@ const MatterAnimation = () => {
       const y = Common.random(0, height);
       const colorIdx = Math.floor(Common.random(0, polygonFills.length));
 
-      // Clean geometric polygons — larger scale
-      const s = Common.random() > 0.5 ? Common.random(14, 70) : Common.random(8, 48);
+      // Clean geometric polygons — gentle friction
+      const s = Common.random() > 0.5 ? Common.random(14, 65) : Common.random(8, 42);
       const sides = Math.floor(Common.random(3, 7));
 
       const polygon = Bodies.polygon(x, y, sides, s, {
         mass: s / 20,
-        friction: 0,
-        frictionAir: 0.02,
+        friction: 0.1,
+        frictionAir: 0.05,
         angle: Math.round(Math.random() * 360),
         render: {
           fillStyle: polygonFills[colorIdx],
@@ -126,12 +127,12 @@ const MatterAnimation = () => {
       });
       World.add(world, polygon);
 
-      // Glowing circles — larger particles
+      // Glowing circles — smooth floating particles
       const ci = Math.floor(Common.random(0, circleFills.length));
       const circle1 = Bodies.circle(x, y, Common.random(3, 10), {
         mass: 0.1,
-        friction: 0,
-        frictionAir: 0.01,
+        friction: 0.1,
+        frictionAir: 0.04,
         render: {
           fillStyle: circleFills[ci],
           strokeStyle: circleStrokes[ci],
@@ -140,11 +141,11 @@ const MatterAnimation = () => {
       });
       World.add(world, circle1);
 
-      // Medium circles with gentle drift — larger radius
-      const circle2 = Bodies.circle(x, y, Common.random(5, 20), {
+      // Medium circles with gentle drift
+      const circle2 = Bodies.circle(x, y, Common.random(5, 18), {
         mass: 3,
-        friction: 0,
-        frictionAir: 0,
+        friction: 0.1,
+        frictionAir: 0.05,
         render: {
           fillStyle: circleFills[(ci + 1) % circleFills.length],
           strokeStyle: circleStrokes[(ci + 1) % circleStrokes.length],
@@ -154,10 +155,10 @@ const MatterAnimation = () => {
       World.add(world, circle2);
 
       // Larger soft orbs — very faint, add depth
-      const circle3 = Bodies.circle(x, y, Common.random(8, 30), {
+      const circle3 = Bodies.circle(x, y, Common.random(8, 28), {
         mass: 0.2,
-        friction: 0.6,
-        frictionAir: 0.8,
+        friction: 0.2,
+        frictionAir: 0.06,
         render: {
           fillStyle: "rgba(77, 242, 255, 0.03)",
           strokeStyle: "rgba(77, 242, 255, 0.06)",
@@ -182,8 +183,8 @@ const MatterAnimation = () => {
 
     Events.on(engine, "afterUpdate", function () {
       Body.translate(attractiveBody, {
-        x: (mousePos.x - attractiveBody.position.x) * 0.12,
-        y: (mousePos.y - attractiveBody.position.y) * 0.12,
+        x: (mousePos.x - attractiveBody.position.x) * 0.04,
+        y: (mousePos.y - attractiveBody.position.y) * 0.04,
       });
     });
 
