@@ -9,9 +9,6 @@ Matter.use(MatterWrap);
 
 const MatterAnimation = () => {
   const canvasRef = useRef(null);
-  const engineRef = useRef(null);
-  const renderRef = useRef(null);
-  const runnerRef = useRef(null);
 
   useEffect(() => {
     const container = canvasRef.current;
@@ -27,7 +24,6 @@ const MatterAnimation = () => {
     engine.world.gravity.y = 0;
     engine.world.gravity.x = 0;
     engine.world.gravity.scale = 0;
-    engineRef.current = engine;
 
     // Create renderer
     const render = Render.create({
@@ -42,32 +38,34 @@ const MatterAnimation = () => {
         pixelRatio: Math.min(window.devicePixelRatio, 2),
       },
     });
-    renderRef.current = render;
 
     // Create runner
     const runner = Runner.create();
-    runnerRef.current = runner;
 
     const world = engine.world;
 
-    // Create attractor body at center
+    // Determine screen size for performance & particle scaling
+    const isMobile = width < 768;
+
+    // Create attractor body at center — larger mouse attractor ball
+    const attractorRadius = isMobile ? 45 : 75;
     const attractiveBody = Bodies.circle(
       width / 2,
       height / 2,
-      Math.max(width / 25, height / 25) / 2,
+      attractorRadius,
       {
         render: {
-          fillStyle: "#000",
-          strokeStyle: "#000",
-          lineWidth: 0,
+          fillStyle: "rgba(77, 242, 255, 0.04)",
+          strokeStyle: "rgba(77, 242, 255, 0.12)",
+          lineWidth: 1,
         },
         isStatic: true,
         plugin: {
           attractors: [
             function (bodyA, bodyB) {
               return {
-                x: (bodyA.position.x - bodyB.position.x) * 1e-6,
-                y: (bodyA.position.y - bodyB.position.y) * 1e-6,
+                x: (bodyA.position.x - bodyB.position.x) * 1.2e-6,
+                y: (bodyA.position.y - bodyB.position.y) * 1.2e-6,
               };
             },
           ],
@@ -77,80 +75,119 @@ const MatterAnimation = () => {
 
     World.add(world, attractiveBody);
 
-    // Determine body count based on screen width for performance
-    const bodyCount = width < 768 ? 30 : 60;
+    const bodyCount = isMobile ? 22 : 45;
 
-    // Add bodies that are attracted
+    // ─── Color palette matching the website's dark/cyan/blue theme ───
+    // Lighter, more translucent shapes for a clean, premium feel
+    const polygonFills = [
+      "rgba(77, 242, 255, 0.06)",   // subtle cyan
+      "rgba(45, 107, 255, 0.05)",   // subtle blue
+      "rgba(71, 231, 231, 0.04)",   // teal hint
+      "rgba(255, 255, 255, 0.03)",  // faint white
+    ];
+    const polygonStrokes = [
+      "rgba(77, 242, 255, 0.15)",   // cyan edge
+      "rgba(45, 107, 255, 0.12)",   // blue edge
+      "rgba(71, 231, 231, 0.10)",   // teal edge
+      "rgba(255, 255, 255, 0.08)",  // white edge
+    ];
+    const circleFills = [
+      "rgba(77, 242, 255, 0.10)",   // glowing cyan dot
+      "rgba(45, 107, 255, 0.08)",   // blue dot
+      "rgba(71, 231, 231, 0.07)",   // teal dot
+      "rgba(255, 255, 255, 0.05)",  // faint white dot
+    ];
+    const circleStrokes = [
+      "rgba(77, 242, 255, 0.20)",
+      "rgba(45, 107, 255, 0.15)",
+      "rgba(71, 231, 231, 0.12)",
+      "rgba(255, 255, 255, 0.10)",
+    ];
+
     for (let i = 0; i < bodyCount; i += 1) {
       const x = Common.random(0, width);
       const y = Common.random(0, height);
-      const s = Common.random() > 0.6 ? Common.random(10, 80) : Common.random(4, 60);
-      const poligonNumber = Common.random(3, 6);
+      const colorIdx = Math.floor(Common.random(0, polygonFills.length));
 
-      const body = Bodies.polygon(x, y, poligonNumber, s, {
+      // Clean geometric polygons — larger scale
+      const s = Common.random() > 0.5 ? Common.random(14, 70) : Common.random(8, 48);
+      const sides = Math.floor(Common.random(3, 7));
+
+      const polygon = Bodies.polygon(x, y, sides, s, {
         mass: s / 20,
         friction: 0,
         frictionAir: 0.02,
         angle: Math.round(Math.random() * 360),
         render: {
-          fillStyle: "#222222",
-          strokeStyle: "#000000",
-          lineWidth: 2,
+          fillStyle: polygonFills[colorIdx],
+          strokeStyle: polygonStrokes[colorIdx],
+          lineWidth: 1,
         },
       });
-      World.add(world, body);
+      World.add(world, polygon);
 
-      const r = Common.random(0, 1);
-
-      const circle1 = Bodies.circle(x, y, Common.random(2, 8), {
+      // Glowing circles — larger particles
+      const ci = Math.floor(Common.random(0, circleFills.length));
+      const circle1 = Bodies.circle(x, y, Common.random(3, 10), {
         mass: 0.1,
         friction: 0,
         frictionAir: 0.01,
         render: {
-          fillStyle: r > 0.3 ? "#27292d" : "#444444",
-          strokeStyle: "#000000",
-          lineWidth: 2,
+          fillStyle: circleFills[ci],
+          strokeStyle: circleStrokes[ci],
+          lineWidth: 1,
         },
       });
       World.add(world, circle1);
 
-      const circle2 = Bodies.circle(x, y, Common.random(2, 20), {
-        mass: 6,
+      // Medium circles with gentle drift — larger radius
+      const circle2 = Bodies.circle(x, y, Common.random(5, 20), {
+        mass: 3,
         friction: 0,
         frictionAir: 0,
         render: {
-          fillStyle: r > 0.3 ? "#334443" : "#222222",
-          strokeStyle: "#111111",
-          lineWidth: 4,
+          fillStyle: circleFills[(ci + 1) % circleFills.length],
+          strokeStyle: circleStrokes[(ci + 1) % circleStrokes.length],
+          lineWidth: 1,
         },
       });
       World.add(world, circle2);
 
-      const circle3 = Bodies.circle(x, y, Common.random(2, 30), {
+      // Larger soft orbs — very faint, add depth
+      const circle3 = Bodies.circle(x, y, Common.random(8, 30), {
         mass: 0.2,
         friction: 0.6,
         frictionAir: 0.8,
         render: {
-          fillStyle: "#191919",
-          strokeStyle: "#111111",
-          lineWidth: 3,
+          fillStyle: "rgba(77, 242, 255, 0.03)",
+          strokeStyle: "rgba(77, 242, 255, 0.06)",
+          lineWidth: 1,
         },
       });
       World.add(world, circle3);
     }
 
-    // Add mouse control
-    const mouse = Mouse.create(render.canvas);
+    // Mouse-driven attractor via window listener (does not block page scrolling)
+    let mousePos = { x: width / 2, y: height / 2 };
+
+    const handleMouseMove = (e) => {
+      const rect = container.getBoundingClientRect();
+      mousePos = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
 
     Events.on(engine, "afterUpdate", function () {
-      if (!mouse.position.x) return;
       Body.translate(attractiveBody, {
-        x: (mouse.position.x - attractiveBody.position.x) * 0.12,
-        y: (mouse.position.y - attractiveBody.position.y) * 0.12,
+        x: (mousePos.x - attractiveBody.position.x) * 0.12,
+        y: (mousePos.y - attractiveBody.position.y) * 0.12,
       });
     });
 
-    // Start engine and renderer
+    // Start
     Runner.run(runner, engine);
     Render.run(render);
 
@@ -175,6 +212,7 @@ const MatterAnimation = () => {
     // Cleanup
     return () => {
       window.removeEventListener("resize", debouncedResize);
+      window.removeEventListener("mousemove", handleMouseMove);
       clearTimeout(resizeTimeout);
       Render.stop(render);
       Runner.stop(runner);

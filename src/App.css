@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  padding: 2rem 0;
   margin: 0;
   overflow: hidden;
 }
@@ -437,7 +437,7 @@ html {
   position: absolute;
   inset: 0;
   z-index: 1;
-  pointer-events: auto;
+  pointer-events: none;
   overflow: hidden;
 }
 
@@ -476,41 +476,27 @@ html {
   align-items: center;
 }
 
-/* ─── Headline Row: Title + Subtitle on one line ─── */
-.hero-headline-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: clamp(16px, 2.5vw, 40px);
-  flex-wrap: nowrap;
-  width: 100%;
-  margin-bottom: 28px;
-}
-
 .static-hero-title {
   font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(22px, 3.4vw, 52px);
+  font-size: clamp(22px, 3.6vw, 56px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: rgba(255, 255, 255, 0.92);
-  margin: 0;
+  margin: 0 0 24px 0;
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
   white-space: nowrap;
-  flex-shrink: 0;
 }
 
 .static-hero-subtitle {
   font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(18px, 2.4vw, 32px);
+  font-size: clamp(20px, 3vw, 36px);
   font-weight: 600;
   color: #fff;
-  margin: 0;
+  margin: 0 0 16px 0;
   letter-spacing: -0.01em;
-  white-space: nowrap;
-  flex-shrink: 0;
   text-shadow:
     0 0 40px rgba(77, 242, 255, 0.15),
     0 0 80px rgba(45, 107, 255, 0.1);
@@ -532,6 +518,7 @@ html {
   gap: 16px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: clamp(60px, 14vh, 140px);
 }
 
 .static-hero-secondary-btn {
@@ -567,32 +554,16 @@ html {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .hero-headline-row {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .static-hero-title {
-    white-space: normal;
-    justify-content: center;
-  }
-}
-
 @media (max-width: 768px) {
   .static-hero-content {
     padding: 100px 20px 60px;
   }
 
-  .hero-headline-row {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .static-hero-title {
-    font-size: clamp(22px, 6vw, 36px);
+  .static-hero-title,
+  .first-beat-title {
+    font-size: clamp(20px, 5.5vw, 36px);
+    flex-wrap: wrap;
+    white-space: normal;
   }
 
   .static-hero-subtitle {
@@ -606,15 +577,17 @@ html {
 
   .static-hero-buttons {
     flex-direction: column;
-    width: 100%;
+    width: auto;
     gap: 12px;
+    margin-top: clamp(40px, 10vh, 90px);
   }
 
   .static-hero-secondary-btn,
   .static-hero .beat-cta-button {
-    width: 100%;
+    width: auto;
+    max-width: max-content;
     justify-content: center;
-    padding: 14px 28px;
+    padding: 12px 28px;
     font-size: 14px;
   }
 }
@@ -706,7 +679,7 @@ html {
 
 .first-beat-title {
   flex-wrap: nowrap;
-  font-size: clamp(22px, 3.4vw, 52px);
+  font-size: clamp(22px, 3.6vw, 56px);
   display: flex;
   justify-content: center;
   white-space: nowrap;
@@ -981,9 +954,9 @@ html {
 .section2-wrapper {
   position: relative;
   width: 100%;
-  padding: 80px 16px;
+  padding: 40px 16px 80px;
   overflow: hidden !important;
-  margin-top: 9rem;
+  margin-top: 0;
 }
 
 .blur-left,

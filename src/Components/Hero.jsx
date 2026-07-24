@@ -66,22 +66,19 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
         >
-          {/* Title + Subtitle on one line */}
-          <div className="hero-headline-row">
-            <HoverTitle
-              text="EMPOWER. EVOLVE. EXCELLENCE."
-              className="first-beat-title"
-            />
+          <HoverTitle
+            text="EMPOWER. EVOLVE. EXCELLENCE."
+            className="first-beat-title"
+          />
 
-            <motion.p
-              className="static-hero-subtitle"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
-            >
-              We Build What Lasts.
-            </motion.p>
-          </div>
+          <motion.p
+            className="static-hero-subtitle"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+          >
+            We Build What Lasts.
+          </motion.p>
 
           {/* <motion.p
             className="static-hero-desc"
@@ -138,6 +135,8 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
+          style={{ cursor: "pointer" }}
         >
           <span className="gsap-hero-scroll-text">Scroll to Explore</span>
           <div className="gsap-hero-scroll-mouse">
