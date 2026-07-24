@@ -10,8 +10,8 @@ import { usefulLinks } from "../Data";
 import SocialLinks from "./SocialLinks";
 
 /**ICONS IMPORT */
-import { FiMail } from "react-icons/fi";
-import { FiPhone } from "react-icons/fi";
+import { FiMail, FiPhone } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 
 const FooterWidget = ({ list, title }) => (
   <div className="footer-widget">
@@ -70,14 +70,19 @@ const Footer = () => {
               <h3 className="footer-widget-title">Contact Us</h3>
 
               <div className="footer-contact">
-  <FiMail className="mail-icon" />
-  <a href="mailto:sales@cloudinsider.com">sales@cloudinsider.com</a>
-</div>
+                <FiMail className="mail-icon" />
+                <a href="mailto:team@cloudeinsider.com">team@cloudeinsider.com</a>
+              </div>
 
-             <div className="footer-contact">
-  <FiPhone className="phone-icon" />
-  <a href="tel:+916357605131">+91 63576 05131</a>
-</div>
+              <div className="footer-contact">
+                <FaWhatsapp className="whatsapp-icon" />
+                <a href="https://wa.me/8801568483518" target="_blank" rel="noreferrer">+88 0156 8483518</a>
+              </div>
+
+              {/* <div className="footer-contact">
+                 <FiPhone className="phone-icon" />
+                 <a href="tel:+916357605131">+91 63576 05131</a>
+               </div> */}
 
               <div className="footer-social">
                 <h4>Follow Us</h4>
@@ -86,7 +91,7 @@ const Footer = () => {
             </div>
           </motion.div>
 
-         
+
           <motion.div
             className="footer-col footer-right"
             variants={{
@@ -95,18 +100,18 @@ const Footer = () => {
             }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
-          
+
 
             <h2 className="footer-heading">
               We Build What Lasts. With Cloud Insider
             </h2>
 
             <p className="footer-text">
-             Your long-term technical partner for scalable web & app development, seamless design-to-development, and smart automation.
+              Your long-term technical partner for scalable web & app development, seamless design-to-development, and smart automation.
             </p>
-              <div className="footer-logo-wrap">
-                <img src={ciFullLogo} alt="Cloud Insider" className="footer-logo-img-full" />
-              </div>
+            <div className="footer-logo-wrap">
+              <img src={ciFullLogo} alt="Cloud Insider" className="footer-logo-img-full" />
+            </div>
           </motion.div>
         </motion.div>
 
@@ -118,7 +123,7 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
         >
-          © {currentYear} CLOUD INSIDER PRIVATE LIMITED. All rights reserved 
+          © {currentYear} CLOUD INSIDER PRIVATE LIMITED. All rights reserved
         </motion.p>
 
       </div>

@@ -422,13 +422,11 @@ html {
 .static-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 9, 20, 0.55) 0%,
-    rgba(5, 9, 20, 0.7) 40%,
-    rgba(5, 9, 20, 0.85) 75%,
-    rgba(0, 0, 0, 0.95) 100%
-  );
+  background: linear-gradient(180deg,
+      rgba(5, 9, 20, 0.55) 0%,
+      rgba(5, 9, 20, 0.7) 40%,
+      rgba(5, 9, 20, 0.85) 75%,
+      rgba(0, 0, 0, 0.95) 100%);
   z-index: 1;
 }
 
@@ -597,7 +595,8 @@ html {
 .gsap-hero-wrapper {
   position: relative;
   width: 100%;
-  height: 600vh; /* scroll distance for 240-frame GSAP sequence */
+  height: 600vh;
+  /* scroll distance for 240-frame GSAP sequence */
   /* scroll distance for 160-frame GSAP sequence */
   background-color: #050914;
 }
@@ -1390,6 +1389,13 @@ html {
   box-sizing: content-box;
 }
 
+.whatsapp-icon {
+  color: #fff;
+  font-size: 26px;
+  border-radius: 4px;
+  padding: 2px;
+}
+
 .footer-contact a {
   color: #fff;
   text-decoration: none;
@@ -1902,8 +1908,17 @@ html {
 }
 
 @keyframes bpArrowPulse {
-  0%, 100% { opacity: 0.5; transform: translateY(0); }
-  50% { opacity: 1; transform: translateY(3px); }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(3px);
+  }
 }
 
 .bp-solution-block {
@@ -1944,13 +1959,25 @@ html {
 }
 
 @media (max-width: 1024px) {
-  .business-problems-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .business-problems-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
 
 @media (max-width: 640px) {
-  .business-problems-grid { grid-template-columns: 1fr; gap: 20px; }
-  .business-problems-section { padding: 60px 16px; }
-  .bp-card-content { padding: 24px 20px; }
+  .business-problems-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .business-problems-section {
+    padding: 60px 16px;
+  }
+
+  .bp-card-content {
+    padding: 24px 20px;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════
