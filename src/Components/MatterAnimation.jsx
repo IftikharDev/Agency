@@ -14,7 +14,7 @@ const MatterAnimation = () => {
     const container = canvasRef.current;
     if (!container) return;
 
-    const { Engine, Runner, Render, World, Body, Mouse, Common, Bodies, Events } = Matter;
+    const { Engine, Runner, Render, World, Body, Common, Bodies, Events } = Matter;
 
     const width = container.offsetWidth;
     const height = container.offsetHeight;
@@ -55,9 +55,9 @@ const MatterAnimation = () => {
       attractorRadius,
       {
         render: {
-          fillStyle: "rgba(77, 242, 255, 0.04)",
-          strokeStyle: "rgba(77, 242, 255, 0.12)",
-          lineWidth: 1,
+          fillStyle: "rgba(0, 0, 0, 0.7)",
+          strokeStyle: "rgba(0, 0, 0, 0.9)",
+          lineWidth: 2,
         },
         isStatic: true,
         plugin: {
