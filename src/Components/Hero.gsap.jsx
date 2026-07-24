@@ -57,7 +57,7 @@ const BEATS = [
     end: 0.95,
     align: "center",
     title: "Let's Build Your Cloud",
-    subtitle: "Talk to our engineers — see what's possible.",
+    subtitle: "Talk to our engineers to discover what is possible.",
     cta: { label: "Get Started", href: "#contact" },
     glowPulse: true,
     titleClass: "glowing-title",

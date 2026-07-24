@@ -494,9 +494,9 @@ const ProductDetail = () => {
               viewport={{ once: true }}
               style={{ marginTop: "12px", maxWidth: "720px", margin: "0 auto 48px auto", textAlign: "center" }}
             >
-              We don't sell you technology — we solve the problems that are
-              costing you customers and revenue right now. Here's how we help
-              businesses like yours grow 2x, 3x, and beyond.
+              We focus on solving the specific challenges that cost you
+              customers and revenue. Here is how we help businesses like yours
+              scale effectively.
             </motion.p>
 
             <motion.div

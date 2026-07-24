@@ -18,7 +18,7 @@ export const serviceList = [
     title: 'Products That Grow With You, Not Against You',
     imageSrc: Service1,
     description:
-      'Your business won\'t look the same in two years — your platform shouldn\'t either. We architect web and mobile applications built for where you\'re headed, not just where you are. From MVPs that need to ship fast to enterprise systems handling millions of requests, you get a product that scales cleanly and costs less to maintain over time.',
+      'Your business will evolve over the next two years, and your digital platform should grow right alongside it. We build web and mobile applications designed for your future goals. Whether you need a rapid MVP launch or an enterprise platform handling high request volumes, we deliver software that scales cleanly.',
     list: [
       'Custom Web Applications & Portals',
       'Native & Cross-Platform Mobile Apps',
@@ -34,7 +34,7 @@ export const serviceList = [
     title: 'From Pixel to Production, No Gaps',
     imageSrc: Service4,
     description:
-      'Design and development under one roof means your product ships exactly as envisioned — no "lost in translation" between teams. We handle the full journey from wireframe to deployment, so you get a polished product without managing two separate vendors or reconciling mismatched deliverables.',
+      'In-house design and engineering ensure your product ships exactly as intended, avoiding any handoff gaps. We manage the full lifecycle from early wireframes through deployment, delivering a refined product without the friction of multiple vendors.',
     list: [
       'Product Ideation & Wireframing',
       'UI/UX Design & Prototyping',
@@ -50,7 +50,7 @@ export const serviceList = [
     title: 'Automate the Work That Slows You Down',
     imageSrc: Service5,
     description:
-      'We identify bottlenecks in your operations and build targeted automation that saves real hours — connecting your tools, streamlining workflows, and removing the manual work your team shouldn\'t be doing.',
+      'We spot operational bottlenecks and build tailored automation to save your team valuable hours. By integrating your core tools and streamlining daily workflows, we eliminate repetitive manual effort.',
     list: [
       'Workflow Automation',
       'System & API Integrations',
@@ -65,7 +65,7 @@ export const serviceList = [
     title: 'Smarter Customer Conversations, Around the Clock',
     imageSrc: Service3,
     description:
-      'Deploy intelligent chatbots that handle support, capture leads, and qualify prospects — so your team focuses on the conversations that actually need a human.',
+      'Deploy intelligent chatbots that manage support inquiries, capture new leads, and qualify prospects. This allows your internal team to focus on high-priority customer conversations.',
     list: [
       'Custom Chatbot Development',
       'Lead Capture & Qualification Bots',
@@ -82,7 +82,7 @@ export const saasProducts = [
     slug: 'ci-analytics',
     name: 'CI Analytics',
     tagline: 'AI-Powered Business Intelligence',
-    description: 'Transform raw data into actionable insights with our intelligent analytics dashboard. Real-time metrics, predictive forecasting, and automated reporting — all in one platform.',
+    description: 'Transform raw data into clear, actionable insights with our business intelligence dashboard, featuring real-time metrics, predictive forecasting, and automated reporting in a single interface.',
     details: 'CI Analytics is a comprehensive business intelligence platform designed to eliminate data silos. We integrate with your existing databases, CRMs, and marketing tools to provide a unified view of your business health. Using advanced machine learning, the platform not only reports on past performance but predicts future trends.',
     features: [
       'Real-time data visualization',
@@ -102,7 +102,7 @@ export const saasProducts = [
     slug: 'ci-automate',
     name: 'CI Automate',
     tagline: 'Workflow & AI Pipeline Builder',
-    description: 'Design, deploy, and scale intelligent automation workflows without writing a single line of code. Connect 500+ apps and let AI handle the rest.',
+    description: 'Design, deploy, and scale automation workflows effortlessly. Connect over 500 applications and let intelligent systems handle your routine operations.',
     details: 'CI Automate empowers your team to eliminate repetitive tasks. With an intuitive visual builder, you can map out complex workflows that trigger across multiple applications. The built-in AI nodes can parse emails, analyze sentiment, and make routing decisions dynamically, saving your team countless hours.',
     features: [
       'Visual drag-and-drop workflow builder',
@@ -142,8 +142,8 @@ export const saasProducts = [
 export const businessProblems = [
   {
     id: 1,
-    problem: "Too busy to reply on Messenger & WhatsApp — customers lose interest and go to competitors",
-    solution: "AI chatbot auto-responds 24/7 on Messenger, WhatsApp, and your website. Captures leads, answers questions, and books appointments — even at 3 AM.",
+    problem: "Unanswered messages on WhatsApp and social channels cause interested clients to choose competitors",
+    solution: "An automated AI assistant responds instantly 24/7 across your website and messaging apps, capturing leads and booking meetings around the clock.",
     result: "3x",
     resultLabel: "LEAD CAPTURE",
     icon: "TbMessageChatbot",
@@ -152,8 +152,8 @@ export const businessProblems = [
   },
   {
     id: 2,
-    problem: "Manually posting on social media every day — wasting hours with inconsistent results",
-    solution: "AI auto-generates and schedules 30 days of branded content across all platforms. Your brand stays active — even when you rest.",
+    problem: "Creating and posting content manually every day consumes hours with unpredictable engagement",
+    solution: "Automated AI content pipelines generate and schedule branded posts across your active channels, keeping your brand visible consistently.",
     result: "80%",
     resultLabel: "TIME SAVED",
     icon: "TbBrandInstagram",
@@ -162,8 +162,8 @@ export const businessProblems = [
   },
   {
     id: 3,
-    problem: "Sending invoices one by one, chasing payments manually — cash flow bleeding",
-    solution: "AI-powered invoice automation. Auto-generates, sends, and follows up on unpaid invoices via email and WhatsApp. No more awkward calls.",
+    problem: "Creating invoices individually and chasing late payments manually hurts predictable cash flow",
+    solution: "Automated invoicing system generates, delivers, and follows up on pending accounts via email and WhatsApp automatically.",
     result: "5x",
     resultLabel: "FASTER BILLING",
     icon: "TbFileInvoice",
@@ -172,8 +172,8 @@ export const businessProblems = [
   },
   {
     id: 4,
-    problem: "No idea which leads are hot — sales team wastes time on cold prospects",
-    solution: "AI-powered CRM scores and qualifies every lead automatically. Hot leads pushed to sales instantly. Cold leads nurtured via smart email sequences.",
+    problem: "Sales representatives spend valuable hours reaching out to unqualified leads",
+    solution: "Intelligent lead scoring automatically qualifies inbound interest, directing high-value leads straight to sales while nurturing prospects.",
     result: "2x",
     resultLabel: "CONVERSION RATE",
     icon: "TbTargetArrow",
@@ -182,8 +182,8 @@ export const businessProblems = [
   },
   {
     id: 5,
-    problem: "Customer support inbox is drowning — same questions asked over and over, every single day",
-    solution: "RAG-powered Q&A bot trained on YOUR docs, FAQs, and policies. Handles 80% of support queries instantly. Your team focuses on what matters.",
+    problem: "Support channels get overwhelmed by repetitive questions day after day",
+    solution: "Custom Q&A system trained on your documentation resolves routine inquiries instantly, freeing your team for complex issues.",
     result: "80%",
     resultLabel: "TICKET REDUCTION",
     icon: "TbHeadset",
@@ -192,8 +192,8 @@ export const businessProblems = [
   },
   {
     id: 6,
-    problem: "Website gets 10,000 visitors but only 12 leads — visitors leave without taking any action",
-    solution: "AI lead generation chatbot + smart exit-intent popups. Captures emails, qualifies interest, books calls — turns traffic into revenue.",
+    problem: "High website traffic yields very few inquiries because visitors leave without interacting",
+    solution: "Interactive lead capture tools and smart prompts engage visitors, qualify their interest, and turn passive traffic into real client inquiries.",
     result: "4x",
     resultLabel: "WEBSITE LEADS",
     icon: "TbChartArrowsVertical",
@@ -207,13 +207,13 @@ export const missionValues = [
   {
     id: 1,
     title: 'Innovation First',
-    description: 'We push the boundaries of what\'s possible, leveraging cutting-edge AI and cloud technologies to deliver solutions that keep you ahead of the curve.',
+    description: 'We push the boundaries of technology, leveraging modern AI and cloud solutions to deliver tools that keep your business ahead of the curve.',
     icon: 'TbRocket'
   },
   {
     id: 2,
     title: 'Radical Transparency',
-    description: 'No hidden agendas, no black boxes. Every decision, every line of code, every sprint — you have full visibility into our process and progress.',
+    description: 'We maintain complete transparency in our work. You have clear visibility into every decision, sprint deliverable, and codebase update throughout our partnership.',
     icon: 'TbEye'
   },
   {
@@ -231,7 +231,7 @@ export const workflowSteps = [
     title: 'Strategy',
     icon: 'TbSearch',
     description:
-      'We dig into your goals, users, and constraints first — mapping scope, priorities, and success metrics so every design and engineering decision has a clear north star.',
+      'We begin by analyzing your core objectives and target users. We map out project scope, key priorities, and performance targets to guide every design choice.',
   },
   {
     id: 2,
@@ -239,7 +239,7 @@ export const workflowSteps = [
     title: 'Design',
     icon: 'TbPalette',
     description:
-      'Wireframes become high-fidelity UI, then interactive prototypes. You see the product before a single line of production code — so we build exactly what was approved.',
+      'We turn initial wireframes into interactive prototypes so you can experience the product interface before development begins.',
   },
   {
     id: 3,
@@ -247,7 +247,7 @@ export const workflowSteps = [
     title: 'Development',
     icon: 'TbCode',
     description:
-      'Pixel-perfect frontend, solid APIs, and cloud-ready architecture. We ship in focused sprints with full visibility — from first commit to production launch.',
+      'We develop high-performance frontend interfaces, robust APIs, and cloud architecture, shipping in structured sprints through production deployment.',
   },
 ];
 
@@ -286,7 +286,7 @@ export const portfolioProjects = [
     id: 4,
     title: 'PropertyFinder',
     category: 'Web App',
-    description: 'Leading real estate marketplace in the UAE — connecting millions of buyers and renters with their ideal properties.',
+    description: 'Leading real estate marketplace in the UAE, connecting buyers and renters with verified property listings.',
     stack: ['Next.js', 'React', 'AWS', 'Cloudfront'],
     image: PropertyFinder,
     url: 'https://propertyfinder.ae',

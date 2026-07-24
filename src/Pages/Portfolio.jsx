@@ -27,8 +27,8 @@ const Portfolio = () => {
     activeCategory === "All"
       ? portfolioProjects.slice(0, DISPLAY_LIMIT)
       : portfolioProjects
-          .filter((p) => p.category === activeCategory)
-          .slice(0, DISPLAY_LIMIT);
+        .filter((p) => p.category === activeCategory)
+        .slice(0, DISPLAY_LIMIT);
 
   const containerVariants = {
     hidden: {},
@@ -87,8 +87,8 @@ const Portfolio = () => {
               <span className="portfolio-title-accent">Built to Perform.</span>
             </h2>
             <p className="portfolio-subtitle">
-              Real projects, real impact. Browse our latest work across web,
-              mobile, and AI — each one designed to move the needle.
+              Real projects with measurable impact. Explore our recent web,
+              mobile, and AI solutions built to drive genuine business growth.
             </p>
           </motion.div>
 
@@ -184,7 +184,7 @@ const Portfolio = () => {
             <div className="portfolio-stats-badge">
               <TbCheckbox className="portfolio-stats-icon" />
               <span className="portfolio-stats-text">
-                <strong>120+</strong> Projects Delivered Successfully
+                <strong>117+</strong> Projects Delivered Successfully
               </span>
             </div>
             <p className="portfolio-footer-text">

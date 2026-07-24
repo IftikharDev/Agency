@@ -86,8 +86,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
           >
-            Scalable platforms, AI-powered automation, and intelligent chatbots — 
-            engineered to grow your business 2x, 3x, and beyond.
+            Scalable platforms, AI-powered automation, and intelligent chatbots engineered to grow your business.
           </motion.p> */}
 
           <motion.div
@@ -96,7 +95,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.8, ease: "easeOut" }}
           >
-            <a href="#contact-us" className="beat-cta-button">
+            <a href="#about" className="beat-cta-button">
               <span>Get Started</span>
               <svg
                 width="20"

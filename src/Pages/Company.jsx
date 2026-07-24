@@ -33,35 +33,35 @@ const Company = () => {
           <motion.p className="section2-text" variants={fadeUp} style={{ marginTop: '20px' }}>
             Built on transparency, driven by innovation, and committed to your success.
           </motion.p>
-          
-          <motion.div variants={fadeUp} style={{ 
-              display: 'flex', 
-              flexWrap: 'wrap', 
-              justifyContent: 'center', 
-              gap: '40px', 
-              width: '100%', 
-              marginTop: '50px' 
+
+          <motion.div variants={fadeUp} style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '40px',
+            width: '100%',
+            marginTop: '50px'
           }}>
-              {['10+ Years Experience', '50+ Team Members', '200+ Projects Done', '99% Client Satisfaction'].map((stat, i) => (
-                  <div key={i} style={{
-                      flex: '1 1 200px',
-                      padding: '40px 20px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: '15px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                  }}>
-                      <h3 style={{ fontSize: '32px', color: '#00C2FF', marginBottom: '10px', marginTop: 0 }}>
-                        {stat.split(' ')[0]}
-                      </h3>
-                      <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', margin: 0 }}>
-                        {stat.substring(stat.indexOf(' ') + 1)}
-                      </p>
-                  </div>
-              ))}
+            {['7+ Years Experience', '15+ Team Members', '117+ Projects Done', '99% Client Satisfaction'].map((stat, i) => (
+              <div key={i} style={{
+                flex: '1 1 200px',
+                padding: '40px 20px',
+                backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '15px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+                <h3 style={{ fontSize: '32px', color: '#00C2FF', marginBottom: '10px', marginTop: 0 }}>
+                  {stat.split(' ')[0]}
+                </h3>
+                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '16px', margin: 0 }}>
+                  {stat.substring(stat.indexOf(' ') + 1)}
+                </p>
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

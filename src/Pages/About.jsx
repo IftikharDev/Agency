@@ -70,7 +70,7 @@ const About = () => {
   });
 
   const metrics = [
-    { end: 200, suffix: "+", label: "Projects Delivered" },
+    { end: 117, suffix: "+", label: "Projects Delivered" },
     { end: 98, suffix: "%", label: "Client Retention" },
     { end: 3, suffix: "x", label: "Avg Revenue Growth" },
     { end: 24, suffix: "/7", label: "Support & Monitoring" },
@@ -135,8 +135,8 @@ const About = () => {
                   className="section2-text"
                   style={{ textAlign: "left", marginBottom: "32px" }}
                 >
-                  We help businesses put the right systems and people in place —
-                  so growth doesn't mean more growing pains, just more capacity.
+                  We help businesses put the right systems and people in place so
+                  growth creates real capacity instead of operational chaos.
                 </p>
                 <p
                   className="section2-text"
@@ -145,9 +145,9 @@ const About = () => {
                   Cloud Insider builds scalable web platforms, mobile
                   applications, and custom digital products for businesses that
                   are serious about growth. We work with founders, product
-                  teams, and enterprises who need more than a one-time build —
-                  they need a technical partner who understands their product
-                  roadmap and sticks around to execute it.
+                  teams, and enterprises who need more than a quick build.
+                  They need a long-term engineering partner who understands
+                  their product roadmap and stays on board to execute it.
                 </p>
                 <p
                   className="section2-text"
@@ -173,13 +173,12 @@ const About = () => {
                     color: "rgba(255,255,255,0.6)",
                   }}
                 >
-                  Where it makes sense, we layer in smart automation — workflow
-                  tools, chatbots, and operational efficiencies — as practical
-                  add-ons within larger builds. The result: products that
-                  perform on day one and still hold up at 10x the traffic, 10x
-                  the users, and 10x the complexity. That's why most of our
-                  clients don't leave after launch — they stay because we build
-                  things worth maintaining.
+                  When appropriate, we integrate smart automation like workflow
+                  tools, AI chatbots, and operational systems directly into your
+                  builds. This ensures your product performs smoothly from day
+                  one and continues to scale as your user base grows. Most of our
+                  clients stick with us long after launch because we build
+                  platforms designed to last.
                 </p>
                 <div
                   className="section2-buttons"

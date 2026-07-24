@@ -87,8 +87,8 @@ const Framework = () => {
           >
             <h2 className="framework-title">The Cloud Insider Framework.</h2>
             <p className="framework-subtitle">
-              A simple 3-step framework we follow in every build — strategy,
-              design, development.
+              A proven 3-step framework for every project: strategy,
+              design, and development.
             </p>
             <a href="#contact-us" className="framework-watch-link">
               <span className="framework-watch-thumb">
