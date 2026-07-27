@@ -26,18 +26,19 @@ const Contact = () => {
     setResult("");
 
     const formData = new FormData(event.target);
-    formData.append("access_key", "18140cc5-2ac9-492e-a78f-24f5004aa7b5");
-    formData.append("subject", "New message from Cloud Insider");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("https://formsubmit.co/ajax/Iftikharalam.shimul@outlook.com", {
         method: "POST",
         body: formData,
+        headers: {
+          "Accept": "application/json",
+        },
       });
 
       const data = await response.json();
 
-      if (data.success) {
+      if (response.ok || data.success === "true" || data.success === true) {
         setResult("Message sent successfully. We'll get back to you soon.");
         event.target.reset();
       } else {
@@ -76,7 +77,17 @@ const Contact = () => {
           </motion.p>
 
           <motion.div variants={fadeUp} className="contact-content-row">
-            <form className="contact-form-box" onSubmit={onSubmit}>
+            <form
+              className="contact-form-box"
+              action="https://formsubmit.co/Iftikharalam.shimul@outlook.com"
+              method="POST"
+              onSubmit={onSubmit}
+            >
+              {/* Hidden fields */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="New message from your portfolio" />
+              <input type="hidden" name="_template" value="box" />
+
               <div className="contact-name-row">
                 <input
                   type="text"
@@ -132,20 +143,20 @@ const Contact = () => {
             </form>
 
             <div className="contact-info-box">
-              <div className="contact-info-block">
+              {/* <div className="contact-info-block">
                 <h4>Our Office</h4>
                 <p>
                   123 Innovation Drive
                   <br />
                   Tech City, TX 75001
                 </p>
-              </div>
+              </div> */}
               <div className="contact-info-block">
                 <h4>Contact Info</h4>
                 <p>
-                  hello@cloudinsider.com
+                  team@cloudeinsider.com
                   <br />
-                  +91 63576 0513
+                  +88 0156 8483518
                 </p>
               </div>
             </div>
