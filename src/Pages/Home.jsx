@@ -10,7 +10,7 @@ import Framework from "./Framework";
 import Services from "./Services";
 import Portfolio from "./Portfolio";
 import Company from "./Company";
-import Blog from "./Blog";
+import Reviews from "./Reviews";
 import Contact from "./Contact";
 
 /**IMAGE IMPORTS */
@@ -55,7 +55,7 @@ const Home = () => {
             </ScrollSection>
             <SectionDivider />
             <ScrollSection effect="shrink">
-              <Blog />
+              <Reviews />
             </ScrollSection>
             <SectionDivider />
             <ScrollSection effect="fade">

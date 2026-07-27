@@ -23,6 +23,7 @@ import {
 
 /**DATA IMPORTS */
 import { saasProducts, businessProblems } from "../Data";
+import Contact from "./Contact";
 
 /**IMAGE IMPORTS — Analytics */
 import analytics1 from "../Images/1CIAnalytics (1).webp";
@@ -106,6 +107,16 @@ const ProductDetail = () => {
     setCurrentSlide(index);
   }, []);
 
+  const handleContactScroll = (e) => {
+    e.preventDefault();
+    const element = document.getElementById("contact-us");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#contact-us";
+    }
+  };
+
   if (!product) {
     return <Navigate to="/" replace />;
   }
@@ -139,9 +150,9 @@ const ProductDetail = () => {
     >
       <div className="section2-container">
         {/* Back Link */}
-        {/* <Link to="/" style={{ color: 'rgba(255,255,255,0.7)', display: 'inline-flex', alignItems: 'center', textDecoration: 'none', marginBottom: '40px', fontSize: '16px', transition: 'color 0.3s ease' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}>
-          <TbArrowLeft style={{ marginRight: '8px' }} /> Back to Home
-        </Link> */}
+        <Link to="/#services" style={{ color: 'rgba(255,255,255,0.7)', display: 'inline-flex', alignItems: 'center', textDecoration: 'none', marginBottom: '40px', fontSize: '16px', transition: 'color 0.3s ease' }} onMouseOver={(e) => e.target.style.color = '#fff'} onMouseOut={(e) => e.target.style.color = 'rgba(255,255,255,0.7)'}>
+          &larr; Back to Products
+        </Link>
 
         {/* Hero Section of Product */}
         <motion.div
@@ -448,8 +459,9 @@ const ProductDetail = () => {
           <h3 style={{ fontSize: "32px", color: "#fff", marginBottom: "24px" }}>
             Ready to transform your workflow?
           </h3>
-          <Link
-            to="/#contact-us"
+          <a
+            href="#contact-us"
+            onClick={handleContactScroll}
             className="btn btn-home"
             style={{
               display: "inline-flex",
@@ -458,7 +470,7 @@ const ProductDetail = () => {
             }}
           >
             <span className="btn-text">Get a Custom Quote</span>
-          </Link>
+          </a>
         </motion.div>
 
         {/* Business Problems Section ONLY for CI Automate */}
@@ -552,7 +564,7 @@ const ProductDetail = () => {
                         <p className="bp-solution-text">{item.solution}</p>
                       </div>
 
-                      <a href="/#contact-us" className="bp-card-cta">
+                      <a href="#contact-us" onClick={handleContactScroll} className="bp-card-cta">
                         <span>Fix This Problem</span>
                         <TbArrowRight style={{ marginLeft: "6px" }} />
                       </a>
@@ -563,6 +575,11 @@ const ProductDetail = () => {
             </motion.div>
           </div>
         )}
+
+        {/* Contact / Get a Quote Section */}
+        <div style={{ marginTop: "60px" }}>
+          <Contact />
+        </div>
       </div>
     </section>
   );

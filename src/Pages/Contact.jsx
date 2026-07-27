@@ -145,7 +145,7 @@ const Contact = () => {
                 <p>
                   hello@cloudinsider.com
                   <br />
-                  +91 63576 05131
+                  +91 63576 0513
                 </p>
               </div>
             </div>
