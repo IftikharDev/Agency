@@ -97,7 +97,7 @@ const About = () => {
             {/* Trust badge */}
             <motion.div className="trust-badge" variants={fadeUp}>
               <TbCheck style={{ fontSize: "16px" }} />
-              <span>Trusted by 200+ Businesses Worldwide</span>
+              <span>Trusted by 140+ Businesses Worldwide</span>
             </motion.div>
 
             <motion.h2 className="section2-title" variants={fadeUp}>

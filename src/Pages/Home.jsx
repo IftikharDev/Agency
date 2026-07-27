@@ -7,6 +7,7 @@ import Hero from "../Components/Hero";
 import ScrollSection from "../Components/ScrollSection";
 import About from "./About";
 import Framework from "./Framework";
+import Pricing from "./Pricing";
 import Services from "./Services";
 import Portfolio from "./Portfolio";
 import Company from "./Company";
@@ -41,6 +42,10 @@ const Home = () => {
             </ScrollSection>
             <SectionDivider />
             <Framework />
+            <SectionDivider />
+            <ScrollSection effect="fade">
+              <Pricing />
+            </ScrollSection>
             <SectionDivider />
             <ScrollSection effect="shrink">
               <Services />

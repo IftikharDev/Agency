@@ -1,0 +1,99 @@
+/**
+ * Pricing Configuration
+ * Edit this file to update pricing details, slot availability,
+ * and booking/checkout links without redeploying code.
+ */
+
+export const pricingConfig = {
+  sectionTitle: "Subscription Plans",
+  sectionSubtitle: "Flexible plans designed to match your growth stage — from hourly consulting to full-scale automation.",
+
+  plans: [
+    {
+      id: "hourly",
+      tag: "Pay-As-You-Go",
+      tagColor: "#f59e0b",
+      name: "Hourly Engagement",
+      price: "$85",
+      pricePer: "/hr",
+      originalPrice: null,
+      description: "Perfect for one-off tasks, audits, or quick technical consultations. No monthly commitment required.",
+      ctaText: "Hop on a Quick Call",
+      ctaLink: "https://calendly.com/your-link-here", // Replace with your Calendly link
+      ctaType: "calendly", // "calendly" | "stripe" | "link"
+      highlighted: false,
+      slotsTotal: 8,
+      slotsLeft: 3,
+      features: [
+        "1-on-1 strategy & consulting calls",
+        "Technical audits & code reviews",
+        "Architecture planning sessions",
+        "Workflow analysis & recommendations",
+        "No monthly minimum commitment",
+        "Priority async Slack/email support",
+      ],
+      metaItems: [
+        { label: "Min. Booking", value: "2 hrs" },
+        { label: "Response Time", value: "24 hrs" },
+      ],
+    },
+    {
+      id: "starter",
+      tag: "Most Popular",
+      tagColor: "#2f7bff",
+      name: "Automation Starter",
+      price: "$1,499",
+      pricePer: "/mo",
+      originalPrice: null,
+      description: "Your first automation hire. We identify your biggest time sinks and build custom workflows that eliminate hours of manual work each week.",
+      ctaText: "Start Automating",
+      ctaLink: "https://checkout.stripe.com/your-checkout-link", // Replace with Stripe checkout link
+      ctaType: "stripe",
+      highlighted: false,
+      slotsTotal: 5,
+      slotsLeft: 2,
+      features: [
+        "Up to 2 automation workflows / month",
+        "Custom API integrations",
+        "Workflow mapping & optimization",
+        "Dedicated project manager",
+        "Weekly progress reports",
+        "30-day post-launch support",
+      ],
+      metaItems: [
+        { label: "Hours Included", value: "~20 hrs" },
+        { label: "Avg. Delivery", value: "2 weeks" },
+      ],
+    },
+    {
+      id: "growth",
+      tag: "Best Value",
+      tagColor: "#22c55e",
+      name: "Automation Growth",
+      price: "$4,995",
+      pricePer: "/mo",
+      originalPrice: "$6,995",
+      description: "Full-scale automation infrastructure. We become your embedded automation team — building, optimizing, and scaling systems across your entire operation.",
+      ctaText: "Book a Scoped Call",
+      ctaLink: "https://calendly.com/your-link-here", // Replace with your Calendly link
+      ctaType: "calendly",
+      highlighted: true,
+      slotsTotal: 3,
+      slotsLeft: 1,
+      features: [
+        "Unlimited automation workflows",
+        "End-to-end system integrations",
+        "AI-powered process automation",
+        "Dedicated senior engineer",
+        "Daily standups & Slack channel",
+        "Priority 4-hour response SLA",
+        "Monthly ROI & performance reports",
+        "90-day post-launch support",
+      ],
+      metaItems: [
+        { label: "Hours Included", value: "~60 hrs" },
+        { label: "Avg. Delivery", value: "1 week" },
+      ],
+    },
+  ],
+};

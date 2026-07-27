@@ -18,7 +18,7 @@ const Header = () => {
       setIsSticky(window.scrollY > 350);
       
       // Simple logic to detect which section is in view based on scroll position
-      const sections = ["about", "framework", "services", "portfolio", "company", "reviews", "contact-us"];
+      const sections = ["about", "framework", "pricing", "services", "portfolio", "company", "reviews", "contact-us"];
       let current = "";
       for (let section of sections) {
         const element = document.getElementById(section);
@@ -39,6 +39,7 @@ const Header = () => {
   const links = [
     { name: "About Us", path: "#about" },
     { name: "Framework", path: "#framework" },
+    { name: "Pricing", path: "#pricing" },
     { name: "Services", path: "#services" },
     { name: "Portfolio", path: "#portfolio" },
     { name: "Company", path: "#company"},
