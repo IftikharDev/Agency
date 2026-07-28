@@ -1,6 +1,6 @@
 /**CORE LIBRARY IMPORTS */
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 /**ICON IMPORTS */
 import {
@@ -17,7 +17,6 @@ import { pricingConfig } from "../pricingConfig";
 
 const Pricing = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const touchStartX = useRef(0);
   const touchDeltaX = useRef(0);
@@ -35,9 +34,8 @@ const Pricing = () => {
 
   const goTo = useCallback((idx) => {
     if (idx < 0 || idx >= total) return;
-    setDirection(idx > activeIndex ? 1 : -1);
     setActiveIndex(idx);
-  }, [activeIndex, total]);
+  }, [total]);
 
   const prev = useCallback(() => goTo(activeIndex - 1), [activeIndex, goTo]);
   const next = useCallback(() => goTo(activeIndex + 1), [activeIndex, goTo]);

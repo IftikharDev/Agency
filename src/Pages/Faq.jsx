@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**ICON IMPORTS */
-import { TbChevronDown, TbChevronUp, TbArrowUpRight } from "react-icons/tb";
+import { TbChevronDown, TbChevronUp } from "react-icons/tb";
 
 const faqData = [
   {
