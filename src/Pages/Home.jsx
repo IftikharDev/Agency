@@ -12,6 +12,7 @@ import Services from "./Services";
 import Portfolio from "./Portfolio";
 import Company from "./Company";
 import Reviews from "./Reviews";
+import Faq from "./Faq";
 import Contact from "./Contact";
 
 /**IMAGE IMPORTS */
@@ -61,6 +62,10 @@ const Home = () => {
             <SectionDivider />
             <ScrollSection effect="shrink">
               <Reviews />
+            </ScrollSection>
+            <SectionDivider />
+            <ScrollSection effect="grow">
+              <Faq />
             </ScrollSection>
             <SectionDivider />
             <ScrollSection effect="fade">

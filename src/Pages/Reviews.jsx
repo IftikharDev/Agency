@@ -94,42 +94,7 @@ const Reviews = () => {
             Don't take our word for it.
           </motion.p>
 
-          {/* "Trusted by" Badge */}
-          <motion.div
-            variants={fadeUp}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "12px",
-              padding: "8px 20px",
-              borderRadius: "30px",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              backgroundColor: "rgba(255, 255, 255, 0.03)",
-              marginTop: "24px",
-              cursor: "pointer",
-              transition: "all 0.3s ease",
-            }}
-          >
-            <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "14px", fontWeight: "500" }}>Trusted by</span>
-            
-            {/* Overlapping Avatar Icons */}
-            <div style={{ display: "flex", alignItems: "center", marginLeft: "2px" }}>
-              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#a855f7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", color: "#fff", fontWeight: "bold", border: "2px solid #000" }}>
-                🔮
-              </div>
-              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#3b82f6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", color: "#fff", fontWeight: "bold", border: "2px solid #000", marginLeft: "-8px" }}>
-                ⚡
-              </div>
-              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#10b981", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", color: "#fff", fontWeight: "bold", border: "2px solid #000", marginLeft: "-8px" }}>
-                💎
-              </div>
-              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#ec4899", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px", color: "#fff", fontWeight: "bold", border: "2px solid #000", marginLeft: "-8px" }}>
-                ✨
-              </div>
-            </div>
 
-            <span style={{ color: "rgba(255,255,255,0.5)", fontSize: "14px", fontWeight: "bold", marginLeft: "2px" }}>&gt;</span>
-          </motion.div>
 
           {/* Reviews Grid */}
           <motion.div

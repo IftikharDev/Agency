@@ -18,7 +18,7 @@ const Header = () => {
       setIsSticky(window.scrollY > 350);
       
       // Simple logic to detect which section is in view based on scroll position
-      const sections = ["about", "framework", "pricing", "services", "portfolio", "company", "reviews", "contact-us"];
+      const sections = ["about", "framework", "pricing", "services", "portfolio", "company", "reviews", "faq", "contact-us"];
       let current = "";
       for (let section of sections) {
         const element = document.getElementById(section);
@@ -44,6 +44,7 @@ const Header = () => {
     { name: "Portfolio", path: "#portfolio" },
     { name: "Company", path: "#company"},
     { name: "Reviews", path: "#reviews" },
+    { name: "FAQ", path: "#faq" },
     { name: "Get a Quote", path: "#contact-us", isButton: true },
   ];
 
@@ -58,11 +59,15 @@ const Header = () => {
       if (element) {
         // Offset for the sticky header
         const offset = 80;
-        const elementPosition = element.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - offset;
-  
+        let top = 0;
+        let el = element;
+        while (el) {
+          top += el.offsetTop;
+          el = el.offsetParent;
+        }
+
         window.scrollTo({
-          top: offsetPosition,
+          top: top - offset,
           behavior: "smooth"
         });
       }
