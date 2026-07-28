@@ -7,55 +7,55 @@ const reviewsData = [
     id: 1,
     review:
       "These guys are the OGs. They completely blew past our expectations on the project, and we keep coming back to them for every new product we build.",
-    name: "Chris Cunningham",
+    name: "Alexander Chen",
     role: "Marketing Head",
     avatarBg: "linear-gradient(135deg, #f97316 0%, #e11d48 100%)",
-    avatarInitial: "CC",
+    avatarInitial: "AC",
   },
   {
     id: 2,
     review:
       "If you want premium development then look no further. You get top tier quality for what you pay. Got our product done faster than expected and it ended up being the centerpiece of our entire launch.",
-    name: "Sean Dorje",
+    name: "Michael Reynolds",
     role: "Founder & CEO",
     avatarBg: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-    avatarInitial: "SD",
+    avatarInitial: "MR",
   },
   {
     id: 3,
     review:
       "It was a pleasure to work with Cloud Insider!! They deliver quick, high quality results and they also took the extra effort to make sure I was satisfied.",
-    name: "Nikhil Reddy",
+    name: "Sarah Jenkins",
     role: "Co-Founder",
     avatarBg: "linear-gradient(135deg, #475569 0%, #1e293b 100%)",
-    avatarInitial: "NR",
+    avatarInitial: "SJ",
   },
   {
     id: 4,
     review:
       "These guys built our platform and the response we got from users was crazy. Felt like a real dedicated team behind the project, not just freelancers passing files around. Will be coming back for our next project!!",
-    name: "Milind Sagaram",
+    name: "David O'Connor",
     role: "Product Lead",
     avatarBg: "linear-gradient(135deg, #64748b 0%, #334155 100%)",
-    avatarInitial: "MS",
+    avatarInitial: "DO",
   },
   {
     id: 5,
     review:
       "I was surprised by how smooth the whole thing felt. The team got back to every message within minutes, the initial deliverables hit way closer than I expected, and the final build ended up being the strongest asset on our platform.",
-    name: "Chirag Kawediya",
+    name: "Elena Rostova",
     role: "Design Director",
     avatarBg: "linear-gradient(135deg, #10b981 0%, #047857 100%)",
-    avatarInitial: "CK",
+    avatarInitial: "ER",
   },
   {
     id: 6,
     review:
       "These guys were extremely professional to work with. They built a solution for us that we are extremely proud of. Would highly recommend!!",
-    name: "Pratham Hombal",
+    name: "James Mitchell",
     role: "Engineering Lead",
     avatarBg: "linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)",
-    avatarInitial: "PH",
+    avatarInitial: "JM",
   },
 ];
 

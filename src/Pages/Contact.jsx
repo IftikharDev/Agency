@@ -1,10 +1,28 @@
 /**CORE LIBRARY IMPORTS */
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
   const [result, setResult] = useState("");
   const [sending, setSending] = useState(false);
+  const [message, setMessage] = useState("");
+  const textareaRef = useRef(null);
+
+  /* Listen for pricing CTA pre-fill events */
+  useEffect(() => {
+    const handlePrefill = (e) => {
+      const { planName } = e.detail;
+      setMessage(`Hi, I'd like to talk about the "${planName}" plan. Please get in touch to discuss my requirements.`);
+      /* Focus the textarea after a short delay (scroll needs time) */
+      setTimeout(() => {
+        if (textareaRef.current) {
+          textareaRef.current.focus();
+        }
+      }, 800);
+    };
+    window.addEventListener("prefill-contact", handlePrefill);
+    return () => window.removeEventListener("prefill-contact", handlePrefill);
+  }, []);
 
   const containerVariants = {
     hidden: {},
@@ -41,6 +59,7 @@ const Contact = () => {
       if (response.ok || data.success === "true" || data.success === true) {
         setResult("Message sent successfully. We'll get back to you soon.");
         event.target.reset();
+        setMessage("");
       } else {
         setResult(data.message || "Something went wrong. Please try again.");
       }
@@ -92,7 +111,7 @@ const Contact = () => {
                 <input
                   type="text"
                   name="name"
-                  placeholder="First Name"
+                  placeholder="First Name *"
                   className="contact-input"
                   required
                 />
@@ -101,13 +120,12 @@ const Contact = () => {
                   name="last_name"
                   placeholder="Last Name"
                   className="contact-input"
-                  required
                 />
               </div>
               <input
                 type="email"
                 name="email"
-                placeholder="Email Address"
+                placeholder="Email Address *"
                 className="contact-input full-width"
                 required
               />
@@ -116,7 +134,9 @@ const Contact = () => {
                 placeholder="Tell us about your project..."
                 rows="5"
                 className="contact-textarea"
-                required
+                ref={textareaRef}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
               <button
                 type="submit"

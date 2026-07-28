@@ -10,6 +10,34 @@ export const pricingConfig = {
 
   plans: [
     {
+      id: "development",
+      tag: "Core Service",
+      tagColor: "#a855f7",
+      name: "Web & App Development",
+      price: "Custom",
+      pricePer: "",
+      originalPrice: null,
+      description: "Scoped after a discovery call, based on features & complexity. Design + development under one roof with a fixed-price proposal.",
+      ctaText: "Book a Discovery Call",
+      ctaLink: "#contact-us",
+      ctaType: "contact",
+      highlighted: false,
+      slotsTotal: 4,
+      slotsLeft: 2,
+      features: [
+        "Full-stack web & mobile development",
+        "UI/UX design included",
+        "Fixed-price proposal after scoping",
+        "Built for 10x scale from day one",
+        "Dedicated project lead",
+        "60-day post-launch support",
+      ],
+      metaItems: [
+        { label: "Project Slots", value: "2 open" },
+        { label: "Scoping Call", value: "Free" },
+      ],
+    },
+    {
       id: "hourly",
       tag: "Pay-As-You-Go",
       tagColor: "#f59e0b",
@@ -19,8 +47,8 @@ export const pricingConfig = {
       originalPrice: null,
       description: "Perfect for one-off tasks, audits, or quick technical consultations. No monthly commitment required.",
       ctaText: "Hop on a Quick Call",
-      ctaLink: "https://calendly.com/your-link-here", // Replace with your Calendly link
-      ctaType: "calendly", // "calendly" | "stripe" | "link"
+      ctaLink: "#contact-us",
+      ctaType: "contact",
       highlighted: false,
       slotsTotal: 8,
       slotsLeft: 3,
@@ -75,8 +103,8 @@ export const pricingConfig = {
       originalPrice: "$6,995",
       description: "Full-scale automation infrastructure. We become your embedded automation team — building, optimizing, and scaling systems across your entire operation.",
       ctaText: "Book a Scoped Call",
-      ctaLink: "https://calendly.com/your-link-here", // Replace with your Calendly link
-      ctaType: "calendly",
+      ctaLink: "#contact-us",
+      ctaType: "contact",
       highlighted: true,
       slotsTotal: 3,
       slotsLeft: 1,
