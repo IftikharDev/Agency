@@ -75,8 +75,8 @@ export const pricingConfig = {
       originalPrice: null,
       description: "Your first automation hire. We identify your biggest time sinks and build custom workflows that eliminate hours of manual work each week.",
       ctaText: "Start Automating",
-      ctaLink: "https://checkout.stripe.com/your-checkout-link", // Replace with Stripe checkout link
-      ctaType: "stripe",
+      ctaLink: "#contact-us",
+      ctaType: "contact",
       highlighted: false,
       slotsTotal: 5,
       slotsLeft: 2,

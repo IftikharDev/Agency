@@ -8,18 +8,26 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const textareaRef = useRef(null);
 
-  /* Listen for pricing CTA pre-fill events */
+  /* Listen for CTA pre-fill events (pricing plans / problem cards) */
   useEffect(() => {
     const handlePrefill = (e) => {
-      const { planName } = e.detail;
-      setMessage(`Hi, I'd like to talk about the "${planName}" plan. Please get in touch to discuss my requirements.`);
-      /* Focus the textarea after a short delay (scroll needs time) */
+      const { planName, problem } = e.detail || {};
+
+      if (planName) {
+        setMessage(
+          `Hi, I'd like to talk about the "${planName}" plan. Please get in touch to discuss my requirements.`
+        );
+      } else if (problem) {
+        setMessage(
+          `Hi, I'd like to talk about the "${problem}".`
+        );
+      }
+
       setTimeout(() => {
-        if (textareaRef.current) {
-          textareaRef.current.focus();
-        }
+        textareaRef.current?.focus();
       }, 800);
     };
+
     window.addEventListener("prefill-contact", handlePrefill);
     return () => window.removeEventListener("prefill-contact", handlePrefill);
   }, []);

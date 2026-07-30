@@ -107,11 +107,18 @@ const ProductDetail = () => {
     setCurrentSlide(index);
   }, []);
 
-  const handleContactScroll = (e) => {
+  const handleContactScroll = (e, prefill) => {
     e.preventDefault();
+
+    if (prefill) {
+      window.dispatchEvent(
+        new CustomEvent("prefill-contact", { detail: prefill })
+      );
+    }
+
     const element = document.getElementById("contact-us");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: "smooth", block: "center" });
     } else {
       window.location.href = "/#contact-us";
     }
@@ -564,7 +571,13 @@ const ProductDetail = () => {
                         <p className="bp-solution-text">{item.solution}</p>
                       </div>
 
-                      <a href="#contact-us" onClick={handleContactScroll} className="bp-card-cta">
+                      <a
+                        href="#contact-us"
+                        onClick={(e) =>
+                          handleContactScroll(e, { problem: item.problem })
+                        }
+                        className="bp-card-cta"
+                      >
                         <span>Fix This Problem</span>
                         <TbArrowRight style={{ marginLeft: "6px" }} />
                       </a>
