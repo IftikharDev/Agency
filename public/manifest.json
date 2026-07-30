@@ -3,14 +3,14 @@
   "name": "Cloud Insider — Your long-term technical partner",
   "icons": [
     {
+      "src": "favicon.png",
+      "sizes": "1254x1254",
+      "type": "image/png"
+    },
+    {
       "src": "favicon.ico",
       "sizes": "48x48 32x32 16x16",
       "type": "image/x-icon"
-    },
-    {
-      "src": "favicon-96x96.png",
-      "type": "image/png",
-      "sizes": "96x96"
     },
     {
       "src": "web-app-manifest-192x192.png",
