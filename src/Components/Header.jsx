@@ -50,31 +50,31 @@ const Header = () => {
 
   const handleLinkClick = (e, path) => {
     e.preventDefault();
-    setSidebarOpen(false); // Close sidebar on mobile if open
-    
-    // If it's a hash link, scroll to it
-    if (path.startsWith("#")) {
-      const id = path.substring(1);
-      const element = document.getElementById(id);
-      if (element) {
-        // Offset for the sticky header
-        const offset = 80;
-        let top = 0;
-        let el = element;
-        while (el) {
-          top += el.offsetTop;
-          el = el.offsetParent;
-        }
+    setSidebarOpen(false);
 
-        window.scrollTo({
-          top: top - offset,
-          behavior: "smooth"
-        });
-      }
-    } else {
-      // Fallback for non-hash links (like home logo)
+    if (!path.startsWith("#")) {
       window.location.href = path;
+      return;
     }
+
+    const element = document.getElementById(path.slice(1));
+    if (!element) return;
+
+    const offset = navbarRef.current?.offsetHeight ?? 80;
+    const top = Math.max(
+      0,
+      element.getBoundingClientRect().top + window.scrollY - offset
+    );
+
+    // Instant jump avoids crawling through Framework's sticky runway
+    const { style } = document.documentElement;
+    const prev = style.scrollBehavior;
+    style.scrollBehavior = "auto";
+    window.scrollTo(0, top);
+    style.scrollBehavior = prev;
+
+    window.history.replaceState(null, "", path);
+    setActiveHash(path);
   };
 
   return (
