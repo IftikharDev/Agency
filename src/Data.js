@@ -9,6 +9,7 @@ import OworldBD from './Images/oworldbd.png';
 import PropertyFinder from './Images/propertyfinder.png';
 import StudyBuddy from './Images/studybuddy.png';
 import Gizoora from './Images/gizora.png';
+import Mojo from './Images/mojo.png';
 
 export const serviceList = [
   {
@@ -254,6 +255,16 @@ export const workflowSteps = [
 export const portfolioProjects = [
   {
     id: 1,
+    title: 'Mojo',
+    category: 'Modernized 3D Website',
+    description: 'Immersive 3D web experience for Bangladesh’s #1 beverage brand featuring real-time interactive 3D can renders, micro-animations, and dynamic visual storytelling.',
+    stack: ['React', 'Three.js', 'GSAP', 'Vite'],
+    image: Mojo,
+    url: 'https://mojo-modern-website.netlify.app/',
+    featured: true,
+  },
+  {
+    id: 2,
     title: 'Emote AI',
     category: 'AI/ML',
     description: 'AI-powered emotional intelligence platform that analyzes and understands human emotions through advanced machine learning models.',
@@ -263,7 +274,7 @@ export const portfolioProjects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: 'Docs2AI',
     category: 'AI/ML',
     description: 'Intelligent document processing platform that transforms unstructured documents into actionable insights using AI-driven automation.',
@@ -273,7 +284,7 @@ export const portfolioProjects = [
     featured: false,
   },
   {
-    id: 3,
+    id: 4,
     title: 'Oworld BD',
     category: 'Web App',
     description: 'Full-scale e-commerce and business platform serving the Bangladesh market with modern UI and seamless user experience.',
@@ -283,7 +294,7 @@ export const portfolioProjects = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     title: 'PropertyFinder',
     category: 'Web App',
     description: 'Leading real estate marketplace in the UAE, connecting buyers and renters with verified property listings.',
@@ -303,7 +314,7 @@ export const portfolioProjects = [
     featured: false,
   },
   {
-    id: 8,
+    id: 7,
     title: 'Gizoora',
     category: 'Web App',
     description: 'Modern e-commerce platform with dynamic product catalogs, order management, and integrated payment gateways.',

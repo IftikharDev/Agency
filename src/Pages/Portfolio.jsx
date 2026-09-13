@@ -3,21 +3,22 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**ICON IMPORTS */
-import { TbArrowUpRight, TbEye, TbCode, TbBrain, TbCloud, TbCheckbox } from "react-icons/tb";
+import { TbArrowUpRight, TbEye, TbCode, TbBrain, TbCloud, TbCheckbox, TbCube } from "react-icons/tb";
 
 /**DATA / ASSETS */
 import { portfolioProjects } from "../Data";
 
 const categoryIcons = {
   "All": null,
+  "Modernized 3D Website": TbCube,
   "Web App": TbCode,
   "AI/ML": TbBrain,
   "SaaS": TbCloud,
 };
 
-const categories = ["All", "Web App", "AI/ML", "SaaS"];
+const categories = ["All", "Modernized 3D Website", "Web App", "AI/ML", "SaaS"];
 
-const DISPLAY_LIMIT = 4;
+const DISPLAY_LIMIT = 6;
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
