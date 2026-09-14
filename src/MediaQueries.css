@@ -1234,44 +1234,61 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PORTFOLIO SECTION — RESPONSIVE
+   PORTFOLIO 3D SECTION — RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 767.98px) {
-  .portfolio-section {
-    padding: 72px 16px;
+  .p3d-section {
+    padding: 80px 16px;
   }
 
-  .portfolio-grid {
+  .p3d-grid {
     grid-template-columns: 1fr;
     gap: 20px;
+    perspective: none;
   }
 
-  .portfolio-card--featured {
+  .p3d-card--featured {
     grid-column: span 1;
   }
 
-  .portfolio-card--featured .portfolio-card-visual {
+  .p3d-card--featured .p3d-card-visual {
     height: 220px;
   }
 
-  .portfolio-card-visual {
+  .p3d-card-visual {
     height: 200px;
   }
 
-  .portfolio-title {
+  .p3d-card {
+    transform: none !important;
+  }
+
+  .p3d-card-border-glow {
+    display: none;
+  }
+
+  .p3d-card-glow-follow {
+    display: none;
+  }
+
+  .p3d-title {
     font-size: 1.8rem;
   }
 
-  .portfolio-filter-btn {
-    padding: 7px 14px;
+  .p3d-filter-btn {
+    padding: 8px 16px;
     font-size: 0.82rem;
   }
 
-  .portfolio-stats-badge {
+  .p3d-stats-badge {
     padding: 10px 20px;
   }
 
-  .portfolio-stats-text {
+  .p3d-stats-text {
     font-size: 0.85rem;
+  }
+
+  .p3d-particles {
+    display: none;
   }
 }
